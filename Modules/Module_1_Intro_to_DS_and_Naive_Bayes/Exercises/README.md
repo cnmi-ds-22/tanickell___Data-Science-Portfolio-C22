@@ -1,0 +1,17 @@
+# Colab links 
+
+[Repository](https://colab.research.google.com/github/tanickell/Data-Science-Portfolio-C22)
+- [101-Data.Science.Problem.Definition.Exercise.ipynb ](https://colab.research.google.com/github/tanickell/Data-Science-Portfolio-C22/blob/main/Modules/Module_1_Intro_to_DS_and_Naive_Bayes/Exercises/101-Data.Science.Problem.Definition.Exercise.ipynb)
+- [102-Intro.Python.Exercise.ipynb ](https://colab.research.google.com/github/tanickell/Data-Science-Portfolio-C22/blob/main/Modules/Module_1_Intro_to_DS_and_Naive_Bayes/Exercises/102-Intro.Python.Exercise.ipynb)
+- [103-Lists.Exercise.ipynb ](https://colab.research.google.com/github/tanickell/Data-Science-Portfolio-C22/blob/main/Modules/Module_1_Intro_to_DS_and_Naive_Bayes/Exercises/103-Lists.Exercise.ipynb)
+- [104-Intro.to.Python,Lists.Exercise.ipynb ](https://colab.research.google.com/github/tanickell/Data-Science-Portfolio-C22/blob/main/Modules/Module_1_Intro_to_DS_and_Naive_Bayes/Exercises/104-Intro.to.Python,Lists.Exercise.ipynb)
+- [105-Conditionals.Exercise.ipynb ](https://colab.research.google.com/github/tanickell/Data-Science-Portfolio-C22/blob/main/Modules/Module_1_Intro_to_DS_and_Naive_Bayes/Exercises/105-Conditionals.Exercise.ipynb)
+- [106-Lists,Dictionaries,Sets,Tuples.Exercise.ipynb ](https://colab.research.google.com/github/tanickell/Data-Science-Portfolio-C22/blob/main/Modules/Module_1_Intro_to_DS_and_Naive_Bayes/Exercises/106-Lists,Dictionaries,Sets,Tuples.Exercise.ipynb)
+- [107-Conditionals,Dictionaries,Loops.Exercise.ipynb ](https://colab.research.google.com/github/tanickell/Data-Science-Portfolio-C22/blob/main/Modules/Module_1_Intro_to_DS_and_Naive_Bayes/Exercises/107-Conditionals,Dictionaries,Loops.Exercise.ipynb)
+- [108-Loop.Exercise.ipynb ](https://colab.research.google.com/github/tanickell/Data-Science-Portfolio-C22/blob/main/Modules/Module_1_Intro_to_DS_and_Naive_Bayes/Exercises/108-Loop.Exercise.ipynb)
+- [109-Functions.Exercise.ipynb ](https://colab.research.google.com/github/tanickell/Data-Science-Portfolio-C22/blob/main/Modules/Module_1_Intro_to_DS_and_Naive_Bayes/Exercises/109-Functions.Exercise.ipynb)
+- [Drills/100-Indexing.Lists.part-1.drills.ipynb ](https://colab.research.google.com/github/tanickell/Data-Science-Portfolio-C22/blob/main/Modules/Module_1_Intro_to_DS_and_Naive_Bayes/Exercises/Drills/100-Indexing.Lists.part-1.drills.ipynb)
+- [Drills/101-Indexing.Lists.part-2.drills.ipynb ](https://colab.research.google.com/github/tanickell/Data-Science-Portfolio-C22/blob/main/Modules/Module_1_Intro_to_DS_and_Naive_Bayes/Exercises/Drills/101-Indexing.Lists.part-2.drills.ipynb)
+- [Drills/102-Slicing.Lists.drills.ipynb ](https://colab.research.google.com/github/tanickell/Data-Science-Portfolio-C22/blob/main/Modules/Module_1_Intro_to_DS_and_Naive_Bayes/Exercises/Drills/102-Slicing.Lists.drills.ipynb)
+- [Drills/103-Slicing.Lists.Long.drills.ipynb ](https://colab.research.google.com/github/tanickell/Data-Science-Portfolio-C22/blob/main/Modules/Module_1_Intro_to_DS_and_Naive_Bayes/Exercises/Drills/103-Slicing.Lists.Long.drills.ipynb)
+- [Drills/104-Slicing.Strings.drills.ipynb ](https://colab.research.google.com/github/tanickell/Data-Science-Portfolio-C22/blob/main/Modules/Module_1_Intro_to_DS_and_Naive_Bayes/Exercises/Drills/104-Slicing.Strings.drills.ipynb)
