@@ -1,4 +1,4 @@
-# Project 1: Transactions – Pass 08
+# Project 1: Transactions – Pass 09
 
 
 
@@ -51,18 +51,11 @@ url = 'https://ddc-datascience.s3.amazonaws.com/Projects/Project.1-Transactions/
 
 ```python
 # set cols and rows for pass
-num_cols = 50
-num_rows = 50_000
+# num_cols = 50
+# num_rows = 50_000
 
-num_cols, num_rows
+# num_cols, num_rows
 ```
-
-
-
-
-    (50, 50000)
-
-
 
 - Read in the data from .csv using pandas:
 
@@ -71,8 +64,8 @@ num_cols, num_rows
 # make dataframe
 df = pd.read_csv(
     url,
-    usecols=range(num_cols),
-    nrows=num_rows,
+    # usecols=range(num_cols),
+    # nrows=num_rows,
 )
 ```
 
@@ -88,7 +81,7 @@ df
 
 
 
-  <div id="df-c3de1ee2-c837-4a1b-8413-00afb0de1e96" class="colab-df-container">
+  <div id="df-74cadd50-47d8-4a93-8d5d-f5ed3b969699" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -118,16 +111,16 @@ df
       <th>var_5</th>
       <th>var_6</th>
       <th>...</th>
-      <th>var_37</th>
-      <th>var_38</th>
-      <th>var_39</th>
-      <th>var_40</th>
-      <th>var_41</th>
-      <th>var_42</th>
-      <th>var_43</th>
-      <th>var_44</th>
-      <th>var_45</th>
-      <th>var_46</th>
+      <th>var_91</th>
+      <th>var_92</th>
+      <th>var_93</th>
+      <th>var_94</th>
+      <th>var_95</th>
+      <th>var_96</th>
+      <th>var_97</th>
+      <th>var_98</th>
+      <th>var_99</th>
+      <th>var_100</th>
     </tr>
   </thead>
   <tbody>
@@ -216,16 +209,16 @@ df
       <td>NaN</td>
       <td>NaN</td>
       <td>...</td>
-      <td>3.4635</td>
-      <td>17.2850</td>
-      <td>16.5520</td>
       <td>NaN</td>
-      <td>-6.8709</td>
+      <td>11.1077</td>
       <td>NaN</td>
+      <td>-12.6465</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0618</td>
     </tr>
     <tr>
       <th>4</th>
@@ -276,9 +269,33 @@ df
       <td>...</td>
     </tr>
     <tr>
-      <th>49995</th>
-      <td>49995</td>
-      <td>train_49995</td>
+      <th>1049995</th>
+      <td>1049995</td>
+      <td>train_1049995</td>
+      <td>1.0</td>
+      <td>11.3251</td>
+      <td>16.4148</td>
+      <td>20.5955</td>
+      <td>NaN</td>
+      <td>-6.3011</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>1.3921</td>
+      <td>NaN</td>
+      <td>-16.4925</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.4421</td>
+    </tr>
+    <tr>
+      <th>1049996</th>
+      <td>1049996</td>
+      <td>train_1049996</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -300,71 +317,47 @@ df
       <td>NaN</td>
     </tr>
     <tr>
-      <th>49996</th>
-      <td>49996</td>
-      <td>train_49996</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>49997</th>
-      <td>49997</td>
-      <td>train_49997</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>49998</th>
-      <td>49998</td>
-      <td>train_49998</td>
+      <th>1049997</th>
+      <td>1049997</td>
+      <td>train_1049997</td>
       <td>0.0</td>
-      <td>7.7807</td>
-      <td>11.4038</td>
-      <td>11.2746</td>
+      <td>8.9941</td>
+      <td>13.4127</td>
+      <td>3.9567</td>
       <td>NaN</td>
-      <td>7.6426</td>
+      <td>3.5744</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>...</td>
-      <td>5.0832</td>
-      <td>18.0498</td>
-      <td>19.0913</td>
       <td>NaN</td>
-      <td>-0.0056</td>
+      <td>2.0836</td>
+      <td>NaN</td>
+      <td>-18.6168</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0689</td>
+    </tr>
+    <tr>
+      <th>1049998</th>
+      <td>1049998</td>
+      <td>train_1049998</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -372,37 +365,37 @@ df
       <td>NaN</td>
     </tr>
     <tr>
-      <th>49999</th>
-      <td>49999</td>
-      <td>train_49999</td>
+      <th>1049999</th>
+      <td>1049999</td>
+      <td>train_1049999</td>
+      <td>0.0</td>
+      <td>2.1828</td>
+      <td>12.3805</td>
+      <td>17.5654</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>8.1795</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>...</td>
       <td>NaN</td>
+      <td>-12.1108</td>
+      <td>NaN</td>
+      <td>10.7608</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>14.1690</td>
     </tr>
   </tbody>
 </table>
-<p>50000 rows × 50 columns</p>
+<p>1050000 rows × 104 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-c3de1ee2-c837-4a1b-8413-00afb0de1e96')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-74cadd50-47d8-4a93-8d5d-f5ed3b969699')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -454,12 +447,12 @@ df
 
     <script>
       const buttonEl =
-        document.querySelector('#df-c3de1ee2-c837-4a1b-8413-00afb0de1e96 button.colab-df-convert');
+        document.querySelector('#df-74cadd50-47d8-4a93-8d5d-f5ed3b969699 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-c3de1ee2-c837-4a1b-8413-00afb0de1e96');
+        const element = document.querySelector('#df-74cadd50-47d8-4a93-8d5d-f5ed3b969699');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -479,7 +472,7 @@ df
   </div>
 
 
-  <div id="id_e99ffa0d-7b10-42cd-b8da-7669e3d631c0">
+  <div id="id_46cd7dc5-211e-4477-9add-9ad4b3572984">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -523,7 +516,7 @@ df
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_e99ffa0d-7b10-42cd-b8da-7669e3d631c0 button.colab-df-generate');
+        document.querySelector('#id_46cd7dc5-211e-4477-9add-9ad4b3572984 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -539,6 +532,8 @@ df
 
 
 
+
+- For the full data set, we have 1,050,000 rows and 101 feature columns, var_0 - var_100.
 
 ## Data Cleaning
 
@@ -592,7 +587,7 @@ df.head()
 
 
 
-  <div id="df-401fcf5b-40bb-4d02-ab30-d8e37d9efe1d" class="colab-df-container">
+  <div id="df-b2686573-6ea1-4c6c-9d21-c28383ef528b" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -622,16 +617,16 @@ df.head()
       <th>var_5</th>
       <th>var_6</th>
       <th>...</th>
-      <th>var_37</th>
-      <th>var_38</th>
-      <th>var_39</th>
-      <th>var_40</th>
-      <th>var_41</th>
-      <th>var_42</th>
-      <th>var_43</th>
-      <th>var_44</th>
-      <th>var_45</th>
-      <th>var_46</th>
+      <th>var_91</th>
+      <th>var_92</th>
+      <th>var_93</th>
+      <th>var_94</th>
+      <th>var_95</th>
+      <th>var_96</th>
+      <th>var_97</th>
+      <th>var_98</th>
+      <th>var_99</th>
+      <th>var_100</th>
     </tr>
   </thead>
   <tbody>
@@ -720,16 +715,16 @@ df.head()
       <td>NaN</td>
       <td>NaN</td>
       <td>...</td>
-      <td>3.4635</td>
-      <td>17.285</td>
-      <td>16.552</td>
       <td>NaN</td>
-      <td>-6.8709</td>
+      <td>11.1077</td>
       <td>NaN</td>
+      <td>-12.6465</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0618</td>
     </tr>
     <tr>
       <th>4</th>
@@ -757,12 +752,12 @@ df.head()
     </tr>
   </tbody>
 </table>
-<p>5 rows × 50 columns</p>
+<p>5 rows × 104 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-401fcf5b-40bb-4d02-ab30-d8e37d9efe1d')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-b2686573-6ea1-4c6c-9d21-c28383ef528b')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -814,12 +809,12 @@ df.head()
 
     <script>
       const buttonEl =
-        document.querySelector('#df-401fcf5b-40bb-4d02-ab30-d8e37d9efe1d button.colab-df-convert');
+        document.querySelector('#df-b2686573-6ea1-4c6c-9d21-c28383ef528b button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-401fcf5b-40bb-4d02-ab30-d8e37d9efe1d');
+        const element = document.querySelector('#df-b2686573-6ea1-4c6c-9d21-c28383ef528b');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -857,7 +852,7 @@ df.tail()
 
 
 
-  <div id="df-a9372360-2e89-4adb-b3b3-57eafeca2078" class="colab-df-container">
+  <div id="df-53fe68be-95a8-403e-b306-56a154a463fc" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -887,23 +882,47 @@ df.tail()
       <th>var_5</th>
       <th>var_6</th>
       <th>...</th>
-      <th>var_37</th>
-      <th>var_38</th>
-      <th>var_39</th>
-      <th>var_40</th>
-      <th>var_41</th>
-      <th>var_42</th>
-      <th>var_43</th>
-      <th>var_44</th>
-      <th>var_45</th>
-      <th>var_46</th>
+      <th>var_91</th>
+      <th>var_92</th>
+      <th>var_93</th>
+      <th>var_94</th>
+      <th>var_95</th>
+      <th>var_96</th>
+      <th>var_97</th>
+      <th>var_98</th>
+      <th>var_99</th>
+      <th>var_100</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>49995</th>
-      <td>49995</td>
-      <td>train_49995</td>
+      <th>1049995</th>
+      <td>1049995</td>
+      <td>train_1049995</td>
+      <td>1.0</td>
+      <td>11.3251</td>
+      <td>16.4148</td>
+      <td>20.5955</td>
+      <td>NaN</td>
+      <td>-6.3011</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>1.3921</td>
+      <td>NaN</td>
+      <td>-16.4925</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.4421</td>
+    </tr>
+    <tr>
+      <th>1049996</th>
+      <td>1049996</td>
+      <td>train_1049996</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -925,71 +944,47 @@ df.tail()
       <td>NaN</td>
     </tr>
     <tr>
-      <th>49996</th>
-      <td>49996</td>
-      <td>train_49996</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>49997</th>
-      <td>49997</td>
-      <td>train_49997</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>49998</th>
-      <td>49998</td>
-      <td>train_49998</td>
+      <th>1049997</th>
+      <td>1049997</td>
+      <td>train_1049997</td>
       <td>0.0</td>
-      <td>7.7807</td>
-      <td>11.4038</td>
-      <td>11.2746</td>
+      <td>8.9941</td>
+      <td>13.4127</td>
+      <td>3.9567</td>
       <td>NaN</td>
-      <td>7.6426</td>
+      <td>3.5744</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>...</td>
-      <td>5.0832</td>
-      <td>18.0498</td>
-      <td>19.0913</td>
       <td>NaN</td>
-      <td>-0.0056</td>
+      <td>2.0836</td>
+      <td>NaN</td>
+      <td>-18.6168</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0689</td>
+    </tr>
+    <tr>
+      <th>1049998</th>
+      <td>1049998</td>
+      <td>train_1049998</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -997,37 +992,37 @@ df.tail()
       <td>NaN</td>
     </tr>
     <tr>
-      <th>49999</th>
-      <td>49999</td>
-      <td>train_49999</td>
+      <th>1049999</th>
+      <td>1049999</td>
+      <td>train_1049999</td>
+      <td>0.0</td>
+      <td>2.1828</td>
+      <td>12.3805</td>
+      <td>17.5654</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>8.1795</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>...</td>
       <td>NaN</td>
+      <td>-12.1108</td>
+      <td>NaN</td>
+      <td>10.7608</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>14.1690</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 50 columns</p>
+<p>5 rows × 104 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-a9372360-2e89-4adb-b3b3-57eafeca2078')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-53fe68be-95a8-403e-b306-56a154a463fc')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1079,12 +1074,12 @@ df.tail()
 
     <script>
       const buttonEl =
-        document.querySelector('#df-a9372360-2e89-4adb-b3b3-57eafeca2078 button.colab-df-convert');
+        document.querySelector('#df-53fe68be-95a8-403e-b306-56a154a463fc button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-a9372360-2e89-4adb-b3b3-57eafeca2078');
+        const element = document.querySelector('#df-53fe68be-95a8-403e-b306-56a154a463fc');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1121,7 +1116,7 @@ df.shape
 
 
 
-    (50000, 50)
+    (1050000, 104)
 
 
 
@@ -1136,7 +1131,7 @@ df.size
 
 
 
-    2500000
+    109200000
 
 
 
@@ -1149,62 +1144,10 @@ df.info()
 ```
 
     <class 'pandas.core.frame.DataFrame'>
-    RangeIndex: 50000 entries, 0 to 49999
-    Data columns (total 50 columns):
-     #   Column      Non-Null Count  Dtype  
-    ---  ------      --------------  -----  
-     0   Unnamed: 0  50000 non-null  int64  
-     1   ID_code     50000 non-null  object 
-     2   target      8506 non-null   float64
-     3   var_0       8506 non-null   float64
-     4   var_1       8506 non-null   float64
-     5   var_2       8506 non-null   float64
-     6   var_3       0 non-null      float64
-     7   var_4       8506 non-null   float64
-     8   var_5       0 non-null      float64
-     9   var_6       0 non-null      float64
-     10  var_7       8506 non-null   float64
-     11  var_8       8506 non-null   float64
-     12  var_9       0 non-null      float64
-     13  var_10      0 non-null      float64
-     14  var_11      0 non-null      float64
-     15  var_12      0 non-null      float64
-     16  var_13      0 non-null      float64
-     17  var_14      8506 non-null   float64
-     18  var_15      8506 non-null   float64
-     19  var_16      0 non-null      float64
-     20  var_17      8506 non-null   float64
-     21  var_18      0 non-null      float64
-     22  var_19      0 non-null      float64
-     23  var_20      8506 non-null   float64
-     24  var_21      8506 non-null   float64
-     25  var_22      8506 non-null   float64
-     26  var_23      0 non-null      float64
-     27  var_24      8506 non-null   float64
-     28  var_25      0 non-null      float64
-     29  var_26      8506 non-null   float64
-     30  var_27      8506 non-null   float64
-     31  var_28      8506 non-null   float64
-     32  var_29      8506 non-null   float64
-     33  var_30      0 non-null      float64
-     34  var_31      0 non-null      float64
-     35  var_32      0 non-null      float64
-     36  var_33      0 non-null      float64
-     37  var_34      0 non-null      float64
-     38  var_35      0 non-null      float64
-     39  var_36      8506 non-null   float64
-     40  var_37      8506 non-null   float64
-     41  var_38      8506 non-null   float64
-     42  var_39      8506 non-null   float64
-     43  var_40      0 non-null      float64
-     44  var_41      8506 non-null   float64
-     45  var_42      0 non-null      float64
-     46  var_43      0 non-null      float64
-     47  var_44      0 non-null      float64
-     48  var_45      0 non-null      float64
-     49  var_46      0 non-null      float64
-    dtypes: float64(48), int64(1), object(1)
-    memory usage: 19.1+ MB
+    RangeIndex: 1050000 entries, 0 to 1049999
+    Columns: 104 entries, Unnamed: 0 to var_100
+    dtypes: float64(102), int64(1), object(1)
+    memory usage: 833.1+ MB
 
 
 - describe
@@ -1219,7 +1162,7 @@ df.describe()
 
 
 
-  <div id="df-04415dab-7e2f-4130-a340-12e3b23a42a2" class="colab-df-container">
+  <div id="df-f28de570-ae9b-4bb9-85fc-c62e6191f05a" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1249,219 +1192,219 @@ df.describe()
       <th>var_6</th>
       <th>var_7</th>
       <th>...</th>
-      <th>var_37</th>
-      <th>var_38</th>
-      <th>var_39</th>
-      <th>var_40</th>
-      <th>var_41</th>
-      <th>var_42</th>
-      <th>var_43</th>
-      <th>var_44</th>
-      <th>var_45</th>
-      <th>var_46</th>
+      <th>var_91</th>
+      <th>var_92</th>
+      <th>var_93</th>
+      <th>var_94</th>
+      <th>var_95</th>
+      <th>var_96</th>
+      <th>var_97</th>
+      <th>var_98</th>
+      <th>var_99</th>
+      <th>var_100</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>count</th>
-      <td>50000.000000</td>
-      <td>8506.000000</td>
-      <td>8506.000000</td>
-      <td>8506.000000</td>
-      <td>8506.000000</td>
+      <td>1.050000e+06</td>
+      <td>180000.000000</td>
+      <td>180000.000000</td>
+      <td>180000.000000</td>
+      <td>180000.000000</td>
       <td>0.0</td>
-      <td>8506.000000</td>
+      <td>180000.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>8506.000000</td>
+      <td>180000.000000</td>
       <td>...</td>
-      <td>8506.000000</td>
-      <td>8506.000000</td>
-      <td>8506.000000</td>
       <td>0.0</td>
-      <td>8506.000000</td>
+      <td>180000.000000</td>
       <td>0.0</td>
+      <td>180000.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>180000.000000</td>
     </tr>
     <tr>
       <th>mean</th>
-      <td>24999.500000</td>
-      <td>0.098754</td>
-      <td>7.433406</td>
-      <td>15.873152</td>
-      <td>12.743673</td>
+      <td>5.249995e+05</td>
+      <td>0.100222</td>
+      <td>7.440715</td>
+      <td>15.870166</td>
+      <td>12.735619</td>
       <td>NaN</td>
-      <td>-0.666477</td>
+      <td>-0.668334</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>1.216609</td>
+      <td>1.190419</td>
       <td>...</td>
-      <td>3.335911</td>
-      <td>19.317877</td>
-      <td>18.439225</td>
       <td>NaN</td>
-      <td>5.768740</td>
+      <td>-3.294620</td>
       <td>NaN</td>
+      <td>-6.727860</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.224538</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>14433.901067</td>
-      <td>0.298349</td>
-      <td>2.998493</td>
-      <td>3.026206</td>
-      <td>4.167618</td>
+      <td>3.031090e+05</td>
+      <td>0.300297</td>
+      <td>3.021636</td>
+      <td>3.010492</td>
+      <td>4.185923</td>
       <td>NaN</td>
-      <td>5.989788</td>
+      <td>5.968300</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>5.206295</td>
+      <td>5.169343</td>
       <td>...</td>
-      <td>4.541526</td>
-      <td>5.013834</td>
-      <td>4.398037</td>
       <td>NaN</td>
-      <td>7.462482</td>
+      <td>7.418545</td>
       <td>NaN</td>
+      <td>8.278554</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>0.171058</td>
     </tr>
     <tr>
       <th>min</th>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>-0.482300</td>
-      <td>7.193400</td>
-      <td>1.263600</td>
+      <td>-2.691700</td>
+      <td>6.299300</td>
+      <td>-1.018500</td>
       <td>NaN</td>
-      <td>-20.962200</td>
+      <td>-22.748700</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-12.739600</td>
+      <td>-15.194000</td>
       <td>...</td>
-      <td>-13.999500</td>
-      <td>5.133100</td>
-      <td>6.673300</td>
       <td>NaN</td>
-      <td>-15.121100</td>
+      <td>-29.984000</td>
       <td>NaN</td>
+      <td>-35.211700</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>13.729000</td>
     </tr>
     <tr>
       <th>25%</th>
-      <td>12499.750000</td>
+      <td>2.624998e+05</td>
       <td>0.000000</td>
-      <td>5.192575</td>
-      <td>13.822750</td>
-      <td>9.709300</td>
+      <td>5.160325</td>
+      <td>13.830400</td>
+      <td>9.664675</td>
       <td>NaN</td>
-      <td>-4.915275</td>
+      <td>-4.997500</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-2.600700</td>
+      <td>-2.571400</td>
       <td>...</td>
-      <td>0.018500</td>
-      <td>15.712475</td>
-      <td>15.044250</td>
       <td>NaN</td>
-      <td>0.638225</td>
+      <td>-8.757925</td>
       <td>NaN</td>
+      <td>-12.835875</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.098900</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>24999.500000</td>
+      <td>5.249995e+05</td>
       <td>0.000000</td>
-      <td>7.286950</td>
-      <td>15.971650</td>
-      <td>12.660600</td>
+      <td>7.350950</td>
+      <td>15.934600</td>
+      <td>12.670700</td>
       <td>NaN</td>
-      <td>-0.585350</td>
+      <td>-0.560300</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>1.209900</td>
+      <td>1.194600</td>
       <td>...</td>
-      <td>3.366600</td>
-      <td>19.318800</td>
-      <td>18.293700</td>
       <td>NaN</td>
-      <td>5.958900</td>
+      <td>-3.170950</td>
       <td>NaN</td>
+      <td>-6.615100</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.226800</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>37499.250000</td>
+      <td>7.874992e+05</td>
       <td>0.000000</td>
-      <td>9.523925</td>
-      <td>18.092725</td>
-      <td>15.755275</td>
+      <td>9.511125</td>
+      <td>18.061425</td>
+      <td>15.837300</td>
       <td>NaN</td>
-      <td>3.615725</td>
+      <td>3.632525</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>5.146000</td>
+      <td>5.090450</td>
       <td>...</td>
-      <td>6.482825</td>
-      <td>22.906000</td>
-      <td>21.907575</td>
       <td>NaN</td>
-      <td>11.427175</td>
+      <td>2.043350</td>
       <td>NaN</td>
+      <td>-0.885250</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.361800</td>
     </tr>
     <tr>
       <th>max</th>
-      <td>49999.000000</td>
+      <td>1.049999e+06</td>
       <td>1.000000</td>
       <td>16.716500</td>
-      <td>24.508500</td>
-      <td>25.848100</td>
+      <td>26.079100</td>
+      <td>26.997600</td>
       <td>NaN</td>
-      <td>15.973100</td>
+      <td>18.855400</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>18.419700</td>
+      <td>18.471400</td>
       <td>...</td>
-      <td>17.686100</td>
-      <td>33.940300</td>
-      <td>31.018900</td>
       <td>NaN</td>
-      <td>26.401100</td>
+      <td>21.236400</td>
       <td>NaN</td>
+      <td>18.105600</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.743000</td>
     </tr>
   </tbody>
 </table>
-<p>8 rows × 49 columns</p>
+<p>8 rows × 103 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-04415dab-7e2f-4130-a340-12e3b23a42a2')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-f28de570-ae9b-4bb9-85fc-c62e6191f05a')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1513,12 +1456,12 @@ df.describe()
 
     <script>
       const buttonEl =
-        document.querySelector('#df-04415dab-7e2f-4130-a340-12e3b23a42a2 button.colab-df-convert');
+        document.querySelector('#df-f28de570-ae9b-4bb9-85fc-c62e6191f05a button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-04415dab-7e2f-4130-a340-12e3b23a42a2');
+        const element = document.querySelector('#df-f28de570-ae9b-4bb9-85fc-c62e6191f05a');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1579,11 +1522,11 @@ df.nunique()
   <tbody>
     <tr>
       <th>Unnamed: 0</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>ID_code</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>target</th>
@@ -1591,194 +1534,39 @@ df.nunique()
     </tr>
     <tr>
       <th>var_0</th>
-      <td>8168</td>
+      <td>89982</td>
     </tr>
     <tr>
       <th>var_1</th>
-      <td>8157</td>
+      <td>89845</td>
     </tr>
     <tr>
-      <th>var_2</th>
-      <td>8247</td>
+      <th>...</th>
+      <td>...</td>
     </tr>
     <tr>
-      <th>var_3</th>
+      <th>var_96</th>
       <td>0</td>
     </tr>
     <tr>
-      <th>var_4</th>
-      <td>8320</td>
-    </tr>
-    <tr>
-      <th>var_5</th>
+      <th>var_97</th>
       <td>0</td>
     </tr>
     <tr>
-      <th>var_6</th>
+      <th>var_98</th>
       <td>0</td>
     </tr>
     <tr>
-      <th>var_7</th>
-      <td>8328</td>
-    </tr>
-    <tr>
-      <th>var_8</th>
-      <td>6288</td>
-    </tr>
-    <tr>
-      <th>var_9</th>
+      <th>var_99</th>
       <td>0</td>
     </tr>
     <tr>
-      <th>var_10</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>var_11</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>var_12</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>var_13</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>var_14</th>
-      <td>8362</td>
-    </tr>
-    <tr>
-      <th>var_15</th>
-      <td>6374</td>
-    </tr>
-    <tr>
-      <th>var_16</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>var_17</th>
-      <td>8286</td>
-    </tr>
-    <tr>
-      <th>var_18</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>var_19</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>var_20</th>
-      <td>8347</td>
-    </tr>
-    <tr>
-      <th>var_21</th>
-      <td>8270</td>
-    </tr>
-    <tr>
-      <th>var_22</th>
-      <td>8063</td>
-    </tr>
-    <tr>
-      <th>var_23</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>var_24</th>
-      <td>8260</td>
-    </tr>
-    <tr>
-      <th>var_25</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>var_26</th>
-      <td>8148</td>
-    </tr>
-    <tr>
-      <th>var_27</th>
-      <td>8257</td>
-    </tr>
-    <tr>
-      <th>var_28</th>
-      <td>8130</td>
-    </tr>
-    <tr>
-      <th>var_29</th>
-      <td>8156</td>
-    </tr>
-    <tr>
-      <th>var_30</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>var_31</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>var_32</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>var_33</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>var_34</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>var_35</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>var_36</th>
-      <td>7994</td>
-    </tr>
-    <tr>
-      <th>var_37</th>
-      <td>8288</td>
-    </tr>
-    <tr>
-      <th>var_38</th>
-      <td>8277</td>
-    </tr>
-    <tr>
-      <th>var_39</th>
-      <td>8254</td>
-    </tr>
-    <tr>
-      <th>var_40</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>var_41</th>
-      <td>8362</td>
-    </tr>
-    <tr>
-      <th>var_42</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>var_43</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>var_44</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>var_45</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>var_46</th>
-      <td>0</td>
+      <th>var_100</th>
+      <td>8479</td>
     </tr>
   </tbody>
 </table>
+<p>104 rows × 1 columns</p>
 </div><br><label><b>dtype:</b> int64</label>
 
 
@@ -1832,196 +1620,40 @@ df.isnull().sum().sort_values( ascending = False )
   </thead>
   <tbody>
     <tr>
-      <th>var_6</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_5</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_11</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_12</th>
-      <td>50000</td>
-    </tr>
-    <tr>
       <th>var_3</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_13</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_9</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_10</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_42</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_40</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_45</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_46</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_30</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_25</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_23</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_19</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_18</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_16</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
-      <th>var_43</th>
-      <td>50000</td>
+      <th>var_12</th>
+      <td>1050000</td>
     </tr>
     <tr>
-      <th>var_33</th>
-      <td>50000</td>
+      <th>var_11</th>
+      <td>1050000</td>
     </tr>
     <tr>
-      <th>var_44</th>
-      <td>50000</td>
+      <th>var_9</th>
+      <td>1050000</td>
     </tr>
     <tr>
-      <th>var_35</th>
-      <td>50000</td>
+      <th>...</th>
+      <td>...</td>
     </tr>
     <tr>
-      <th>var_34</th>
-      <td>50000</td>
+      <th>var_88</th>
+      <td>870000</td>
     </tr>
     <tr>
-      <th>var_31</th>
-      <td>50000</td>
+      <th>var_94</th>
+      <td>870000</td>
     </tr>
     <tr>
-      <th>var_32</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_28</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_0</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_4</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_14</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_7</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_2</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_1</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_8</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>target</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_15</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_17</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_29</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_26</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_24</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_20</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_21</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_22</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_38</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_37</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_27</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_36</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_41</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_39</th>
-      <td>41494</td>
+      <th>var_100</th>
+      <td>870000</td>
     </tr>
     <tr>
       <th>Unnamed: 0</th>
@@ -2033,6 +1665,7 @@ df.isnull().sum().sort_values( ascending = False )
     </tr>
   </tbody>
 </table>
+<p>104 rows × 1 columns</p>
 </div><br><label><b>dtype:</b> int64</label>
 
 
@@ -2069,210 +1702,74 @@ df.isnull().sum().sort_values( ascending = False )
   </thead>
   <tbody>
     <tr>
-      <th>var_6</th>
-      <td>100.000</td>
-    </tr>
-    <tr>
-      <th>var_5</th>
-      <td>100.000</td>
-    </tr>
-    <tr>
-      <th>var_11</th>
-      <td>100.000</td>
-    </tr>
-    <tr>
-      <th>var_12</th>
-      <td>100.000</td>
-    </tr>
-    <tr>
       <th>var_3</th>
-      <td>100.000</td>
-    </tr>
-    <tr>
-      <th>var_13</th>
-      <td>100.000</td>
-    </tr>
-    <tr>
-      <th>var_9</th>
-      <td>100.000</td>
-    </tr>
-    <tr>
-      <th>var_10</th>
-      <td>100.000</td>
-    </tr>
-    <tr>
-      <th>var_42</th>
-      <td>100.000</td>
-    </tr>
-    <tr>
-      <th>var_40</th>
-      <td>100.000</td>
-    </tr>
-    <tr>
-      <th>var_45</th>
-      <td>100.000</td>
-    </tr>
-    <tr>
-      <th>var_46</th>
-      <td>100.000</td>
-    </tr>
-    <tr>
-      <th>var_30</th>
-      <td>100.000</td>
-    </tr>
-    <tr>
-      <th>var_25</th>
-      <td>100.000</td>
-    </tr>
-    <tr>
-      <th>var_23</th>
-      <td>100.000</td>
-    </tr>
-    <tr>
-      <th>var_19</th>
-      <td>100.000</td>
-    </tr>
-    <tr>
-      <th>var_18</th>
-      <td>100.000</td>
+      <td>100.000000</td>
     </tr>
     <tr>
       <th>var_16</th>
-      <td>100.000</td>
+      <td>100.000000</td>
     </tr>
     <tr>
-      <th>var_43</th>
-      <td>100.000</td>
+      <th>var_12</th>
+      <td>100.000000</td>
     </tr>
     <tr>
-      <th>var_33</th>
-      <td>100.000</td>
+      <th>var_11</th>
+      <td>100.000000</td>
     </tr>
     <tr>
-      <th>var_44</th>
-      <td>100.000</td>
+      <th>var_9</th>
+      <td>100.000000</td>
     </tr>
     <tr>
-      <th>var_35</th>
-      <td>100.000</td>
+      <th>...</th>
+      <td>...</td>
     </tr>
     <tr>
-      <th>var_34</th>
-      <td>100.000</td>
+      <th>var_88</th>
+      <td>82.857143</td>
     </tr>
     <tr>
-      <th>var_31</th>
-      <td>100.000</td>
+      <th>var_94</th>
+      <td>82.857143</td>
     </tr>
     <tr>
-      <th>var_32</th>
-      <td>100.000</td>
-    </tr>
-    <tr>
-      <th>var_28</th>
-      <td>82.988</td>
-    </tr>
-    <tr>
-      <th>var_0</th>
-      <td>82.988</td>
-    </tr>
-    <tr>
-      <th>var_4</th>
-      <td>82.988</td>
-    </tr>
-    <tr>
-      <th>var_14</th>
-      <td>82.988</td>
-    </tr>
-    <tr>
-      <th>var_7</th>
-      <td>82.988</td>
-    </tr>
-    <tr>
-      <th>var_2</th>
-      <td>82.988</td>
-    </tr>
-    <tr>
-      <th>var_1</th>
-      <td>82.988</td>
-    </tr>
-    <tr>
-      <th>var_8</th>
-      <td>82.988</td>
-    </tr>
-    <tr>
-      <th>target</th>
-      <td>82.988</td>
-    </tr>
-    <tr>
-      <th>var_15</th>
-      <td>82.988</td>
-    </tr>
-    <tr>
-      <th>var_17</th>
-      <td>82.988</td>
-    </tr>
-    <tr>
-      <th>var_29</th>
-      <td>82.988</td>
-    </tr>
-    <tr>
-      <th>var_26</th>
-      <td>82.988</td>
-    </tr>
-    <tr>
-      <th>var_24</th>
-      <td>82.988</td>
-    </tr>
-    <tr>
-      <th>var_20</th>
-      <td>82.988</td>
-    </tr>
-    <tr>
-      <th>var_21</th>
-      <td>82.988</td>
-    </tr>
-    <tr>
-      <th>var_22</th>
-      <td>82.988</td>
-    </tr>
-    <tr>
-      <th>var_38</th>
-      <td>82.988</td>
-    </tr>
-    <tr>
-      <th>var_37</th>
-      <td>82.988</td>
-    </tr>
-    <tr>
-      <th>var_27</th>
-      <td>82.988</td>
-    </tr>
-    <tr>
-      <th>var_36</th>
-      <td>82.988</td>
-    </tr>
-    <tr>
-      <th>var_41</th>
-      <td>82.988</td>
-    </tr>
-    <tr>
-      <th>var_39</th>
-      <td>82.988</td>
+      <th>var_100</th>
+      <td>82.857143</td>
     </tr>
     <tr>
       <th>Unnamed: 0</th>
-      <td>0.000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>ID_code</th>
-      <td>0.000</td>
+      <td>0.000000</td>
     </tr>
   </tbody>
 </table>
+<p>104 rows × 1 columns</p>
 </div><br><label><b>dtype:</b> float64</label>
 
 
+
+
+```python
+# look at unique values in the col-by-col null counts to classify cols
+((df.isnull().sum() / df.shape[0]).sort_values( ascending = False ) * 100).unique()
+```
+
+
+
+
+    array([100.        ,  82.85714286,   0.        ])
+
+
+
+
+```python
+# So only these three counts exist in the data, meaning
+# we will not have to impute values :D
+```
 
 - dtypes
 
@@ -2328,187 +1825,32 @@ df.dtypes
       <td>float64</td>
     </tr>
     <tr>
-      <th>var_2</th>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>var_96</th>
       <td>float64</td>
     </tr>
     <tr>
-      <th>var_3</th>
+      <th>var_97</th>
       <td>float64</td>
     </tr>
     <tr>
-      <th>var_4</th>
+      <th>var_98</th>
       <td>float64</td>
     </tr>
     <tr>
-      <th>var_5</th>
+      <th>var_99</th>
       <td>float64</td>
     </tr>
     <tr>
-      <th>var_6</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_7</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_8</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_9</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_10</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_11</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_12</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_13</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_14</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_15</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_16</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_17</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_18</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_19</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_20</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_21</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_22</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_23</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_24</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_25</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_26</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_27</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_28</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_29</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_30</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_31</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_32</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_33</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_34</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_35</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_36</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_37</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_38</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_39</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_40</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_41</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_42</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_43</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_44</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_45</th>
-      <td>float64</td>
-    </tr>
-    <tr>
-      <th>var_46</th>
+      <th>var_100</th>
       <td>float64</td>
     </tr>
   </tbody>
 </table>
+<p>104 rows × 1 columns</p>
 </div><br><label><b>dtype:</b> object</label>
 
 
@@ -2522,7 +1864,7 @@ df.isnull().sum().sum()
 
 
 
-    np.int64(2204362)
+    np.int64(97920000)
 
 
 
@@ -2565,15 +1907,15 @@ df[target_col].value_counts( dropna = False )
   <tbody>
     <tr>
       <th>NaN</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>0.0</th>
-      <td>7666</td>
+      <td>161960</td>
     </tr>
     <tr>
       <th>1.0</th>
-      <td>840</td>
+      <td>18040</td>
     </tr>
   </tbody>
 </table>
@@ -2618,15 +1960,15 @@ df[target_col].value_counts( dropna = False, normalize = True ) * 100
   <tbody>
     <tr>
       <th>NaN</th>
-      <td>82.988</td>
+      <td>82.857143</td>
     </tr>
     <tr>
       <th>0.0</th>
-      <td>15.332</td>
+      <td>15.424762</td>
     </tr>
     <tr>
       <th>1.0</th>
-      <td>1.680</td>
+      <td>1.718095</td>
     </tr>
   </tbody>
 </table>
@@ -2643,48 +1985,33 @@ df[[target_col]].shape[0]
 
 
 
-    50000
+    1050000
 
 
 
 
 ```python
 # sum of nulls in target
-df[[target_col]].isnull().sum()
+int(df[[target_col]].isnull().sum().iloc[0])
 ```
 
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+    870000
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>0</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>target</th>
-      <td>41494</td>
-    </tr>
-  </tbody>
-</table>
-</div><br><label><b>dtype:</b> int64</label>
+
+
+```python
+# sum of non-nulls in target
+df[[target_col]].shape[0] - int(df[[target_col]].isnull().sum().iloc[0])
+```
+
+
+
+
+    180000
 
 
 
@@ -2729,198 +2056,43 @@ df.isnull().sum()
     </tr>
     <tr>
       <th>target</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_0</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_1</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
-      <th>var_2</th>
-      <td>41494</td>
+      <th>...</th>
+      <td>...</td>
     </tr>
     <tr>
-      <th>var_3</th>
-      <td>50000</td>
+      <th>var_96</th>
+      <td>1050000</td>
     </tr>
     <tr>
-      <th>var_4</th>
-      <td>41494</td>
+      <th>var_97</th>
+      <td>1050000</td>
     </tr>
     <tr>
-      <th>var_5</th>
-      <td>50000</td>
+      <th>var_98</th>
+      <td>1050000</td>
     </tr>
     <tr>
-      <th>var_6</th>
-      <td>50000</td>
+      <th>var_99</th>
+      <td>1050000</td>
     </tr>
     <tr>
-      <th>var_7</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_8</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_9</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_10</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_11</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_12</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_13</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_14</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_15</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_16</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_17</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_18</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_19</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_20</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_21</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_22</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_23</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_24</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_25</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_26</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_27</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_28</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_29</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_30</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_31</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_32</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_33</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_34</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_35</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_36</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_37</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_38</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_39</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_40</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_41</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_42</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_43</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_44</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_45</th>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th>var_46</th>
-      <td>50000</td>
+      <th>var_100</th>
+      <td>870000</td>
     </tr>
   </tbody>
 </table>
+<p>104 rows × 1 columns</p>
 </div><br><label><b>dtype:</b> int64</label>
 
 
@@ -2928,7 +2100,7 @@ df.isnull().sum()
 
 ```python
 # display columns with all null values
-df.isnull().sum()[df.isnull().sum() == 50000]
+df.isnull().sum()[df.isnull().sum() == 1050000]
 ```
 
 
@@ -2958,103 +2130,207 @@ df.isnull().sum()[df.isnull().sum() == 50000]
   <tbody>
     <tr>
       <th>var_3</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_5</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_6</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_9</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_10</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_11</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_12</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_13</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_16</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_18</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_19</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_23</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_25</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_30</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_31</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_32</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_33</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_34</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_35</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_40</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_42</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_43</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_44</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_45</th>
-      <td>50000</td>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_46</th>
-      <td>50000</td>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_47</th>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_50</th>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_51</th>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_53</th>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_54</th>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_55</th>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_58</th>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_59</th>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_60</th>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_64</th>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_68</th>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_69</th>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_71</th>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_74</th>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_76</th>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_77</th>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_79</th>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_81</th>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_90</th>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_91</th>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_93</th>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_95</th>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_96</th>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_97</th>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_98</th>
+      <td>1050000</td>
+    </tr>
+    <tr>
+      <th>var_99</th>
+      <td>1050000</td>
     </tr>
   </tbody>
 </table>
@@ -3064,8 +2340,21 @@ df.isnull().sum()[df.isnull().sum() == 50000]
 
 
 ```python
+# count these
+int(df.isnull().sum()[df.isnull().sum() == 1050000].count())
+```
+
+
+
+
+    51
+
+
+
+
+```python
 # show columns with non-null values
-df.isnull().sum()[df.isnull().sum() != 50000]
+df.isnull().sum()[df.isnull().sum() != 1050000]
 ```
 
 
@@ -3103,95 +2392,207 @@ df.isnull().sum()[df.isnull().sum() != 50000]
     </tr>
     <tr>
       <th>target</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_0</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_1</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_2</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_4</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_7</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_8</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_14</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_15</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_17</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_20</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_21</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_22</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_24</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_26</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_27</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_28</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_29</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_36</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_37</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_38</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_39</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_41</th>
-      <td>41494</td>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_48</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_49</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_52</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_56</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_57</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_61</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_62</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_63</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_65</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_66</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_67</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_70</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_72</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_73</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_75</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_78</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_80</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_82</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_83</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_84</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_85</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_86</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_87</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_88</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_89</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_92</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_94</th>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_100</th>
+      <td>870000</td>
     </tr>
   </tbody>
 </table>
@@ -3232,102 +2633,72 @@ df.isnull().sum()[df.isnull().sum() != 50000][3:]
   <tbody>
     <tr>
       <th>var_0</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_1</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
       <th>var_2</th>
-      <td>41494</td>
+      <td>870000</td>
+    </tr>
+    <tr>
+      <th>var_3</th>
+      <td>1050000</td>
     </tr>
     <tr>
       <th>var_4</th>
-      <td>41494</td>
+      <td>870000</td>
     </tr>
     <tr>
-      <th>var_7</th>
-      <td>41494</td>
+      <th>...</th>
+      <td>...</td>
     </tr>
     <tr>
-      <th>var_8</th>
-      <td>41494</td>
+      <th>var_96</th>
+      <td>1050000</td>
     </tr>
     <tr>
-      <th>var_14</th>
-      <td>41494</td>
+      <th>var_97</th>
+      <td>1050000</td>
     </tr>
     <tr>
-      <th>var_15</th>
-      <td>41494</td>
+      <th>var_98</th>
+      <td>1050000</td>
     </tr>
     <tr>
-      <th>var_17</th>
-      <td>41494</td>
+      <th>var_99</th>
+      <td>1050000</td>
     </tr>
     <tr>
-      <th>var_20</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_21</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_22</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_24</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_26</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_27</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_28</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_29</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_36</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_37</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_38</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_39</th>
-      <td>41494</td>
-    </tr>
-    <tr>
-      <th>var_41</th>
-      <td>41494</td>
+      <th>var_100</th>
+      <td>870000</td>
     </tr>
   </tbody>
 </table>
+<p>101 rows × 1 columns</p>
 </div><br><label><b>dtype:</b> int64</label>
 
 
 
 
 ```python
+# count these
+int(df.isnull().sum()[df.isnull().sum() != 1050000][3:].count())
+```
+
+
+
+
+    50
+
+
+
+
+```python
 # make list of columns with all nulls
-list_nulls = list(df.isnull().sum()[df.isnull().sum() == 50000].keys())
+list_nulls = list(df.isnull().sum()[df.isnull().sum() == 1050000].keys())
 list_nulls
 ```
 
@@ -3358,30 +2729,58 @@ list_nulls
      'var_43',
      'var_44',
      'var_45',
-     'var_46']
+     'var_46',
+     'var_47',
+     'var_50',
+     'var_51',
+     'var_53',
+     'var_54',
+     'var_55',
+     'var_58',
+     'var_59',
+     'var_60',
+     'var_64',
+     'var_68',
+     'var_69',
+     'var_71',
+     'var_74',
+     'var_76',
+     'var_77',
+     'var_79',
+     'var_81',
+     'var_90',
+     'var_91',
+     'var_93',
+     'var_95',
+     'var_96',
+     'var_97',
+     'var_98',
+     'var_99']
 
 
 
 
 ```python
-# count the number of
+# count the number of list items (should match count of null cols above)
 len(list_nulls)
 ```
 
 
 
 
-    25
+    51
 
 
 
 - Summary:
 
   - target column: 'target'
-  - feature columns: 'var_0' - 'var_46'
+  - feature columns: 'var_0' - 'var_100'
   - identifier columns: 'Unnamed', 'ID_code'
-  - null columns: 25 (see above)
-  - null rows (target): 41494
+  - null columns: 51 (see above)
+  - null rows (target): 870_000
+
+- non-null rows: 180_000
 
 #### 6. If there are data cleaning issues, develop recommendations for how to deal with them.  Specifically, handle these common issues:
 
@@ -3402,7 +2801,7 @@ df.head()
 
 
 
-  <div id="df-7913f42e-6961-4640-a754-a8765825b7a6" class="colab-df-container">
+  <div id="df-8ae4fb0f-116c-4341-91f2-44d4ebac01fe" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -3432,16 +2831,16 @@ df.head()
       <th>var_5</th>
       <th>var_6</th>
       <th>...</th>
-      <th>var_37</th>
-      <th>var_38</th>
-      <th>var_39</th>
-      <th>var_40</th>
-      <th>var_41</th>
-      <th>var_42</th>
-      <th>var_43</th>
-      <th>var_44</th>
-      <th>var_45</th>
-      <th>var_46</th>
+      <th>var_91</th>
+      <th>var_92</th>
+      <th>var_93</th>
+      <th>var_94</th>
+      <th>var_95</th>
+      <th>var_96</th>
+      <th>var_97</th>
+      <th>var_98</th>
+      <th>var_99</th>
+      <th>var_100</th>
     </tr>
   </thead>
   <tbody>
@@ -3530,16 +2929,16 @@ df.head()
       <td>NaN</td>
       <td>NaN</td>
       <td>...</td>
-      <td>3.4635</td>
-      <td>17.285</td>
-      <td>16.552</td>
       <td>NaN</td>
-      <td>-6.8709</td>
+      <td>11.1077</td>
       <td>NaN</td>
+      <td>-12.6465</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0618</td>
     </tr>
     <tr>
       <th>4</th>
@@ -3567,12 +2966,12 @@ df.head()
     </tr>
   </tbody>
 </table>
-<p>5 rows × 50 columns</p>
+<p>5 rows × 104 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-7913f42e-6961-4640-a754-a8765825b7a6')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-8ae4fb0f-116c-4341-91f2-44d4ebac01fe')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -3624,12 +3023,12 @@ df.head()
 
     <script>
       const buttonEl =
-        document.querySelector('#df-7913f42e-6961-4640-a754-a8765825b7a6 button.colab-df-convert');
+        document.querySelector('#df-8ae4fb0f-116c-4341-91f2-44d4ebac01fe button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-7913f42e-6961-4640-a754-a8765825b7a6');
+        const element = document.querySelector('#df-8ae4fb0f-116c-4341-91f2-44d4ebac01fe');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -3677,7 +3076,7 @@ df_bak
 
 
 
-  <div id="df-acf55b18-b107-463c-92d8-a488be3ae85e" class="colab-df-container">
+  <div id="df-1cad6762-a59e-460a-8091-b03a2338a29c" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -3707,16 +3106,16 @@ df_bak
       <th>var_5</th>
       <th>var_6</th>
       <th>...</th>
-      <th>var_37</th>
-      <th>var_38</th>
-      <th>var_39</th>
-      <th>var_40</th>
-      <th>var_41</th>
-      <th>var_42</th>
-      <th>var_43</th>
-      <th>var_44</th>
-      <th>var_45</th>
-      <th>var_46</th>
+      <th>var_91</th>
+      <th>var_92</th>
+      <th>var_93</th>
+      <th>var_94</th>
+      <th>var_95</th>
+      <th>var_96</th>
+      <th>var_97</th>
+      <th>var_98</th>
+      <th>var_99</th>
+      <th>var_100</th>
     </tr>
   </thead>
   <tbody>
@@ -3805,16 +3204,16 @@ df_bak
       <td>NaN</td>
       <td>NaN</td>
       <td>...</td>
-      <td>3.4635</td>
-      <td>17.2850</td>
-      <td>16.5520</td>
       <td>NaN</td>
-      <td>-6.8709</td>
+      <td>11.1077</td>
       <td>NaN</td>
+      <td>-12.6465</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0618</td>
     </tr>
     <tr>
       <th>4</th>
@@ -3865,9 +3264,33 @@ df_bak
       <td>...</td>
     </tr>
     <tr>
-      <th>49995</th>
-      <td>49995</td>
-      <td>train_49995</td>
+      <th>1049995</th>
+      <td>1049995</td>
+      <td>train_1049995</td>
+      <td>1.0</td>
+      <td>11.3251</td>
+      <td>16.4148</td>
+      <td>20.5955</td>
+      <td>NaN</td>
+      <td>-6.3011</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>1.3921</td>
+      <td>NaN</td>
+      <td>-16.4925</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.4421</td>
+    </tr>
+    <tr>
+      <th>1049996</th>
+      <td>1049996</td>
+      <td>train_1049996</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3889,71 +3312,47 @@ df_bak
       <td>NaN</td>
     </tr>
     <tr>
-      <th>49996</th>
-      <td>49996</td>
-      <td>train_49996</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>49997</th>
-      <td>49997</td>
-      <td>train_49997</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>49998</th>
-      <td>49998</td>
-      <td>train_49998</td>
+      <th>1049997</th>
+      <td>1049997</td>
+      <td>train_1049997</td>
       <td>0.0</td>
-      <td>7.7807</td>
-      <td>11.4038</td>
-      <td>11.2746</td>
+      <td>8.9941</td>
+      <td>13.4127</td>
+      <td>3.9567</td>
       <td>NaN</td>
-      <td>7.6426</td>
+      <td>3.5744</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>...</td>
-      <td>5.0832</td>
-      <td>18.0498</td>
-      <td>19.0913</td>
       <td>NaN</td>
-      <td>-0.0056</td>
+      <td>2.0836</td>
+      <td>NaN</td>
+      <td>-18.6168</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0689</td>
+    </tr>
+    <tr>
+      <th>1049998</th>
+      <td>1049998</td>
+      <td>train_1049998</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3961,37 +3360,37 @@ df_bak
       <td>NaN</td>
     </tr>
     <tr>
-      <th>49999</th>
-      <td>49999</td>
-      <td>train_49999</td>
+      <th>1049999</th>
+      <td>1049999</td>
+      <td>train_1049999</td>
+      <td>0.0</td>
+      <td>2.1828</td>
+      <td>12.3805</td>
+      <td>17.5654</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>8.1795</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>...</td>
       <td>NaN</td>
+      <td>-12.1108</td>
+      <td>NaN</td>
+      <td>10.7608</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>14.1690</td>
     </tr>
   </tbody>
 </table>
-<p>50000 rows × 50 columns</p>
+<p>1050000 rows × 104 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-acf55b18-b107-463c-92d8-a488be3ae85e')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-1cad6762-a59e-460a-8091-b03a2338a29c')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -4043,12 +3442,12 @@ df_bak
 
     <script>
       const buttonEl =
-        document.querySelector('#df-acf55b18-b107-463c-92d8-a488be3ae85e button.colab-df-convert');
+        document.querySelector('#df-1cad6762-a59e-460a-8091-b03a2338a29c button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-acf55b18-b107-463c-92d8-a488be3ae85e');
+        const element = document.querySelector('#df-1cad6762-a59e-460a-8091-b03a2338a29c');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -4068,7 +3467,7 @@ df_bak
   </div>
 
 
-  <div id="id_feadad73-6070-419e-9679-9f9bf4dd1ba0">
+  <div id="id_4e43eeb5-fd37-4ecb-abd5-0b0e9d6b130d">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -4112,7 +3511,7 @@ df_bak
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_feadad73-6070-419e-9679-9f9bf4dd1ba0 button.colab-df-generate');
+        document.querySelector('#id_4e43eeb5-fd37-4ecb-abd5-0b0e9d6b130d button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -4140,7 +3539,7 @@ df
 
 
 
-  <div id="df-6d8641de-028f-4a9c-888e-1330246ad58d" class="colab-df-container">
+  <div id="df-928199a3-af93-4347-b811-06b738cf4c14" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -4170,16 +3569,16 @@ df
       <th>var_5</th>
       <th>var_6</th>
       <th>...</th>
-      <th>var_37</th>
-      <th>var_38</th>
-      <th>var_39</th>
-      <th>var_40</th>
-      <th>var_41</th>
-      <th>var_42</th>
-      <th>var_43</th>
-      <th>var_44</th>
-      <th>var_45</th>
-      <th>var_46</th>
+      <th>var_91</th>
+      <th>var_92</th>
+      <th>var_93</th>
+      <th>var_94</th>
+      <th>var_95</th>
+      <th>var_96</th>
+      <th>var_97</th>
+      <th>var_98</th>
+      <th>var_99</th>
+      <th>var_100</th>
     </tr>
   </thead>
   <tbody>
@@ -4268,16 +3667,16 @@ df
       <td>NaN</td>
       <td>NaN</td>
       <td>...</td>
-      <td>3.4635</td>
-      <td>17.2850</td>
-      <td>16.5520</td>
       <td>NaN</td>
-      <td>-6.8709</td>
+      <td>11.1077</td>
       <td>NaN</td>
+      <td>-12.6465</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0618</td>
     </tr>
     <tr>
       <th>4</th>
@@ -4328,9 +3727,33 @@ df
       <td>...</td>
     </tr>
     <tr>
-      <th>49995</th>
-      <td>49995</td>
-      <td>train_49995</td>
+      <th>1049995</th>
+      <td>1049995</td>
+      <td>train_1049995</td>
+      <td>1.0</td>
+      <td>11.3251</td>
+      <td>16.4148</td>
+      <td>20.5955</td>
+      <td>NaN</td>
+      <td>-6.3011</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>1.3921</td>
+      <td>NaN</td>
+      <td>-16.4925</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.4421</td>
+    </tr>
+    <tr>
+      <th>1049996</th>
+      <td>1049996</td>
+      <td>train_1049996</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -4352,71 +3775,47 @@ df
       <td>NaN</td>
     </tr>
     <tr>
-      <th>49996</th>
-      <td>49996</td>
-      <td>train_49996</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>49997</th>
-      <td>49997</td>
-      <td>train_49997</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>49998</th>
-      <td>49998</td>
-      <td>train_49998</td>
+      <th>1049997</th>
+      <td>1049997</td>
+      <td>train_1049997</td>
       <td>0.0</td>
-      <td>7.7807</td>
-      <td>11.4038</td>
-      <td>11.2746</td>
+      <td>8.9941</td>
+      <td>13.4127</td>
+      <td>3.9567</td>
       <td>NaN</td>
-      <td>7.6426</td>
+      <td>3.5744</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>...</td>
-      <td>5.0832</td>
-      <td>18.0498</td>
-      <td>19.0913</td>
       <td>NaN</td>
-      <td>-0.0056</td>
+      <td>2.0836</td>
+      <td>NaN</td>
+      <td>-18.6168</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0689</td>
+    </tr>
+    <tr>
+      <th>1049998</th>
+      <td>1049998</td>
+      <td>train_1049998</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -4424,37 +3823,37 @@ df
       <td>NaN</td>
     </tr>
     <tr>
-      <th>49999</th>
-      <td>49999</td>
-      <td>train_49999</td>
+      <th>1049999</th>
+      <td>1049999</td>
+      <td>train_1049999</td>
+      <td>0.0</td>
+      <td>2.1828</td>
+      <td>12.3805</td>
+      <td>17.5654</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>8.1795</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>...</td>
       <td>NaN</td>
+      <td>-12.1108</td>
+      <td>NaN</td>
+      <td>10.7608</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>14.1690</td>
     </tr>
   </tbody>
 </table>
-<p>50000 rows × 50 columns</p>
+<p>1050000 rows × 104 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-6d8641de-028f-4a9c-888e-1330246ad58d')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-928199a3-af93-4347-b811-06b738cf4c14')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -4506,12 +3905,12 @@ df
 
     <script>
       const buttonEl =
-        document.querySelector('#df-6d8641de-028f-4a9c-888e-1330246ad58d button.colab-df-convert');
+        document.querySelector('#df-928199a3-af93-4347-b811-06b738cf4c14 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-6d8641de-028f-4a9c-888e-1330246ad58d');
+        const element = document.querySelector('#df-928199a3-af93-4347-b811-06b738cf4c14');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -4531,7 +3930,7 @@ df
   </div>
 
 
-  <div id="id_059f689c-0b36-408b-bc7f-b9bd0cf57984">
+  <div id="id_23e0768b-a5a1-42a8-a414-28ccf0bee993">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -4575,7 +3974,7 @@ df
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_059f689c-0b36-408b-bc7f-b9bd0cf57984 button.colab-df-generate');
+        document.querySelector('#id_23e0768b-a5a1-42a8-a414-28ccf0bee993 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -4608,7 +4007,7 @@ df
 
 
 
-  <div id="df-b50ee9e7-2c90-4901-8647-f3a9cc3b89f2" class="colab-df-container">
+  <div id="df-594de063-7d93-43d2-8d85-125aeb85317d" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -4638,16 +4037,16 @@ df
       <th>var_7</th>
       <th>var_8</th>
       <th>...</th>
-      <th>var_37</th>
-      <th>var_38</th>
-      <th>var_39</th>
-      <th>var_40</th>
-      <th>var_41</th>
-      <th>var_42</th>
-      <th>var_43</th>
-      <th>var_44</th>
-      <th>var_45</th>
-      <th>var_46</th>
+      <th>var_91</th>
+      <th>var_92</th>
+      <th>var_93</th>
+      <th>var_94</th>
+      <th>var_95</th>
+      <th>var_96</th>
+      <th>var_97</th>
+      <th>var_98</th>
+      <th>var_99</th>
+      <th>var_100</th>
     </tr>
   </thead>
   <tbody>
@@ -4736,16 +4135,16 @@ df
       <td>-1.9254</td>
       <td>6.4760</td>
       <td>...</td>
-      <td>3.4635</td>
-      <td>17.2850</td>
-      <td>16.5520</td>
       <td>NaN</td>
-      <td>-6.8709</td>
+      <td>11.1077</td>
       <td>NaN</td>
+      <td>-12.6465</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0618</td>
     </tr>
     <tr>
       <th>4</th>
@@ -4796,7 +4195,31 @@ df
       <td>...</td>
     </tr>
     <tr>
-      <th>49995</th>
+      <th>1049995</th>
+      <td>1.0</td>
+      <td>11.3251</td>
+      <td>16.4148</td>
+      <td>20.5955</td>
+      <td>NaN</td>
+      <td>-6.3011</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-6.8112</td>
+      <td>7.3226</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>1.3921</td>
+      <td>NaN</td>
+      <td>-16.4925</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.4421</td>
+    </tr>
+    <tr>
+      <th>1049996</th>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -4820,71 +4243,47 @@ df
       <td>NaN</td>
     </tr>
     <tr>
-      <th>49996</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>49997</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>49998</th>
+      <th>1049997</th>
       <td>0.0</td>
-      <td>7.7807</td>
-      <td>11.4038</td>
-      <td>11.2746</td>
+      <td>8.9941</td>
+      <td>13.4127</td>
+      <td>3.9567</td>
       <td>NaN</td>
-      <td>7.6426</td>
+      <td>3.5744</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>6.0973</td>
-      <td>6.6596</td>
+      <td>1.6614</td>
+      <td>6.1486</td>
       <td>...</td>
-      <td>5.0832</td>
-      <td>18.0498</td>
-      <td>19.0913</td>
       <td>NaN</td>
-      <td>-0.0056</td>
+      <td>2.0836</td>
+      <td>NaN</td>
+      <td>-18.6168</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0689</td>
+    </tr>
+    <tr>
+      <th>1049998</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -4892,37 +4291,37 @@ df
       <td>NaN</td>
     </tr>
     <tr>
-      <th>49999</th>
+      <th>1049999</th>
+      <td>0.0</td>
+      <td>2.1828</td>
+      <td>12.3805</td>
+      <td>17.5654</td>
+      <td>NaN</td>
+      <td>8.1795</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>-5.5755</td>
+      <td>6.3705</td>
       <td>...</td>
       <td>NaN</td>
+      <td>-12.1108</td>
+      <td>NaN</td>
+      <td>10.7608</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>14.1690</td>
     </tr>
   </tbody>
 </table>
-<p>50000 rows × 48 columns</p>
+<p>1050000 rows × 102 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-b50ee9e7-2c90-4901-8647-f3a9cc3b89f2')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-594de063-7d93-43d2-8d85-125aeb85317d')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -4974,12 +4373,12 @@ df
 
     <script>
       const buttonEl =
-        document.querySelector('#df-b50ee9e7-2c90-4901-8647-f3a9cc3b89f2 button.colab-df-convert');
+        document.querySelector('#df-594de063-7d93-43d2-8d85-125aeb85317d button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-b50ee9e7-2c90-4901-8647-f3a9cc3b89f2');
+        const element = document.querySelector('#df-594de063-7d93-43d2-8d85-125aeb85317d');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -4999,7 +4398,7 @@ df
   </div>
 
 
-  <div id="id_590014ca-fbf1-4c52-aa55-0f1b8fb6b7a9">
+  <div id="id_6c7a18fc-1c8e-41a7-94e8-1ba609dac5ba">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -5043,7 +4442,7 @@ df
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_590014ca-fbf1-4c52-aa55-0f1b8fb6b7a9 button.colab-df-generate');
+        document.querySelector('#id_6c7a18fc-1c8e-41a7-94e8-1ba609dac5ba button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -5073,7 +4472,7 @@ df_bak2
 
 
 
-  <div id="df-fe4c9bed-8b91-46a5-a085-506a0bca4625" class="colab-df-container">
+  <div id="df-968ddab6-f498-4de0-9fac-4bf2a8841e98" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -5103,16 +4502,16 @@ df_bak2
       <th>var_7</th>
       <th>var_8</th>
       <th>...</th>
-      <th>var_37</th>
-      <th>var_38</th>
-      <th>var_39</th>
-      <th>var_40</th>
-      <th>var_41</th>
-      <th>var_42</th>
-      <th>var_43</th>
-      <th>var_44</th>
-      <th>var_45</th>
-      <th>var_46</th>
+      <th>var_91</th>
+      <th>var_92</th>
+      <th>var_93</th>
+      <th>var_94</th>
+      <th>var_95</th>
+      <th>var_96</th>
+      <th>var_97</th>
+      <th>var_98</th>
+      <th>var_99</th>
+      <th>var_100</th>
     </tr>
   </thead>
   <tbody>
@@ -5201,16 +4600,16 @@ df_bak2
       <td>-1.9254</td>
       <td>6.4760</td>
       <td>...</td>
-      <td>3.4635</td>
-      <td>17.2850</td>
-      <td>16.5520</td>
       <td>NaN</td>
-      <td>-6.8709</td>
+      <td>11.1077</td>
       <td>NaN</td>
+      <td>-12.6465</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0618</td>
     </tr>
     <tr>
       <th>4</th>
@@ -5261,7 +4660,31 @@ df_bak2
       <td>...</td>
     </tr>
     <tr>
-      <th>49995</th>
+      <th>1049995</th>
+      <td>1.0</td>
+      <td>11.3251</td>
+      <td>16.4148</td>
+      <td>20.5955</td>
+      <td>NaN</td>
+      <td>-6.3011</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-6.8112</td>
+      <td>7.3226</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>1.3921</td>
+      <td>NaN</td>
+      <td>-16.4925</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.4421</td>
+    </tr>
+    <tr>
+      <th>1049996</th>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -5285,71 +4708,47 @@ df_bak2
       <td>NaN</td>
     </tr>
     <tr>
-      <th>49996</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>49997</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>49998</th>
+      <th>1049997</th>
       <td>0.0</td>
-      <td>7.7807</td>
-      <td>11.4038</td>
-      <td>11.2746</td>
+      <td>8.9941</td>
+      <td>13.4127</td>
+      <td>3.9567</td>
       <td>NaN</td>
-      <td>7.6426</td>
+      <td>3.5744</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>6.0973</td>
-      <td>6.6596</td>
+      <td>1.6614</td>
+      <td>6.1486</td>
       <td>...</td>
-      <td>5.0832</td>
-      <td>18.0498</td>
-      <td>19.0913</td>
       <td>NaN</td>
-      <td>-0.0056</td>
+      <td>2.0836</td>
+      <td>NaN</td>
+      <td>-18.6168</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0689</td>
+    </tr>
+    <tr>
+      <th>1049998</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -5357,37 +4756,37 @@ df_bak2
       <td>NaN</td>
     </tr>
     <tr>
-      <th>49999</th>
+      <th>1049999</th>
+      <td>0.0</td>
+      <td>2.1828</td>
+      <td>12.3805</td>
+      <td>17.5654</td>
+      <td>NaN</td>
+      <td>8.1795</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>-5.5755</td>
+      <td>6.3705</td>
       <td>...</td>
       <td>NaN</td>
+      <td>-12.1108</td>
+      <td>NaN</td>
+      <td>10.7608</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>14.1690</td>
     </tr>
   </tbody>
 </table>
-<p>50000 rows × 48 columns</p>
+<p>1050000 rows × 102 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-fe4c9bed-8b91-46a5-a085-506a0bca4625')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-968ddab6-f498-4de0-9fac-4bf2a8841e98')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -5439,12 +4838,12 @@ df_bak2
 
     <script>
       const buttonEl =
-        document.querySelector('#df-fe4c9bed-8b91-46a5-a085-506a0bca4625 button.colab-df-convert');
+        document.querySelector('#df-968ddab6-f498-4de0-9fac-4bf2a8841e98 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-fe4c9bed-8b91-46a5-a085-506a0bca4625');
+        const element = document.querySelector('#df-968ddab6-f498-4de0-9fac-4bf2a8841e98');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -5464,7 +4863,7 @@ df_bak2
   </div>
 
 
-  <div id="id_9e1b4b1a-dd3f-42e5-81ee-d815329bc46b">
+  <div id="id_e34afab9-6b12-447a-a892-803b554c0cf3">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -5508,7 +4907,7 @@ df_bak2
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_9e1b4b1a-dd3f-42e5-81ee-d815329bc46b button.colab-df-generate');
+        document.querySelector('#id_e34afab9-6b12-447a-a892-803b554c0cf3 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -5536,7 +4935,7 @@ df
 
 
 
-  <div id="df-a76db50c-2bbf-474b-86b3-c26855f639fa" class="colab-df-container">
+  <div id="df-e5c8e39e-a7b0-4db8-8468-29b5597520d1" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -5566,16 +4965,16 @@ df
       <th>var_7</th>
       <th>var_8</th>
       <th>...</th>
-      <th>var_37</th>
-      <th>var_38</th>
-      <th>var_39</th>
-      <th>var_40</th>
-      <th>var_41</th>
-      <th>var_42</th>
-      <th>var_43</th>
-      <th>var_44</th>
-      <th>var_45</th>
-      <th>var_46</th>
+      <th>var_91</th>
+      <th>var_92</th>
+      <th>var_93</th>
+      <th>var_94</th>
+      <th>var_95</th>
+      <th>var_96</th>
+      <th>var_97</th>
+      <th>var_98</th>
+      <th>var_99</th>
+      <th>var_100</th>
     </tr>
   </thead>
   <tbody>
@@ -5664,16 +5063,16 @@ df
       <td>-1.9254</td>
       <td>6.4760</td>
       <td>...</td>
-      <td>3.4635</td>
-      <td>17.2850</td>
-      <td>16.5520</td>
       <td>NaN</td>
-      <td>-6.8709</td>
+      <td>11.1077</td>
       <td>NaN</td>
+      <td>-12.6465</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0618</td>
     </tr>
     <tr>
       <th>4</th>
@@ -5724,7 +5123,31 @@ df
       <td>...</td>
     </tr>
     <tr>
-      <th>49995</th>
+      <th>1049995</th>
+      <td>1.0</td>
+      <td>11.3251</td>
+      <td>16.4148</td>
+      <td>20.5955</td>
+      <td>NaN</td>
+      <td>-6.3011</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-6.8112</td>
+      <td>7.3226</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>1.3921</td>
+      <td>NaN</td>
+      <td>-16.4925</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.4421</td>
+    </tr>
+    <tr>
+      <th>1049996</th>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -5748,71 +5171,47 @@ df
       <td>NaN</td>
     </tr>
     <tr>
-      <th>49996</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>49997</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>49998</th>
+      <th>1049997</th>
       <td>0.0</td>
-      <td>7.7807</td>
-      <td>11.4038</td>
-      <td>11.2746</td>
+      <td>8.9941</td>
+      <td>13.4127</td>
+      <td>3.9567</td>
       <td>NaN</td>
-      <td>7.6426</td>
+      <td>3.5744</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>6.0973</td>
-      <td>6.6596</td>
+      <td>1.6614</td>
+      <td>6.1486</td>
       <td>...</td>
-      <td>5.0832</td>
-      <td>18.0498</td>
-      <td>19.0913</td>
       <td>NaN</td>
-      <td>-0.0056</td>
+      <td>2.0836</td>
+      <td>NaN</td>
+      <td>-18.6168</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0689</td>
+    </tr>
+    <tr>
+      <th>1049998</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -5820,37 +5219,37 @@ df
       <td>NaN</td>
     </tr>
     <tr>
-      <th>49999</th>
+      <th>1049999</th>
+      <td>0.0</td>
+      <td>2.1828</td>
+      <td>12.3805</td>
+      <td>17.5654</td>
+      <td>NaN</td>
+      <td>8.1795</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>-5.5755</td>
+      <td>6.3705</td>
       <td>...</td>
       <td>NaN</td>
+      <td>-12.1108</td>
+      <td>NaN</td>
+      <td>10.7608</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>14.1690</td>
     </tr>
   </tbody>
 </table>
-<p>50000 rows × 48 columns</p>
+<p>1050000 rows × 102 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-a76db50c-2bbf-474b-86b3-c26855f639fa')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-e5c8e39e-a7b0-4db8-8468-29b5597520d1')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -5902,12 +5301,12 @@ df
 
     <script>
       const buttonEl =
-        document.querySelector('#df-a76db50c-2bbf-474b-86b3-c26855f639fa button.colab-df-convert');
+        document.querySelector('#df-e5c8e39e-a7b0-4db8-8468-29b5597520d1 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-a76db50c-2bbf-474b-86b3-c26855f639fa');
+        const element = document.querySelector('#df-e5c8e39e-a7b0-4db8-8468-29b5597520d1');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -5927,7 +5326,7 @@ df
   </div>
 
 
-  <div id="id_919fa735-657b-4e58-aabb-008f10160550">
+  <div id="id_e802e833-d89d-4fc7-8ec3-afda0c5cb42d">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -5971,7 +5370,7 @@ df
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_919fa735-657b-4e58-aabb-008f10160550 button.colab-df-generate');
+        document.querySelector('#id_e802e833-d89d-4fc7-8ec3-afda0c5cb42d button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -5998,7 +5397,7 @@ df.loc[df[target_col].isnull() == False]
 
 
 
-  <div id="df-a5ed8fbf-2b19-48ae-81d2-018f0242fa4c" class="colab-df-container">
+  <div id="df-85b22ae7-4584-4b94-87c1-e7c38c35c000" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -6028,16 +5427,16 @@ df.loc[df[target_col].isnull() == False]
       <th>var_7</th>
       <th>var_8</th>
       <th>...</th>
-      <th>var_37</th>
-      <th>var_38</th>
-      <th>var_39</th>
-      <th>var_40</th>
-      <th>var_41</th>
-      <th>var_42</th>
-      <th>var_43</th>
-      <th>var_44</th>
-      <th>var_45</th>
-      <th>var_46</th>
+      <th>var_91</th>
+      <th>var_92</th>
+      <th>var_93</th>
+      <th>var_94</th>
+      <th>var_95</th>
+      <th>var_96</th>
+      <th>var_97</th>
+      <th>var_98</th>
+      <th>var_99</th>
+      <th>var_100</th>
     </tr>
   </thead>
   <tbody>
@@ -6054,16 +5453,16 @@ df.loc[df[target_col].isnull() == False]
       <td>-1.9254</td>
       <td>6.4760</td>
       <td>...</td>
-      <td>3.4635</td>
-      <td>17.2850</td>
-      <td>16.5520</td>
       <td>NaN</td>
-      <td>-6.8709</td>
+      <td>11.1077</td>
       <td>NaN</td>
+      <td>-12.6465</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0618</td>
     </tr>
     <tr>
       <th>5</th>
@@ -6078,16 +5477,16 @@ df.loc[df[target_col].isnull() == False]
       <td>-6.4882</td>
       <td>6.0821</td>
       <td>...</td>
-      <td>0.7141</td>
-      <td>22.9317</td>
-      <td>16.5595</td>
       <td>NaN</td>
-      <td>14.4219</td>
+      <td>-2.0111</td>
       <td>NaN</td>
+      <td>-3.6166</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.4520</td>
     </tr>
     <tr>
       <th>11</th>
@@ -6102,16 +5501,16 @@ df.loc[df[target_col].isnull() == False]
       <td>4.0501</td>
       <td>5.8144</td>
       <td>...</td>
-      <td>5.3051</td>
-      <td>12.4606</td>
-      <td>20.5618</td>
       <td>NaN</td>
-      <td>-3.1316</td>
+      <td>13.9424</td>
       <td>NaN</td>
+      <td>-15.5776</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.1222</td>
     </tr>
     <tr>
       <th>15</th>
@@ -6126,16 +5525,16 @@ df.loc[df[target_col].isnull() == False]
       <td>-5.4904</td>
       <td>6.6670</td>
       <td>...</td>
-      <td>13.0779</td>
-      <td>9.9116</td>
-      <td>18.1721</td>
       <td>NaN</td>
-      <td>18.0752</td>
+      <td>3.7943</td>
       <td>NaN</td>
+      <td>5.6184</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0619</td>
     </tr>
     <tr>
       <th>19</th>
@@ -6150,16 +5549,16 @@ df.loc[df[target_col].isnull() == False]
       <td>8.8477</td>
       <td>6.8045</td>
       <td>...</td>
-      <td>9.0731</td>
-      <td>16.4656</td>
-      <td>16.4153</td>
       <td>NaN</td>
-      <td>4.2070</td>
+      <td>-5.6677</td>
       <td>NaN</td>
+      <td>-1.8961</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0275</td>
     </tr>
     <tr>
       <th>...</th>
@@ -6186,133 +5585,133 @@ df.loc[df[target_col].isnull() == False]
       <td>...</td>
     </tr>
     <tr>
-      <th>49986</th>
+      <th>1049990</th>
       <td>0.0</td>
-      <td>4.3703</td>
-      <td>14.5321</td>
-      <td>12.5158</td>
+      <td>7.9632</td>
+      <td>20.4650</td>
+      <td>10.7295</td>
       <td>NaN</td>
-      <td>6.8990</td>
+      <td>2.9322</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>4.8721</td>
-      <td>6.8599</td>
+      <td>5.0267</td>
+      <td>7.1953</td>
       <td>...</td>
-      <td>9.6584</td>
-      <td>13.8385</td>
-      <td>15.1992</td>
       <td>NaN</td>
-      <td>11.0333</td>
+      <td>10.4219</td>
       <td>NaN</td>
+      <td>-19.7158</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0582</td>
     </tr>
     <tr>
-      <th>49987</th>
+      <th>1049993</th>
       <td>0.0</td>
-      <td>5.5247</td>
-      <td>19.5976</td>
-      <td>15.6233</td>
+      <td>5.0862</td>
+      <td>14.4785</td>
+      <td>17.3709</td>
       <td>NaN</td>
-      <td>10.3419</td>
+      <td>-2.4732</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>4.6616</td>
-      <td>6.6762</td>
+      <td>-2.5987</td>
+      <td>6.6798</td>
       <td>...</td>
-      <td>1.4398</td>
-      <td>25.3678</td>
-      <td>16.4867</td>
       <td>NaN</td>
-      <td>11.9542</td>
+      <td>-2.8052</td>
       <td>NaN</td>
+      <td>-13.7290</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.3794</td>
     </tr>
     <tr>
-      <th>49988</th>
-      <td>0.0</td>
-      <td>4.5371</td>
-      <td>19.5715</td>
-      <td>12.0498</td>
+      <th>1049995</th>
+      <td>1.0</td>
+      <td>11.3251</td>
+      <td>16.4148</td>
+      <td>20.5955</td>
       <td>NaN</td>
-      <td>0.0423</td>
+      <td>-6.3011</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-2.0017</td>
-      <td>7.6199</td>
+      <td>-6.8112</td>
+      <td>7.3226</td>
       <td>...</td>
-      <td>4.4885</td>
-      <td>24.3734</td>
-      <td>14.8631</td>
       <td>NaN</td>
-      <td>5.6670</td>
+      <td>1.3921</td>
       <td>NaN</td>
+      <td>-16.4925</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.4421</td>
     </tr>
     <tr>
-      <th>49994</th>
+      <th>1049997</th>
       <td>0.0</td>
-      <td>6.0671</td>
-      <td>20.1542</td>
-      <td>14.4645</td>
+      <td>8.9941</td>
+      <td>13.4127</td>
+      <td>3.9567</td>
       <td>NaN</td>
-      <td>4.7347</td>
+      <td>3.5744</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-2.6682</td>
-      <td>6.9684</td>
+      <td>1.6614</td>
+      <td>6.1486</td>
       <td>...</td>
-      <td>6.8356</td>
-      <td>16.5689</td>
-      <td>24.1643</td>
       <td>NaN</td>
-      <td>5.1754</td>
+      <td>2.0836</td>
       <td>NaN</td>
+      <td>-18.6168</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0689</td>
     </tr>
     <tr>
-      <th>49998</th>
+      <th>1049999</th>
       <td>0.0</td>
-      <td>7.7807</td>
-      <td>11.4038</td>
-      <td>11.2746</td>
+      <td>2.1828</td>
+      <td>12.3805</td>
+      <td>17.5654</td>
       <td>NaN</td>
-      <td>7.6426</td>
+      <td>8.1795</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>6.0973</td>
-      <td>6.6596</td>
+      <td>-5.5755</td>
+      <td>6.3705</td>
       <td>...</td>
-      <td>5.0832</td>
-      <td>18.0498</td>
-      <td>19.0913</td>
       <td>NaN</td>
-      <td>-0.0056</td>
+      <td>-12.1108</td>
       <td>NaN</td>
+      <td>10.7608</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.1690</td>
     </tr>
   </tbody>
 </table>
-<p>8506 rows × 48 columns</p>
+<p>180000 rows × 102 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-a5ed8fbf-2b19-48ae-81d2-018f0242fa4c')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-85b22ae7-4584-4b94-87c1-e7c38c35c000')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -6364,12 +5763,12 @@ df.loc[df[target_col].isnull() == False]
 
     <script>
       const buttonEl =
-        document.querySelector('#df-a5ed8fbf-2b19-48ae-81d2-018f0242fa4c button.colab-df-convert');
+        document.querySelector('#df-85b22ae7-4584-4b94-87c1-e7c38c35c000 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-a5ed8fbf-2b19-48ae-81d2-018f0242fa4c');
+        const element = document.querySelector('#df-85b22ae7-4584-4b94-87c1-e7c38c35c000');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -6406,7 +5805,7 @@ df
 
 
 
-  <div id="df-873694d5-2c67-4292-b644-1bac5d635697" class="colab-df-container">
+  <div id="df-6de6ec0a-4591-4e07-af10-b64e68a3a104" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -6436,16 +5835,16 @@ df
       <th>var_7</th>
       <th>var_8</th>
       <th>...</th>
-      <th>var_37</th>
-      <th>var_38</th>
-      <th>var_39</th>
-      <th>var_40</th>
-      <th>var_41</th>
-      <th>var_42</th>
-      <th>var_43</th>
-      <th>var_44</th>
-      <th>var_45</th>
-      <th>var_46</th>
+      <th>var_91</th>
+      <th>var_92</th>
+      <th>var_93</th>
+      <th>var_94</th>
+      <th>var_95</th>
+      <th>var_96</th>
+      <th>var_97</th>
+      <th>var_98</th>
+      <th>var_99</th>
+      <th>var_100</th>
     </tr>
   </thead>
   <tbody>
@@ -6462,16 +5861,16 @@ df
       <td>-1.9254</td>
       <td>6.4760</td>
       <td>...</td>
-      <td>3.4635</td>
-      <td>17.2850</td>
-      <td>16.5520</td>
       <td>NaN</td>
-      <td>-6.8709</td>
+      <td>11.1077</td>
       <td>NaN</td>
+      <td>-12.6465</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0618</td>
     </tr>
     <tr>
       <th>5</th>
@@ -6486,16 +5885,16 @@ df
       <td>-6.4882</td>
       <td>6.0821</td>
       <td>...</td>
-      <td>0.7141</td>
-      <td>22.9317</td>
-      <td>16.5595</td>
       <td>NaN</td>
-      <td>14.4219</td>
+      <td>-2.0111</td>
       <td>NaN</td>
+      <td>-3.6166</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.4520</td>
     </tr>
     <tr>
       <th>11</th>
@@ -6510,16 +5909,16 @@ df
       <td>4.0501</td>
       <td>5.8144</td>
       <td>...</td>
-      <td>5.3051</td>
-      <td>12.4606</td>
-      <td>20.5618</td>
       <td>NaN</td>
-      <td>-3.1316</td>
+      <td>13.9424</td>
       <td>NaN</td>
+      <td>-15.5776</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.1222</td>
     </tr>
     <tr>
       <th>15</th>
@@ -6534,16 +5933,16 @@ df
       <td>-5.4904</td>
       <td>6.6670</td>
       <td>...</td>
-      <td>13.0779</td>
-      <td>9.9116</td>
-      <td>18.1721</td>
       <td>NaN</td>
-      <td>18.0752</td>
+      <td>3.7943</td>
       <td>NaN</td>
+      <td>5.6184</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0619</td>
     </tr>
     <tr>
       <th>19</th>
@@ -6558,16 +5957,16 @@ df
       <td>8.8477</td>
       <td>6.8045</td>
       <td>...</td>
-      <td>9.0731</td>
-      <td>16.4656</td>
-      <td>16.4153</td>
       <td>NaN</td>
-      <td>4.2070</td>
+      <td>-5.6677</td>
       <td>NaN</td>
+      <td>-1.8961</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0275</td>
     </tr>
     <tr>
       <th>...</th>
@@ -6594,133 +5993,133 @@ df
       <td>...</td>
     </tr>
     <tr>
-      <th>49986</th>
+      <th>1049990</th>
       <td>0.0</td>
-      <td>4.3703</td>
-      <td>14.5321</td>
-      <td>12.5158</td>
+      <td>7.9632</td>
+      <td>20.4650</td>
+      <td>10.7295</td>
       <td>NaN</td>
-      <td>6.8990</td>
+      <td>2.9322</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>4.8721</td>
-      <td>6.8599</td>
+      <td>5.0267</td>
+      <td>7.1953</td>
       <td>...</td>
-      <td>9.6584</td>
-      <td>13.8385</td>
-      <td>15.1992</td>
       <td>NaN</td>
-      <td>11.0333</td>
+      <td>10.4219</td>
       <td>NaN</td>
+      <td>-19.7158</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0582</td>
     </tr>
     <tr>
-      <th>49987</th>
+      <th>1049993</th>
       <td>0.0</td>
-      <td>5.5247</td>
-      <td>19.5976</td>
-      <td>15.6233</td>
+      <td>5.0862</td>
+      <td>14.4785</td>
+      <td>17.3709</td>
       <td>NaN</td>
-      <td>10.3419</td>
+      <td>-2.4732</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>4.6616</td>
-      <td>6.6762</td>
+      <td>-2.5987</td>
+      <td>6.6798</td>
       <td>...</td>
-      <td>1.4398</td>
-      <td>25.3678</td>
-      <td>16.4867</td>
       <td>NaN</td>
-      <td>11.9542</td>
+      <td>-2.8052</td>
       <td>NaN</td>
+      <td>-13.7290</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.3794</td>
     </tr>
     <tr>
-      <th>49988</th>
-      <td>0.0</td>
-      <td>4.5371</td>
-      <td>19.5715</td>
-      <td>12.0498</td>
+      <th>1049995</th>
+      <td>1.0</td>
+      <td>11.3251</td>
+      <td>16.4148</td>
+      <td>20.5955</td>
       <td>NaN</td>
-      <td>0.0423</td>
+      <td>-6.3011</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-2.0017</td>
-      <td>7.6199</td>
+      <td>-6.8112</td>
+      <td>7.3226</td>
       <td>...</td>
-      <td>4.4885</td>
-      <td>24.3734</td>
-      <td>14.8631</td>
       <td>NaN</td>
-      <td>5.6670</td>
+      <td>1.3921</td>
       <td>NaN</td>
+      <td>-16.4925</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.4421</td>
     </tr>
     <tr>
-      <th>49994</th>
+      <th>1049997</th>
       <td>0.0</td>
-      <td>6.0671</td>
-      <td>20.1542</td>
-      <td>14.4645</td>
+      <td>8.9941</td>
+      <td>13.4127</td>
+      <td>3.9567</td>
       <td>NaN</td>
-      <td>4.7347</td>
+      <td>3.5744</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-2.6682</td>
-      <td>6.9684</td>
+      <td>1.6614</td>
+      <td>6.1486</td>
       <td>...</td>
-      <td>6.8356</td>
-      <td>16.5689</td>
-      <td>24.1643</td>
       <td>NaN</td>
-      <td>5.1754</td>
+      <td>2.0836</td>
       <td>NaN</td>
+      <td>-18.6168</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0689</td>
     </tr>
     <tr>
-      <th>49998</th>
+      <th>1049999</th>
       <td>0.0</td>
-      <td>7.7807</td>
-      <td>11.4038</td>
-      <td>11.2746</td>
+      <td>2.1828</td>
+      <td>12.3805</td>
+      <td>17.5654</td>
       <td>NaN</td>
-      <td>7.6426</td>
+      <td>8.1795</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>6.0973</td>
-      <td>6.6596</td>
+      <td>-5.5755</td>
+      <td>6.3705</td>
       <td>...</td>
-      <td>5.0832</td>
-      <td>18.0498</td>
-      <td>19.0913</td>
       <td>NaN</td>
-      <td>-0.0056</td>
+      <td>-12.1108</td>
       <td>NaN</td>
+      <td>10.7608</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.1690</td>
     </tr>
   </tbody>
 </table>
-<p>8506 rows × 48 columns</p>
+<p>180000 rows × 102 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-873694d5-2c67-4292-b644-1bac5d635697')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-6de6ec0a-4591-4e07-af10-b64e68a3a104')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -6772,12 +6171,12 @@ df
 
     <script>
       const buttonEl =
-        document.querySelector('#df-873694d5-2c67-4292-b644-1bac5d635697 button.colab-df-convert');
+        document.querySelector('#df-6de6ec0a-4591-4e07-af10-b64e68a3a104 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-873694d5-2c67-4292-b644-1bac5d635697');
+        const element = document.querySelector('#df-6de6ec0a-4591-4e07-af10-b64e68a3a104');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -6797,7 +6196,7 @@ df
   </div>
 
 
-  <div id="id_3a657cf6-7795-459d-b02b-32b86147b84e">
+  <div id="id_49ee976d-5195-4ce8-945f-f624591d7853">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -6841,7 +6240,7 @@ df
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_3a657cf6-7795-459d-b02b-32b86147b84e button.colab-df-generate');
+        document.querySelector('#id_49ee976d-5195-4ce8-945f-f624591d7853 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -6869,7 +6268,7 @@ df_bak3
 
 
 
-  <div id="df-f1de68fd-c163-4f48-a4dc-56a9b2fc87b7" class="colab-df-container">
+  <div id="df-efc0add2-2100-49d5-8e3f-ebe1dc548062" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -6899,16 +6298,16 @@ df_bak3
       <th>var_7</th>
       <th>var_8</th>
       <th>...</th>
-      <th>var_37</th>
-      <th>var_38</th>
-      <th>var_39</th>
-      <th>var_40</th>
-      <th>var_41</th>
-      <th>var_42</th>
-      <th>var_43</th>
-      <th>var_44</th>
-      <th>var_45</th>
-      <th>var_46</th>
+      <th>var_91</th>
+      <th>var_92</th>
+      <th>var_93</th>
+      <th>var_94</th>
+      <th>var_95</th>
+      <th>var_96</th>
+      <th>var_97</th>
+      <th>var_98</th>
+      <th>var_99</th>
+      <th>var_100</th>
     </tr>
   </thead>
   <tbody>
@@ -6925,16 +6324,16 @@ df_bak3
       <td>-1.9254</td>
       <td>6.4760</td>
       <td>...</td>
-      <td>3.4635</td>
-      <td>17.2850</td>
-      <td>16.5520</td>
       <td>NaN</td>
-      <td>-6.8709</td>
+      <td>11.1077</td>
       <td>NaN</td>
+      <td>-12.6465</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0618</td>
     </tr>
     <tr>
       <th>5</th>
@@ -6949,16 +6348,16 @@ df_bak3
       <td>-6.4882</td>
       <td>6.0821</td>
       <td>...</td>
-      <td>0.7141</td>
-      <td>22.9317</td>
-      <td>16.5595</td>
       <td>NaN</td>
-      <td>14.4219</td>
+      <td>-2.0111</td>
       <td>NaN</td>
+      <td>-3.6166</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.4520</td>
     </tr>
     <tr>
       <th>11</th>
@@ -6973,16 +6372,16 @@ df_bak3
       <td>4.0501</td>
       <td>5.8144</td>
       <td>...</td>
-      <td>5.3051</td>
-      <td>12.4606</td>
-      <td>20.5618</td>
       <td>NaN</td>
-      <td>-3.1316</td>
+      <td>13.9424</td>
       <td>NaN</td>
+      <td>-15.5776</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.1222</td>
     </tr>
     <tr>
       <th>15</th>
@@ -6997,16 +6396,16 @@ df_bak3
       <td>-5.4904</td>
       <td>6.6670</td>
       <td>...</td>
-      <td>13.0779</td>
-      <td>9.9116</td>
-      <td>18.1721</td>
       <td>NaN</td>
-      <td>18.0752</td>
+      <td>3.7943</td>
       <td>NaN</td>
+      <td>5.6184</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0619</td>
     </tr>
     <tr>
       <th>19</th>
@@ -7021,16 +6420,16 @@ df_bak3
       <td>8.8477</td>
       <td>6.8045</td>
       <td>...</td>
-      <td>9.0731</td>
-      <td>16.4656</td>
-      <td>16.4153</td>
       <td>NaN</td>
-      <td>4.2070</td>
+      <td>-5.6677</td>
       <td>NaN</td>
+      <td>-1.8961</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0275</td>
     </tr>
     <tr>
       <th>...</th>
@@ -7057,133 +6456,133 @@ df_bak3
       <td>...</td>
     </tr>
     <tr>
-      <th>49986</th>
+      <th>1049990</th>
       <td>0.0</td>
-      <td>4.3703</td>
-      <td>14.5321</td>
-      <td>12.5158</td>
+      <td>7.9632</td>
+      <td>20.4650</td>
+      <td>10.7295</td>
       <td>NaN</td>
-      <td>6.8990</td>
+      <td>2.9322</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>4.8721</td>
-      <td>6.8599</td>
+      <td>5.0267</td>
+      <td>7.1953</td>
       <td>...</td>
-      <td>9.6584</td>
-      <td>13.8385</td>
-      <td>15.1992</td>
       <td>NaN</td>
-      <td>11.0333</td>
+      <td>10.4219</td>
       <td>NaN</td>
+      <td>-19.7158</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0582</td>
     </tr>
     <tr>
-      <th>49987</th>
+      <th>1049993</th>
       <td>0.0</td>
-      <td>5.5247</td>
-      <td>19.5976</td>
-      <td>15.6233</td>
+      <td>5.0862</td>
+      <td>14.4785</td>
+      <td>17.3709</td>
       <td>NaN</td>
-      <td>10.3419</td>
+      <td>-2.4732</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>4.6616</td>
-      <td>6.6762</td>
+      <td>-2.5987</td>
+      <td>6.6798</td>
       <td>...</td>
-      <td>1.4398</td>
-      <td>25.3678</td>
-      <td>16.4867</td>
       <td>NaN</td>
-      <td>11.9542</td>
+      <td>-2.8052</td>
       <td>NaN</td>
+      <td>-13.7290</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.3794</td>
     </tr>
     <tr>
-      <th>49988</th>
-      <td>0.0</td>
-      <td>4.5371</td>
-      <td>19.5715</td>
-      <td>12.0498</td>
+      <th>1049995</th>
+      <td>1.0</td>
+      <td>11.3251</td>
+      <td>16.4148</td>
+      <td>20.5955</td>
       <td>NaN</td>
-      <td>0.0423</td>
+      <td>-6.3011</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-2.0017</td>
-      <td>7.6199</td>
+      <td>-6.8112</td>
+      <td>7.3226</td>
       <td>...</td>
-      <td>4.4885</td>
-      <td>24.3734</td>
-      <td>14.8631</td>
       <td>NaN</td>
-      <td>5.6670</td>
+      <td>1.3921</td>
       <td>NaN</td>
+      <td>-16.4925</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.4421</td>
     </tr>
     <tr>
-      <th>49994</th>
+      <th>1049997</th>
       <td>0.0</td>
-      <td>6.0671</td>
-      <td>20.1542</td>
-      <td>14.4645</td>
+      <td>8.9941</td>
+      <td>13.4127</td>
+      <td>3.9567</td>
       <td>NaN</td>
-      <td>4.7347</td>
+      <td>3.5744</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-2.6682</td>
-      <td>6.9684</td>
+      <td>1.6614</td>
+      <td>6.1486</td>
       <td>...</td>
-      <td>6.8356</td>
-      <td>16.5689</td>
-      <td>24.1643</td>
       <td>NaN</td>
-      <td>5.1754</td>
+      <td>2.0836</td>
       <td>NaN</td>
+      <td>-18.6168</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0689</td>
     </tr>
     <tr>
-      <th>49998</th>
+      <th>1049999</th>
       <td>0.0</td>
-      <td>7.7807</td>
-      <td>11.4038</td>
-      <td>11.2746</td>
+      <td>2.1828</td>
+      <td>12.3805</td>
+      <td>17.5654</td>
       <td>NaN</td>
-      <td>7.6426</td>
+      <td>8.1795</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>6.0973</td>
-      <td>6.6596</td>
+      <td>-5.5755</td>
+      <td>6.3705</td>
       <td>...</td>
-      <td>5.0832</td>
-      <td>18.0498</td>
-      <td>19.0913</td>
       <td>NaN</td>
-      <td>-0.0056</td>
+      <td>-12.1108</td>
       <td>NaN</td>
+      <td>10.7608</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.1690</td>
     </tr>
   </tbody>
 </table>
-<p>8506 rows × 48 columns</p>
+<p>180000 rows × 102 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-f1de68fd-c163-4f48-a4dc-56a9b2fc87b7')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-efc0add2-2100-49d5-8e3f-ebe1dc548062')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -7235,12 +6634,12 @@ df_bak3
 
     <script>
       const buttonEl =
-        document.querySelector('#df-f1de68fd-c163-4f48-a4dc-56a9b2fc87b7 button.colab-df-convert');
+        document.querySelector('#df-efc0add2-2100-49d5-8e3f-ebe1dc548062 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-f1de68fd-c163-4f48-a4dc-56a9b2fc87b7');
+        const element = document.querySelector('#df-efc0add2-2100-49d5-8e3f-ebe1dc548062');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -7260,7 +6659,7 @@ df_bak3
   </div>
 
 
-  <div id="id_d16d88cd-c188-4b49-8932-cca63e18416c">
+  <div id="id_d55028ee-cc24-48cb-a3eb-ae2eed13a487">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -7304,7 +6703,7 @@ df_bak3
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_d16d88cd-c188-4b49-8932-cca63e18416c button.colab-df-generate');
+        document.querySelector('#id_d55028ee-cc24-48cb-a3eb-ae2eed13a487 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -7332,7 +6731,7 @@ df
 
 
 
-  <div id="df-9719fe81-842e-49da-a1ae-73f39ecaead6" class="colab-df-container">
+  <div id="df-aecc073c-5892-414b-a9b5-f093faa03fd8" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -7362,16 +6761,16 @@ df
       <th>var_7</th>
       <th>var_8</th>
       <th>...</th>
-      <th>var_37</th>
-      <th>var_38</th>
-      <th>var_39</th>
-      <th>var_40</th>
-      <th>var_41</th>
-      <th>var_42</th>
-      <th>var_43</th>
-      <th>var_44</th>
-      <th>var_45</th>
-      <th>var_46</th>
+      <th>var_91</th>
+      <th>var_92</th>
+      <th>var_93</th>
+      <th>var_94</th>
+      <th>var_95</th>
+      <th>var_96</th>
+      <th>var_97</th>
+      <th>var_98</th>
+      <th>var_99</th>
+      <th>var_100</th>
     </tr>
   </thead>
   <tbody>
@@ -7388,16 +6787,16 @@ df
       <td>-1.9254</td>
       <td>6.4760</td>
       <td>...</td>
-      <td>3.4635</td>
-      <td>17.2850</td>
-      <td>16.5520</td>
       <td>NaN</td>
-      <td>-6.8709</td>
+      <td>11.1077</td>
       <td>NaN</td>
+      <td>-12.6465</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0618</td>
     </tr>
     <tr>
       <th>5</th>
@@ -7412,16 +6811,16 @@ df
       <td>-6.4882</td>
       <td>6.0821</td>
       <td>...</td>
-      <td>0.7141</td>
-      <td>22.9317</td>
-      <td>16.5595</td>
       <td>NaN</td>
-      <td>14.4219</td>
+      <td>-2.0111</td>
       <td>NaN</td>
+      <td>-3.6166</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.4520</td>
     </tr>
     <tr>
       <th>11</th>
@@ -7436,16 +6835,16 @@ df
       <td>4.0501</td>
       <td>5.8144</td>
       <td>...</td>
-      <td>5.3051</td>
-      <td>12.4606</td>
-      <td>20.5618</td>
       <td>NaN</td>
-      <td>-3.1316</td>
+      <td>13.9424</td>
       <td>NaN</td>
+      <td>-15.5776</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.1222</td>
     </tr>
     <tr>
       <th>15</th>
@@ -7460,16 +6859,16 @@ df
       <td>-5.4904</td>
       <td>6.6670</td>
       <td>...</td>
-      <td>13.0779</td>
-      <td>9.9116</td>
-      <td>18.1721</td>
       <td>NaN</td>
-      <td>18.0752</td>
+      <td>3.7943</td>
       <td>NaN</td>
+      <td>5.6184</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0619</td>
     </tr>
     <tr>
       <th>19</th>
@@ -7484,16 +6883,16 @@ df
       <td>8.8477</td>
       <td>6.8045</td>
       <td>...</td>
-      <td>9.0731</td>
-      <td>16.4656</td>
-      <td>16.4153</td>
       <td>NaN</td>
-      <td>4.2070</td>
+      <td>-5.6677</td>
       <td>NaN</td>
+      <td>-1.8961</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0275</td>
     </tr>
     <tr>
       <th>...</th>
@@ -7520,133 +6919,133 @@ df
       <td>...</td>
     </tr>
     <tr>
-      <th>49986</th>
+      <th>1049990</th>
       <td>0.0</td>
-      <td>4.3703</td>
-      <td>14.5321</td>
-      <td>12.5158</td>
+      <td>7.9632</td>
+      <td>20.4650</td>
+      <td>10.7295</td>
       <td>NaN</td>
-      <td>6.8990</td>
+      <td>2.9322</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>4.8721</td>
-      <td>6.8599</td>
+      <td>5.0267</td>
+      <td>7.1953</td>
       <td>...</td>
-      <td>9.6584</td>
-      <td>13.8385</td>
-      <td>15.1992</td>
       <td>NaN</td>
-      <td>11.0333</td>
+      <td>10.4219</td>
       <td>NaN</td>
+      <td>-19.7158</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0582</td>
     </tr>
     <tr>
-      <th>49987</th>
+      <th>1049993</th>
       <td>0.0</td>
-      <td>5.5247</td>
-      <td>19.5976</td>
-      <td>15.6233</td>
+      <td>5.0862</td>
+      <td>14.4785</td>
+      <td>17.3709</td>
       <td>NaN</td>
-      <td>10.3419</td>
+      <td>-2.4732</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>4.6616</td>
-      <td>6.6762</td>
+      <td>-2.5987</td>
+      <td>6.6798</td>
       <td>...</td>
-      <td>1.4398</td>
-      <td>25.3678</td>
-      <td>16.4867</td>
       <td>NaN</td>
-      <td>11.9542</td>
+      <td>-2.8052</td>
       <td>NaN</td>
+      <td>-13.7290</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.3794</td>
     </tr>
     <tr>
-      <th>49988</th>
-      <td>0.0</td>
-      <td>4.5371</td>
-      <td>19.5715</td>
-      <td>12.0498</td>
+      <th>1049995</th>
+      <td>1.0</td>
+      <td>11.3251</td>
+      <td>16.4148</td>
+      <td>20.5955</td>
       <td>NaN</td>
-      <td>0.0423</td>
+      <td>-6.3011</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-2.0017</td>
-      <td>7.6199</td>
+      <td>-6.8112</td>
+      <td>7.3226</td>
       <td>...</td>
-      <td>4.4885</td>
-      <td>24.3734</td>
-      <td>14.8631</td>
       <td>NaN</td>
-      <td>5.6670</td>
+      <td>1.3921</td>
       <td>NaN</td>
+      <td>-16.4925</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.4421</td>
     </tr>
     <tr>
-      <th>49994</th>
+      <th>1049997</th>
       <td>0.0</td>
-      <td>6.0671</td>
-      <td>20.1542</td>
-      <td>14.4645</td>
+      <td>8.9941</td>
+      <td>13.4127</td>
+      <td>3.9567</td>
       <td>NaN</td>
-      <td>4.7347</td>
+      <td>3.5744</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-2.6682</td>
-      <td>6.9684</td>
+      <td>1.6614</td>
+      <td>6.1486</td>
       <td>...</td>
-      <td>6.8356</td>
-      <td>16.5689</td>
-      <td>24.1643</td>
       <td>NaN</td>
-      <td>5.1754</td>
+      <td>2.0836</td>
       <td>NaN</td>
+      <td>-18.6168</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0689</td>
     </tr>
     <tr>
-      <th>49998</th>
+      <th>1049999</th>
       <td>0.0</td>
-      <td>7.7807</td>
-      <td>11.4038</td>
-      <td>11.2746</td>
+      <td>2.1828</td>
+      <td>12.3805</td>
+      <td>17.5654</td>
       <td>NaN</td>
-      <td>7.6426</td>
+      <td>8.1795</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>6.0973</td>
-      <td>6.6596</td>
+      <td>-5.5755</td>
+      <td>6.3705</td>
       <td>...</td>
-      <td>5.0832</td>
-      <td>18.0498</td>
-      <td>19.0913</td>
       <td>NaN</td>
-      <td>-0.0056</td>
+      <td>-12.1108</td>
       <td>NaN</td>
+      <td>10.7608</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>14.1690</td>
     </tr>
   </tbody>
 </table>
-<p>8506 rows × 48 columns</p>
+<p>180000 rows × 102 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-9719fe81-842e-49da-a1ae-73f39ecaead6')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-aecc073c-5892-414b-a9b5-f093faa03fd8')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -7698,12 +7097,12 @@ df
 
     <script>
       const buttonEl =
-        document.querySelector('#df-9719fe81-842e-49da-a1ae-73f39ecaead6 button.colab-df-convert');
+        document.querySelector('#df-aecc073c-5892-414b-a9b5-f093faa03fd8 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-9719fe81-842e-49da-a1ae-73f39ecaead6');
+        const element = document.querySelector('#df-aecc073c-5892-414b-a9b5-f093faa03fd8');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -7723,7 +7122,7 @@ df
   </div>
 
 
-  <div id="id_50291d7d-ac22-4583-9b83-550d8445a222">
+  <div id="id_5e11c471-279f-47ff-abef-6c68b0e5ceec">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -7767,7 +7166,7 @@ df
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_50291d7d-ac22-4583-9b83-550d8445a222 button.colab-df-generate');
+        document.querySelector('#id_5e11c471-279f-47ff-abef-6c68b0e5ceec button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -7817,7 +7216,33 @@ list_nulls
      'var_43',
      'var_44',
      'var_45',
-     'var_46']
+     'var_46',
+     'var_47',
+     'var_50',
+     'var_51',
+     'var_53',
+     'var_54',
+     'var_55',
+     'var_58',
+     'var_59',
+     'var_60',
+     'var_64',
+     'var_68',
+     'var_69',
+     'var_71',
+     'var_74',
+     'var_76',
+     'var_77',
+     'var_79',
+     'var_81',
+     'var_90',
+     'var_91',
+     'var_93',
+     'var_95',
+     'var_96',
+     'var_97',
+     'var_98',
+     'var_99']
 
 
 
@@ -7831,7 +7256,7 @@ df.drop( columns = list_nulls )
 
 
 
-  <div id="df-1a96926b-5320-4631-8d24-be23554355af" class="colab-df-container">
+  <div id="df-93ce1511-bfd6-4e0d-9a22-a49d0bcada22" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -7861,16 +7286,16 @@ df.drop( columns = list_nulls )
       <th>var_15</th>
       <th>var_17</th>
       <th>...</th>
-      <th>var_24</th>
-      <th>var_26</th>
-      <th>var_27</th>
-      <th>var_28</th>
-      <th>var_29</th>
-      <th>var_36</th>
-      <th>var_37</th>
-      <th>var_38</th>
-      <th>var_39</th>
-      <th>var_41</th>
+      <th>var_83</th>
+      <th>var_84</th>
+      <th>var_85</th>
+      <th>var_86</th>
+      <th>var_87</th>
+      <th>var_88</th>
+      <th>var_89</th>
+      <th>var_92</th>
+      <th>var_94</th>
+      <th>var_100</th>
     </tr>
   </thead>
   <tbody>
@@ -7887,16 +7312,16 @@ df.drop( columns = list_nulls )
       <td>2.8817</td>
       <td>11.6975</td>
       <td>...</td>
-      <td>-0.3075</td>
-      <td>8.2199</td>
-      <td>19.4827</td>
-      <td>1.0175</td>
-      <td>5.0866</td>
-      <td>7.6264</td>
-      <td>3.4635</td>
-      <td>17.2850</td>
-      <td>16.5520</td>
-      <td>-6.8709</td>
+      <td>11.8011</td>
+      <td>3.9677</td>
+      <td>9.5382</td>
+      <td>-8.4394</td>
+      <td>5.5043</td>
+      <td>2.2732</td>
+      <td>1.6362</td>
+      <td>11.1077</td>
+      <td>-12.6465</td>
+      <td>14.0618</td>
     </tr>
     <tr>
       <th>5</th>
@@ -7911,16 +7336,16 @@ df.drop( columns = list_nulls )
       <td>2.2225</td>
       <td>7.2218</td>
       <td>...</td>
-      <td>-2.0043</td>
-      <td>8.8070</td>
-      <td>21.8550</td>
-      <td>2.2655</td>
-      <td>5.4675</td>
-      <td>4.4082</td>
-      <td>0.7141</td>
-      <td>22.9317</td>
-      <td>16.5595</td>
-      <td>14.4219</td>
+      <td>11.8294</td>
+      <td>3.8887</td>
+      <td>8.8591</td>
+      <td>6.1482</td>
+      <td>8.5833</td>
+      <td>2.8432</td>
+      <td>1.8434</td>
+      <td>-2.0111</td>
+      <td>-3.6166</td>
+      <td>14.4520</td>
     </tr>
     <tr>
       <th>11</th>
@@ -7935,16 +7360,16 @@ df.drop( columns = list_nulls )
       <td>3.4990</td>
       <td>4.2892</td>
       <td>...</td>
-      <td>0.5701</td>
-      <td>14.4752</td>
-      <td>17.0508</td>
-      <td>4.4676</td>
-      <td>0.7943</td>
-      <td>6.6745</td>
-      <td>5.3051</td>
-      <td>12.4606</td>
-      <td>20.5618</td>
-      <td>-3.1316</td>
+      <td>11.7464</td>
+      <td>4.0017</td>
+      <td>5.8179</td>
+      <td>10.4951</td>
+      <td>12.4494</td>
+      <td>2.8009</td>
+      <td>0.3394</td>
+      <td>13.9424</td>
+      <td>-15.5776</td>
+      <td>14.1222</td>
     </tr>
     <tr>
       <th>15</th>
@@ -7959,16 +7384,16 @@ df.drop( columns = list_nulls )
       <td>2.8910</td>
       <td>8.2374</td>
       <td>...</td>
-      <td>1.8609</td>
-      <td>13.3220</td>
-      <td>10.5239</td>
-      <td>0.0104</td>
-      <td>4.2731</td>
-      <td>5.7718</td>
-      <td>13.0779</td>
-      <td>9.9116</td>
-      <td>18.1721</td>
-      <td>18.0752</td>
+      <td>11.5481</td>
+      <td>3.9809</td>
+      <td>8.2247</td>
+      <td>21.2257</td>
+      <td>6.9931</td>
+      <td>3.3939</td>
+      <td>-2.3905</td>
+      <td>3.7943</td>
+      <td>5.6184</td>
+      <td>14.0619</td>
     </tr>
     <tr>
       <th>19</th>
@@ -7983,16 +7408,16 @@ df.drop( columns = list_nulls )
       <td>3.2771</td>
       <td>12.6446</td>
       <td>...</td>
-      <td>-5.8713</td>
-      <td>8.1795</td>
-      <td>9.1067</td>
-      <td>3.3064</td>
-      <td>1.7090</td>
-      <td>3.5648</td>
-      <td>9.0731</td>
-      <td>16.4656</td>
-      <td>16.4153</td>
-      <td>4.2070</td>
+      <td>10.8981</td>
+      <td>4.1808</td>
+      <td>9.4220</td>
+      <td>1.8563</td>
+      <td>10.5738</td>
+      <td>1.2409</td>
+      <td>-1.3888</td>
+      <td>-5.6677</td>
+      <td>-1.8961</td>
+      <td>14.0275</td>
     </tr>
     <tr>
       <th>...</th>
@@ -8019,133 +7444,133 @@ df.drop( columns = list_nulls )
       <td>...</td>
     </tr>
     <tr>
-      <th>49986</th>
+      <th>1049990</th>
       <td>0.0</td>
-      <td>4.3703</td>
-      <td>14.5321</td>
-      <td>12.5158</td>
-      <td>6.8990</td>
-      <td>4.8721</td>
-      <td>6.8599</td>
-      <td>3.6049</td>
-      <td>2.6936</td>
-      <td>3.3631</td>
+      <td>7.9632</td>
+      <td>20.4650</td>
+      <td>10.7295</td>
+      <td>2.9322</td>
+      <td>5.0267</td>
+      <td>7.1953</td>
+      <td>10.0695</td>
+      <td>3.0732</td>
+      <td>11.0135</td>
       <td>...</td>
-      <td>-1.7922</td>
-      <td>11.2487</td>
-      <td>13.0809</td>
-      <td>5.2903</td>
-      <td>3.4783</td>
-      <td>7.1363</td>
-      <td>9.6584</td>
-      <td>13.8385</td>
-      <td>15.1992</td>
-      <td>11.0333</td>
+      <td>12.1000</td>
+      <td>4.2019</td>
+      <td>7.1249</td>
+      <td>14.6591</td>
+      <td>10.2705</td>
+      <td>3.5833</td>
+      <td>2.5588</td>
+      <td>10.4219</td>
+      <td>-19.7158</td>
+      <td>14.0582</td>
     </tr>
     <tr>
-      <th>49987</th>
+      <th>1049993</th>
       <td>0.0</td>
-      <td>5.5247</td>
-      <td>19.5976</td>
-      <td>15.6233</td>
-      <td>10.3419</td>
-      <td>4.6616</td>
-      <td>6.6762</td>
-      <td>6.5438</td>
-      <td>2.9693</td>
-      <td>11.5063</td>
+      <td>5.0862</td>
+      <td>14.4785</td>
+      <td>17.3709</td>
+      <td>-2.4732</td>
+      <td>-2.5987</td>
+      <td>6.6798</td>
+      <td>3.0420</td>
+      <td>2.4057</td>
+      <td>18.2729</td>
       <td>...</td>
-      <td>1.9994</td>
-      <td>14.4838</td>
-      <td>22.3433</td>
-      <td>1.4035</td>
-      <td>9.0304</td>
-      <td>2.3784</td>
-      <td>1.4398</td>
-      <td>25.3678</td>
-      <td>16.4867</td>
-      <td>11.9542</td>
+      <td>10.9960</td>
+      <td>3.9637</td>
+      <td>8.0217</td>
+      <td>11.0449</td>
+      <td>9.3100</td>
+      <td>1.0545</td>
+      <td>-2.8770</td>
+      <td>-2.8052</td>
+      <td>-13.7290</td>
+      <td>14.3794</td>
     </tr>
     <tr>
-      <th>49988</th>
-      <td>0.0</td>
-      <td>4.5371</td>
-      <td>19.5715</td>
-      <td>12.0498</td>
-      <td>0.0423</td>
-      <td>-2.0017</td>
-      <td>7.6199</td>
-      <td>12.3320</td>
-      <td>2.5670</td>
-      <td>4.1939</td>
+      <th>1049995</th>
+      <td>1.0</td>
+      <td>11.3251</td>
+      <td>16.4148</td>
+      <td>20.5955</td>
+      <td>-6.3011</td>
+      <td>-6.8112</td>
+      <td>7.3226</td>
+      <td>14.9182</td>
+      <td>2.4579</td>
+      <td>14.7175</td>
       <td>...</td>
-      <td>4.2031</td>
-      <td>10.1765</td>
-      <td>12.9907</td>
-      <td>3.1120</td>
-      <td>6.3440</td>
-      <td>4.1328</td>
-      <td>4.4885</td>
-      <td>24.3734</td>
-      <td>14.8631</td>
-      <td>5.6670</td>
+      <td>11.2265</td>
+      <td>3.8431</td>
+      <td>8.2748</td>
+      <td>-7.8464</td>
+      <td>9.9774</td>
+      <td>1.7377</td>
+      <td>-1.7942</td>
+      <td>1.3921</td>
+      <td>-16.4925</td>
+      <td>14.4421</td>
     </tr>
     <tr>
-      <th>49994</th>
+      <th>1049997</th>
       <td>0.0</td>
-      <td>6.0671</td>
-      <td>20.1542</td>
-      <td>14.4645</td>
-      <td>4.7347</td>
-      <td>-2.6682</td>
-      <td>6.9684</td>
-      <td>18.5923</td>
-      <td>2.9067</td>
-      <td>-0.8132</td>
+      <td>8.9941</td>
+      <td>13.4127</td>
+      <td>3.9567</td>
+      <td>3.5744</td>
+      <td>1.6614</td>
+      <td>6.1486</td>
+      <td>12.0996</td>
+      <td>2.5439</td>
+      <td>10.2936</td>
       <td>...</td>
-      <td>-6.8900</td>
-      <td>11.3503</td>
-      <td>11.2448</td>
-      <td>-0.1915</td>
-      <td>4.1460</td>
-      <td>4.0240</td>
-      <td>6.8356</td>
-      <td>16.5689</td>
-      <td>24.1643</td>
-      <td>5.1754</td>
+      <td>10.5067</td>
+      <td>4.0642</td>
+      <td>8.3381</td>
+      <td>17.9081</td>
+      <td>12.3357</td>
+      <td>2.6530</td>
+      <td>-1.2359</td>
+      <td>2.0836</td>
+      <td>-18.6168</td>
+      <td>14.0689</td>
     </tr>
     <tr>
-      <th>49998</th>
+      <th>1049999</th>
       <td>0.0</td>
-      <td>7.7807</td>
-      <td>11.4038</td>
-      <td>11.2746</td>
-      <td>7.6426</td>
-      <td>6.0973</td>
-      <td>6.6596</td>
-      <td>14.8004</td>
-      <td>3.0541</td>
-      <td>13.8471</td>
+      <td>2.1828</td>
+      <td>12.3805</td>
+      <td>17.5654</td>
+      <td>8.1795</td>
+      <td>-5.5755</td>
+      <td>6.3705</td>
+      <td>5.1813</td>
+      <td>2.5118</td>
+      <td>10.0141</td>
       <td>...</td>
-      <td>5.0152</td>
-      <td>6.8036</td>
-      <td>16.0150</td>
-      <td>5.5985</td>
-      <td>0.7687</td>
-      <td>9.1370</td>
-      <td>5.0832</td>
-      <td>18.0498</td>
-      <td>19.0913</td>
-      <td>-0.0056</td>
+      <td>12.0632</td>
+      <td>3.8415</td>
+      <td>6.3466</td>
+      <td>30.6304</td>
+      <td>10.7439</td>
+      <td>-0.1808</td>
+      <td>0.2578</td>
+      <td>-12.1108</td>
+      <td>10.7608</td>
+      <td>14.1690</td>
     </tr>
   </tbody>
 </table>
-<p>8506 rows × 23 columns</p>
+<p>180000 rows × 51 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-1a96926b-5320-4631-8d24-be23554355af')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-93ce1511-bfd6-4e0d-9a22-a49d0bcada22')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -8197,12 +7622,12 @@ df.drop( columns = list_nulls )
 
     <script>
       const buttonEl =
-        document.querySelector('#df-1a96926b-5320-4631-8d24-be23554355af button.colab-df-convert');
+        document.querySelector('#df-93ce1511-bfd6-4e0d-9a22-a49d0bcada22 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-1a96926b-5320-4631-8d24-be23554355af');
+        const element = document.querySelector('#df-93ce1511-bfd6-4e0d-9a22-a49d0bcada22');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -8239,7 +7664,7 @@ df
 
 
 
-  <div id="df-66de0841-c97d-4f8f-95a3-ef3545e31bce" class="colab-df-container">
+  <div id="df-ed7d4876-c269-4b1e-8751-ef301542eac9" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -8269,16 +7694,16 @@ df
       <th>var_15</th>
       <th>var_17</th>
       <th>...</th>
-      <th>var_24</th>
-      <th>var_26</th>
-      <th>var_27</th>
-      <th>var_28</th>
-      <th>var_29</th>
-      <th>var_36</th>
-      <th>var_37</th>
-      <th>var_38</th>
-      <th>var_39</th>
-      <th>var_41</th>
+      <th>var_83</th>
+      <th>var_84</th>
+      <th>var_85</th>
+      <th>var_86</th>
+      <th>var_87</th>
+      <th>var_88</th>
+      <th>var_89</th>
+      <th>var_92</th>
+      <th>var_94</th>
+      <th>var_100</th>
     </tr>
   </thead>
   <tbody>
@@ -8295,16 +7720,16 @@ df
       <td>2.8817</td>
       <td>11.6975</td>
       <td>...</td>
-      <td>-0.3075</td>
-      <td>8.2199</td>
-      <td>19.4827</td>
-      <td>1.0175</td>
-      <td>5.0866</td>
-      <td>7.6264</td>
-      <td>3.4635</td>
-      <td>17.2850</td>
-      <td>16.5520</td>
-      <td>-6.8709</td>
+      <td>11.8011</td>
+      <td>3.9677</td>
+      <td>9.5382</td>
+      <td>-8.4394</td>
+      <td>5.5043</td>
+      <td>2.2732</td>
+      <td>1.6362</td>
+      <td>11.1077</td>
+      <td>-12.6465</td>
+      <td>14.0618</td>
     </tr>
     <tr>
       <th>5</th>
@@ -8319,16 +7744,16 @@ df
       <td>2.2225</td>
       <td>7.2218</td>
       <td>...</td>
-      <td>-2.0043</td>
-      <td>8.8070</td>
-      <td>21.8550</td>
-      <td>2.2655</td>
-      <td>5.4675</td>
-      <td>4.4082</td>
-      <td>0.7141</td>
-      <td>22.9317</td>
-      <td>16.5595</td>
-      <td>14.4219</td>
+      <td>11.8294</td>
+      <td>3.8887</td>
+      <td>8.8591</td>
+      <td>6.1482</td>
+      <td>8.5833</td>
+      <td>2.8432</td>
+      <td>1.8434</td>
+      <td>-2.0111</td>
+      <td>-3.6166</td>
+      <td>14.4520</td>
     </tr>
     <tr>
       <th>11</th>
@@ -8343,16 +7768,16 @@ df
       <td>3.4990</td>
       <td>4.2892</td>
       <td>...</td>
-      <td>0.5701</td>
-      <td>14.4752</td>
-      <td>17.0508</td>
-      <td>4.4676</td>
-      <td>0.7943</td>
-      <td>6.6745</td>
-      <td>5.3051</td>
-      <td>12.4606</td>
-      <td>20.5618</td>
-      <td>-3.1316</td>
+      <td>11.7464</td>
+      <td>4.0017</td>
+      <td>5.8179</td>
+      <td>10.4951</td>
+      <td>12.4494</td>
+      <td>2.8009</td>
+      <td>0.3394</td>
+      <td>13.9424</td>
+      <td>-15.5776</td>
+      <td>14.1222</td>
     </tr>
     <tr>
       <th>15</th>
@@ -8367,16 +7792,16 @@ df
       <td>2.8910</td>
       <td>8.2374</td>
       <td>...</td>
-      <td>1.8609</td>
-      <td>13.3220</td>
-      <td>10.5239</td>
-      <td>0.0104</td>
-      <td>4.2731</td>
-      <td>5.7718</td>
-      <td>13.0779</td>
-      <td>9.9116</td>
-      <td>18.1721</td>
-      <td>18.0752</td>
+      <td>11.5481</td>
+      <td>3.9809</td>
+      <td>8.2247</td>
+      <td>21.2257</td>
+      <td>6.9931</td>
+      <td>3.3939</td>
+      <td>-2.3905</td>
+      <td>3.7943</td>
+      <td>5.6184</td>
+      <td>14.0619</td>
     </tr>
     <tr>
       <th>19</th>
@@ -8391,16 +7816,16 @@ df
       <td>3.2771</td>
       <td>12.6446</td>
       <td>...</td>
-      <td>-5.8713</td>
-      <td>8.1795</td>
-      <td>9.1067</td>
-      <td>3.3064</td>
-      <td>1.7090</td>
-      <td>3.5648</td>
-      <td>9.0731</td>
-      <td>16.4656</td>
-      <td>16.4153</td>
-      <td>4.2070</td>
+      <td>10.8981</td>
+      <td>4.1808</td>
+      <td>9.4220</td>
+      <td>1.8563</td>
+      <td>10.5738</td>
+      <td>1.2409</td>
+      <td>-1.3888</td>
+      <td>-5.6677</td>
+      <td>-1.8961</td>
+      <td>14.0275</td>
     </tr>
     <tr>
       <th>...</th>
@@ -8427,133 +7852,133 @@ df
       <td>...</td>
     </tr>
     <tr>
-      <th>49986</th>
+      <th>1049990</th>
       <td>0.0</td>
-      <td>4.3703</td>
-      <td>14.5321</td>
-      <td>12.5158</td>
-      <td>6.8990</td>
-      <td>4.8721</td>
-      <td>6.8599</td>
-      <td>3.6049</td>
-      <td>2.6936</td>
-      <td>3.3631</td>
+      <td>7.9632</td>
+      <td>20.4650</td>
+      <td>10.7295</td>
+      <td>2.9322</td>
+      <td>5.0267</td>
+      <td>7.1953</td>
+      <td>10.0695</td>
+      <td>3.0732</td>
+      <td>11.0135</td>
       <td>...</td>
-      <td>-1.7922</td>
-      <td>11.2487</td>
-      <td>13.0809</td>
-      <td>5.2903</td>
-      <td>3.4783</td>
-      <td>7.1363</td>
-      <td>9.6584</td>
-      <td>13.8385</td>
-      <td>15.1992</td>
-      <td>11.0333</td>
+      <td>12.1000</td>
+      <td>4.2019</td>
+      <td>7.1249</td>
+      <td>14.6591</td>
+      <td>10.2705</td>
+      <td>3.5833</td>
+      <td>2.5588</td>
+      <td>10.4219</td>
+      <td>-19.7158</td>
+      <td>14.0582</td>
     </tr>
     <tr>
-      <th>49987</th>
+      <th>1049993</th>
       <td>0.0</td>
-      <td>5.5247</td>
-      <td>19.5976</td>
-      <td>15.6233</td>
-      <td>10.3419</td>
-      <td>4.6616</td>
-      <td>6.6762</td>
-      <td>6.5438</td>
-      <td>2.9693</td>
-      <td>11.5063</td>
+      <td>5.0862</td>
+      <td>14.4785</td>
+      <td>17.3709</td>
+      <td>-2.4732</td>
+      <td>-2.5987</td>
+      <td>6.6798</td>
+      <td>3.0420</td>
+      <td>2.4057</td>
+      <td>18.2729</td>
       <td>...</td>
-      <td>1.9994</td>
-      <td>14.4838</td>
-      <td>22.3433</td>
-      <td>1.4035</td>
-      <td>9.0304</td>
-      <td>2.3784</td>
-      <td>1.4398</td>
-      <td>25.3678</td>
-      <td>16.4867</td>
-      <td>11.9542</td>
+      <td>10.9960</td>
+      <td>3.9637</td>
+      <td>8.0217</td>
+      <td>11.0449</td>
+      <td>9.3100</td>
+      <td>1.0545</td>
+      <td>-2.8770</td>
+      <td>-2.8052</td>
+      <td>-13.7290</td>
+      <td>14.3794</td>
     </tr>
     <tr>
-      <th>49988</th>
-      <td>0.0</td>
-      <td>4.5371</td>
-      <td>19.5715</td>
-      <td>12.0498</td>
-      <td>0.0423</td>
-      <td>-2.0017</td>
-      <td>7.6199</td>
-      <td>12.3320</td>
-      <td>2.5670</td>
-      <td>4.1939</td>
+      <th>1049995</th>
+      <td>1.0</td>
+      <td>11.3251</td>
+      <td>16.4148</td>
+      <td>20.5955</td>
+      <td>-6.3011</td>
+      <td>-6.8112</td>
+      <td>7.3226</td>
+      <td>14.9182</td>
+      <td>2.4579</td>
+      <td>14.7175</td>
       <td>...</td>
-      <td>4.2031</td>
-      <td>10.1765</td>
-      <td>12.9907</td>
-      <td>3.1120</td>
-      <td>6.3440</td>
-      <td>4.1328</td>
-      <td>4.4885</td>
-      <td>24.3734</td>
-      <td>14.8631</td>
-      <td>5.6670</td>
+      <td>11.2265</td>
+      <td>3.8431</td>
+      <td>8.2748</td>
+      <td>-7.8464</td>
+      <td>9.9774</td>
+      <td>1.7377</td>
+      <td>-1.7942</td>
+      <td>1.3921</td>
+      <td>-16.4925</td>
+      <td>14.4421</td>
     </tr>
     <tr>
-      <th>49994</th>
+      <th>1049997</th>
       <td>0.0</td>
-      <td>6.0671</td>
-      <td>20.1542</td>
-      <td>14.4645</td>
-      <td>4.7347</td>
-      <td>-2.6682</td>
-      <td>6.9684</td>
-      <td>18.5923</td>
-      <td>2.9067</td>
-      <td>-0.8132</td>
+      <td>8.9941</td>
+      <td>13.4127</td>
+      <td>3.9567</td>
+      <td>3.5744</td>
+      <td>1.6614</td>
+      <td>6.1486</td>
+      <td>12.0996</td>
+      <td>2.5439</td>
+      <td>10.2936</td>
       <td>...</td>
-      <td>-6.8900</td>
-      <td>11.3503</td>
-      <td>11.2448</td>
-      <td>-0.1915</td>
-      <td>4.1460</td>
-      <td>4.0240</td>
-      <td>6.8356</td>
-      <td>16.5689</td>
-      <td>24.1643</td>
-      <td>5.1754</td>
+      <td>10.5067</td>
+      <td>4.0642</td>
+      <td>8.3381</td>
+      <td>17.9081</td>
+      <td>12.3357</td>
+      <td>2.6530</td>
+      <td>-1.2359</td>
+      <td>2.0836</td>
+      <td>-18.6168</td>
+      <td>14.0689</td>
     </tr>
     <tr>
-      <th>49998</th>
+      <th>1049999</th>
       <td>0.0</td>
-      <td>7.7807</td>
-      <td>11.4038</td>
-      <td>11.2746</td>
-      <td>7.6426</td>
-      <td>6.0973</td>
-      <td>6.6596</td>
-      <td>14.8004</td>
-      <td>3.0541</td>
-      <td>13.8471</td>
+      <td>2.1828</td>
+      <td>12.3805</td>
+      <td>17.5654</td>
+      <td>8.1795</td>
+      <td>-5.5755</td>
+      <td>6.3705</td>
+      <td>5.1813</td>
+      <td>2.5118</td>
+      <td>10.0141</td>
       <td>...</td>
-      <td>5.0152</td>
-      <td>6.8036</td>
-      <td>16.0150</td>
-      <td>5.5985</td>
-      <td>0.7687</td>
-      <td>9.1370</td>
-      <td>5.0832</td>
-      <td>18.0498</td>
-      <td>19.0913</td>
-      <td>-0.0056</td>
+      <td>12.0632</td>
+      <td>3.8415</td>
+      <td>6.3466</td>
+      <td>30.6304</td>
+      <td>10.7439</td>
+      <td>-0.1808</td>
+      <td>0.2578</td>
+      <td>-12.1108</td>
+      <td>10.7608</td>
+      <td>14.1690</td>
     </tr>
   </tbody>
 </table>
-<p>8506 rows × 23 columns</p>
+<p>180000 rows × 51 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-66de0841-c97d-4f8f-95a3-ef3545e31bce')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-ed7d4876-c269-4b1e-8751-ef301542eac9')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -8605,12 +8030,12 @@ df
 
     <script>
       const buttonEl =
-        document.querySelector('#df-66de0841-c97d-4f8f-95a3-ef3545e31bce button.colab-df-convert');
+        document.querySelector('#df-ed7d4876-c269-4b1e-8751-ef301542eac9 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-66de0841-c97d-4f8f-95a3-ef3545e31bce');
+        const element = document.querySelector('#df-ed7d4876-c269-4b1e-8751-ef301542eac9');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -8630,7 +8055,7 @@ df
   </div>
 
 
-  <div id="id_5cd49788-7508-418a-a999-6e93b68db8fd">
+  <div id="id_3e9f428c-b38a-4d38-937b-55dea0d68fb9">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -8674,7 +8099,7 @@ df
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_5cd49788-7508-418a-a999-6e93b68db8fd button.colab-df-generate');
+        document.querySelector('#id_3e9f428c-b38a-4d38-937b-55dea0d68fb9 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -8702,7 +8127,7 @@ df_bak4
 
 
 
-  <div id="df-ae9b1949-2022-4559-bf7c-c30419efd702" class="colab-df-container">
+  <div id="df-401f0b18-f329-4e30-b114-93d969a13ad5" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -8732,16 +8157,16 @@ df_bak4
       <th>var_15</th>
       <th>var_17</th>
       <th>...</th>
-      <th>var_24</th>
-      <th>var_26</th>
-      <th>var_27</th>
-      <th>var_28</th>
-      <th>var_29</th>
-      <th>var_36</th>
-      <th>var_37</th>
-      <th>var_38</th>
-      <th>var_39</th>
-      <th>var_41</th>
+      <th>var_83</th>
+      <th>var_84</th>
+      <th>var_85</th>
+      <th>var_86</th>
+      <th>var_87</th>
+      <th>var_88</th>
+      <th>var_89</th>
+      <th>var_92</th>
+      <th>var_94</th>
+      <th>var_100</th>
     </tr>
   </thead>
   <tbody>
@@ -8758,16 +8183,16 @@ df_bak4
       <td>2.8817</td>
       <td>11.6975</td>
       <td>...</td>
-      <td>-0.3075</td>
-      <td>8.2199</td>
-      <td>19.4827</td>
-      <td>1.0175</td>
-      <td>5.0866</td>
-      <td>7.6264</td>
-      <td>3.4635</td>
-      <td>17.2850</td>
-      <td>16.5520</td>
-      <td>-6.8709</td>
+      <td>11.8011</td>
+      <td>3.9677</td>
+      <td>9.5382</td>
+      <td>-8.4394</td>
+      <td>5.5043</td>
+      <td>2.2732</td>
+      <td>1.6362</td>
+      <td>11.1077</td>
+      <td>-12.6465</td>
+      <td>14.0618</td>
     </tr>
     <tr>
       <th>5</th>
@@ -8782,16 +8207,16 @@ df_bak4
       <td>2.2225</td>
       <td>7.2218</td>
       <td>...</td>
-      <td>-2.0043</td>
-      <td>8.8070</td>
-      <td>21.8550</td>
-      <td>2.2655</td>
-      <td>5.4675</td>
-      <td>4.4082</td>
-      <td>0.7141</td>
-      <td>22.9317</td>
-      <td>16.5595</td>
-      <td>14.4219</td>
+      <td>11.8294</td>
+      <td>3.8887</td>
+      <td>8.8591</td>
+      <td>6.1482</td>
+      <td>8.5833</td>
+      <td>2.8432</td>
+      <td>1.8434</td>
+      <td>-2.0111</td>
+      <td>-3.6166</td>
+      <td>14.4520</td>
     </tr>
     <tr>
       <th>11</th>
@@ -8806,16 +8231,16 @@ df_bak4
       <td>3.4990</td>
       <td>4.2892</td>
       <td>...</td>
-      <td>0.5701</td>
-      <td>14.4752</td>
-      <td>17.0508</td>
-      <td>4.4676</td>
-      <td>0.7943</td>
-      <td>6.6745</td>
-      <td>5.3051</td>
-      <td>12.4606</td>
-      <td>20.5618</td>
-      <td>-3.1316</td>
+      <td>11.7464</td>
+      <td>4.0017</td>
+      <td>5.8179</td>
+      <td>10.4951</td>
+      <td>12.4494</td>
+      <td>2.8009</td>
+      <td>0.3394</td>
+      <td>13.9424</td>
+      <td>-15.5776</td>
+      <td>14.1222</td>
     </tr>
     <tr>
       <th>15</th>
@@ -8830,16 +8255,16 @@ df_bak4
       <td>2.8910</td>
       <td>8.2374</td>
       <td>...</td>
-      <td>1.8609</td>
-      <td>13.3220</td>
-      <td>10.5239</td>
-      <td>0.0104</td>
-      <td>4.2731</td>
-      <td>5.7718</td>
-      <td>13.0779</td>
-      <td>9.9116</td>
-      <td>18.1721</td>
-      <td>18.0752</td>
+      <td>11.5481</td>
+      <td>3.9809</td>
+      <td>8.2247</td>
+      <td>21.2257</td>
+      <td>6.9931</td>
+      <td>3.3939</td>
+      <td>-2.3905</td>
+      <td>3.7943</td>
+      <td>5.6184</td>
+      <td>14.0619</td>
     </tr>
     <tr>
       <th>19</th>
@@ -8854,16 +8279,16 @@ df_bak4
       <td>3.2771</td>
       <td>12.6446</td>
       <td>...</td>
-      <td>-5.8713</td>
-      <td>8.1795</td>
-      <td>9.1067</td>
-      <td>3.3064</td>
-      <td>1.7090</td>
-      <td>3.5648</td>
-      <td>9.0731</td>
-      <td>16.4656</td>
-      <td>16.4153</td>
-      <td>4.2070</td>
+      <td>10.8981</td>
+      <td>4.1808</td>
+      <td>9.4220</td>
+      <td>1.8563</td>
+      <td>10.5738</td>
+      <td>1.2409</td>
+      <td>-1.3888</td>
+      <td>-5.6677</td>
+      <td>-1.8961</td>
+      <td>14.0275</td>
     </tr>
     <tr>
       <th>...</th>
@@ -8890,133 +8315,133 @@ df_bak4
       <td>...</td>
     </tr>
     <tr>
-      <th>49986</th>
+      <th>1049990</th>
       <td>0.0</td>
-      <td>4.3703</td>
-      <td>14.5321</td>
-      <td>12.5158</td>
-      <td>6.8990</td>
-      <td>4.8721</td>
-      <td>6.8599</td>
-      <td>3.6049</td>
-      <td>2.6936</td>
-      <td>3.3631</td>
+      <td>7.9632</td>
+      <td>20.4650</td>
+      <td>10.7295</td>
+      <td>2.9322</td>
+      <td>5.0267</td>
+      <td>7.1953</td>
+      <td>10.0695</td>
+      <td>3.0732</td>
+      <td>11.0135</td>
       <td>...</td>
-      <td>-1.7922</td>
-      <td>11.2487</td>
-      <td>13.0809</td>
-      <td>5.2903</td>
-      <td>3.4783</td>
-      <td>7.1363</td>
-      <td>9.6584</td>
-      <td>13.8385</td>
-      <td>15.1992</td>
-      <td>11.0333</td>
+      <td>12.1000</td>
+      <td>4.2019</td>
+      <td>7.1249</td>
+      <td>14.6591</td>
+      <td>10.2705</td>
+      <td>3.5833</td>
+      <td>2.5588</td>
+      <td>10.4219</td>
+      <td>-19.7158</td>
+      <td>14.0582</td>
     </tr>
     <tr>
-      <th>49987</th>
+      <th>1049993</th>
       <td>0.0</td>
-      <td>5.5247</td>
-      <td>19.5976</td>
-      <td>15.6233</td>
-      <td>10.3419</td>
-      <td>4.6616</td>
-      <td>6.6762</td>
-      <td>6.5438</td>
-      <td>2.9693</td>
-      <td>11.5063</td>
+      <td>5.0862</td>
+      <td>14.4785</td>
+      <td>17.3709</td>
+      <td>-2.4732</td>
+      <td>-2.5987</td>
+      <td>6.6798</td>
+      <td>3.0420</td>
+      <td>2.4057</td>
+      <td>18.2729</td>
       <td>...</td>
-      <td>1.9994</td>
-      <td>14.4838</td>
-      <td>22.3433</td>
-      <td>1.4035</td>
-      <td>9.0304</td>
-      <td>2.3784</td>
-      <td>1.4398</td>
-      <td>25.3678</td>
-      <td>16.4867</td>
-      <td>11.9542</td>
+      <td>10.9960</td>
+      <td>3.9637</td>
+      <td>8.0217</td>
+      <td>11.0449</td>
+      <td>9.3100</td>
+      <td>1.0545</td>
+      <td>-2.8770</td>
+      <td>-2.8052</td>
+      <td>-13.7290</td>
+      <td>14.3794</td>
     </tr>
     <tr>
-      <th>49988</th>
-      <td>0.0</td>
-      <td>4.5371</td>
-      <td>19.5715</td>
-      <td>12.0498</td>
-      <td>0.0423</td>
-      <td>-2.0017</td>
-      <td>7.6199</td>
-      <td>12.3320</td>
-      <td>2.5670</td>
-      <td>4.1939</td>
+      <th>1049995</th>
+      <td>1.0</td>
+      <td>11.3251</td>
+      <td>16.4148</td>
+      <td>20.5955</td>
+      <td>-6.3011</td>
+      <td>-6.8112</td>
+      <td>7.3226</td>
+      <td>14.9182</td>
+      <td>2.4579</td>
+      <td>14.7175</td>
       <td>...</td>
-      <td>4.2031</td>
-      <td>10.1765</td>
-      <td>12.9907</td>
-      <td>3.1120</td>
-      <td>6.3440</td>
-      <td>4.1328</td>
-      <td>4.4885</td>
-      <td>24.3734</td>
-      <td>14.8631</td>
-      <td>5.6670</td>
+      <td>11.2265</td>
+      <td>3.8431</td>
+      <td>8.2748</td>
+      <td>-7.8464</td>
+      <td>9.9774</td>
+      <td>1.7377</td>
+      <td>-1.7942</td>
+      <td>1.3921</td>
+      <td>-16.4925</td>
+      <td>14.4421</td>
     </tr>
     <tr>
-      <th>49994</th>
+      <th>1049997</th>
       <td>0.0</td>
-      <td>6.0671</td>
-      <td>20.1542</td>
-      <td>14.4645</td>
-      <td>4.7347</td>
-      <td>-2.6682</td>
-      <td>6.9684</td>
-      <td>18.5923</td>
-      <td>2.9067</td>
-      <td>-0.8132</td>
+      <td>8.9941</td>
+      <td>13.4127</td>
+      <td>3.9567</td>
+      <td>3.5744</td>
+      <td>1.6614</td>
+      <td>6.1486</td>
+      <td>12.0996</td>
+      <td>2.5439</td>
+      <td>10.2936</td>
       <td>...</td>
-      <td>-6.8900</td>
-      <td>11.3503</td>
-      <td>11.2448</td>
-      <td>-0.1915</td>
-      <td>4.1460</td>
-      <td>4.0240</td>
-      <td>6.8356</td>
-      <td>16.5689</td>
-      <td>24.1643</td>
-      <td>5.1754</td>
+      <td>10.5067</td>
+      <td>4.0642</td>
+      <td>8.3381</td>
+      <td>17.9081</td>
+      <td>12.3357</td>
+      <td>2.6530</td>
+      <td>-1.2359</td>
+      <td>2.0836</td>
+      <td>-18.6168</td>
+      <td>14.0689</td>
     </tr>
     <tr>
-      <th>49998</th>
+      <th>1049999</th>
       <td>0.0</td>
-      <td>7.7807</td>
-      <td>11.4038</td>
-      <td>11.2746</td>
-      <td>7.6426</td>
-      <td>6.0973</td>
-      <td>6.6596</td>
-      <td>14.8004</td>
-      <td>3.0541</td>
-      <td>13.8471</td>
+      <td>2.1828</td>
+      <td>12.3805</td>
+      <td>17.5654</td>
+      <td>8.1795</td>
+      <td>-5.5755</td>
+      <td>6.3705</td>
+      <td>5.1813</td>
+      <td>2.5118</td>
+      <td>10.0141</td>
       <td>...</td>
-      <td>5.0152</td>
-      <td>6.8036</td>
-      <td>16.0150</td>
-      <td>5.5985</td>
-      <td>0.7687</td>
-      <td>9.1370</td>
-      <td>5.0832</td>
-      <td>18.0498</td>
-      <td>19.0913</td>
-      <td>-0.0056</td>
+      <td>12.0632</td>
+      <td>3.8415</td>
+      <td>6.3466</td>
+      <td>30.6304</td>
+      <td>10.7439</td>
+      <td>-0.1808</td>
+      <td>0.2578</td>
+      <td>-12.1108</td>
+      <td>10.7608</td>
+      <td>14.1690</td>
     </tr>
   </tbody>
 </table>
-<p>8506 rows × 23 columns</p>
+<p>180000 rows × 51 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-ae9b1949-2022-4559-bf7c-c30419efd702')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-401f0b18-f329-4e30-b114-93d969a13ad5')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -9068,12 +8493,12 @@ df_bak4
 
     <script>
       const buttonEl =
-        document.querySelector('#df-ae9b1949-2022-4559-bf7c-c30419efd702 button.colab-df-convert');
+        document.querySelector('#df-401f0b18-f329-4e30-b114-93d969a13ad5 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-ae9b1949-2022-4559-bf7c-c30419efd702');
+        const element = document.querySelector('#df-401f0b18-f329-4e30-b114-93d969a13ad5');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -9093,7 +8518,7 @@ df_bak4
   </div>
 
 
-  <div id="id_f0bb617a-3894-40d8-b3bb-a354c5ac799c">
+  <div id="id_5d1299c8-8074-4fc6-9c24-505499807e43">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -9137,7 +8562,7 @@ df_bak4
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_f0bb617a-3894-40d8-b3bb-a354c5ac799c button.colab-df-generate');
+        document.querySelector('#id_5d1299c8-8074-4fc6-9c24-505499807e43 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -9165,7 +8590,7 @@ df
 
 
 
-  <div id="df-7195024b-61b0-46a4-933d-cbd631406ff7" class="colab-df-container">
+  <div id="df-40631f2f-5d78-4dd4-955f-685b2e5d88c2" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -9195,16 +8620,16 @@ df
       <th>var_15</th>
       <th>var_17</th>
       <th>...</th>
-      <th>var_24</th>
-      <th>var_26</th>
-      <th>var_27</th>
-      <th>var_28</th>
-      <th>var_29</th>
-      <th>var_36</th>
-      <th>var_37</th>
-      <th>var_38</th>
-      <th>var_39</th>
-      <th>var_41</th>
+      <th>var_83</th>
+      <th>var_84</th>
+      <th>var_85</th>
+      <th>var_86</th>
+      <th>var_87</th>
+      <th>var_88</th>
+      <th>var_89</th>
+      <th>var_92</th>
+      <th>var_94</th>
+      <th>var_100</th>
     </tr>
   </thead>
   <tbody>
@@ -9221,16 +8646,16 @@ df
       <td>2.8817</td>
       <td>11.6975</td>
       <td>...</td>
-      <td>-0.3075</td>
-      <td>8.2199</td>
-      <td>19.4827</td>
-      <td>1.0175</td>
-      <td>5.0866</td>
-      <td>7.6264</td>
-      <td>3.4635</td>
-      <td>17.2850</td>
-      <td>16.5520</td>
-      <td>-6.8709</td>
+      <td>11.8011</td>
+      <td>3.9677</td>
+      <td>9.5382</td>
+      <td>-8.4394</td>
+      <td>5.5043</td>
+      <td>2.2732</td>
+      <td>1.6362</td>
+      <td>11.1077</td>
+      <td>-12.6465</td>
+      <td>14.0618</td>
     </tr>
     <tr>
       <th>5</th>
@@ -9245,16 +8670,16 @@ df
       <td>2.2225</td>
       <td>7.2218</td>
       <td>...</td>
-      <td>-2.0043</td>
-      <td>8.8070</td>
-      <td>21.8550</td>
-      <td>2.2655</td>
-      <td>5.4675</td>
-      <td>4.4082</td>
-      <td>0.7141</td>
-      <td>22.9317</td>
-      <td>16.5595</td>
-      <td>14.4219</td>
+      <td>11.8294</td>
+      <td>3.8887</td>
+      <td>8.8591</td>
+      <td>6.1482</td>
+      <td>8.5833</td>
+      <td>2.8432</td>
+      <td>1.8434</td>
+      <td>-2.0111</td>
+      <td>-3.6166</td>
+      <td>14.4520</td>
     </tr>
     <tr>
       <th>11</th>
@@ -9269,16 +8694,16 @@ df
       <td>3.4990</td>
       <td>4.2892</td>
       <td>...</td>
-      <td>0.5701</td>
-      <td>14.4752</td>
-      <td>17.0508</td>
-      <td>4.4676</td>
-      <td>0.7943</td>
-      <td>6.6745</td>
-      <td>5.3051</td>
-      <td>12.4606</td>
-      <td>20.5618</td>
-      <td>-3.1316</td>
+      <td>11.7464</td>
+      <td>4.0017</td>
+      <td>5.8179</td>
+      <td>10.4951</td>
+      <td>12.4494</td>
+      <td>2.8009</td>
+      <td>0.3394</td>
+      <td>13.9424</td>
+      <td>-15.5776</td>
+      <td>14.1222</td>
     </tr>
     <tr>
       <th>15</th>
@@ -9293,16 +8718,16 @@ df
       <td>2.8910</td>
       <td>8.2374</td>
       <td>...</td>
-      <td>1.8609</td>
-      <td>13.3220</td>
-      <td>10.5239</td>
-      <td>0.0104</td>
-      <td>4.2731</td>
-      <td>5.7718</td>
-      <td>13.0779</td>
-      <td>9.9116</td>
-      <td>18.1721</td>
-      <td>18.0752</td>
+      <td>11.5481</td>
+      <td>3.9809</td>
+      <td>8.2247</td>
+      <td>21.2257</td>
+      <td>6.9931</td>
+      <td>3.3939</td>
+      <td>-2.3905</td>
+      <td>3.7943</td>
+      <td>5.6184</td>
+      <td>14.0619</td>
     </tr>
     <tr>
       <th>19</th>
@@ -9317,16 +8742,16 @@ df
       <td>3.2771</td>
       <td>12.6446</td>
       <td>...</td>
-      <td>-5.8713</td>
-      <td>8.1795</td>
-      <td>9.1067</td>
-      <td>3.3064</td>
-      <td>1.7090</td>
-      <td>3.5648</td>
-      <td>9.0731</td>
-      <td>16.4656</td>
-      <td>16.4153</td>
-      <td>4.2070</td>
+      <td>10.8981</td>
+      <td>4.1808</td>
+      <td>9.4220</td>
+      <td>1.8563</td>
+      <td>10.5738</td>
+      <td>1.2409</td>
+      <td>-1.3888</td>
+      <td>-5.6677</td>
+      <td>-1.8961</td>
+      <td>14.0275</td>
     </tr>
     <tr>
       <th>...</th>
@@ -9353,133 +8778,133 @@ df
       <td>...</td>
     </tr>
     <tr>
-      <th>49986</th>
+      <th>1049990</th>
       <td>0.0</td>
-      <td>4.3703</td>
-      <td>14.5321</td>
-      <td>12.5158</td>
-      <td>6.8990</td>
-      <td>4.8721</td>
-      <td>6.8599</td>
-      <td>3.6049</td>
-      <td>2.6936</td>
-      <td>3.3631</td>
+      <td>7.9632</td>
+      <td>20.4650</td>
+      <td>10.7295</td>
+      <td>2.9322</td>
+      <td>5.0267</td>
+      <td>7.1953</td>
+      <td>10.0695</td>
+      <td>3.0732</td>
+      <td>11.0135</td>
       <td>...</td>
-      <td>-1.7922</td>
-      <td>11.2487</td>
-      <td>13.0809</td>
-      <td>5.2903</td>
-      <td>3.4783</td>
-      <td>7.1363</td>
-      <td>9.6584</td>
-      <td>13.8385</td>
-      <td>15.1992</td>
-      <td>11.0333</td>
+      <td>12.1000</td>
+      <td>4.2019</td>
+      <td>7.1249</td>
+      <td>14.6591</td>
+      <td>10.2705</td>
+      <td>3.5833</td>
+      <td>2.5588</td>
+      <td>10.4219</td>
+      <td>-19.7158</td>
+      <td>14.0582</td>
     </tr>
     <tr>
-      <th>49987</th>
+      <th>1049993</th>
       <td>0.0</td>
-      <td>5.5247</td>
-      <td>19.5976</td>
-      <td>15.6233</td>
-      <td>10.3419</td>
-      <td>4.6616</td>
-      <td>6.6762</td>
-      <td>6.5438</td>
-      <td>2.9693</td>
-      <td>11.5063</td>
+      <td>5.0862</td>
+      <td>14.4785</td>
+      <td>17.3709</td>
+      <td>-2.4732</td>
+      <td>-2.5987</td>
+      <td>6.6798</td>
+      <td>3.0420</td>
+      <td>2.4057</td>
+      <td>18.2729</td>
       <td>...</td>
-      <td>1.9994</td>
-      <td>14.4838</td>
-      <td>22.3433</td>
-      <td>1.4035</td>
-      <td>9.0304</td>
-      <td>2.3784</td>
-      <td>1.4398</td>
-      <td>25.3678</td>
-      <td>16.4867</td>
-      <td>11.9542</td>
+      <td>10.9960</td>
+      <td>3.9637</td>
+      <td>8.0217</td>
+      <td>11.0449</td>
+      <td>9.3100</td>
+      <td>1.0545</td>
+      <td>-2.8770</td>
+      <td>-2.8052</td>
+      <td>-13.7290</td>
+      <td>14.3794</td>
     </tr>
     <tr>
-      <th>49988</th>
-      <td>0.0</td>
-      <td>4.5371</td>
-      <td>19.5715</td>
-      <td>12.0498</td>
-      <td>0.0423</td>
-      <td>-2.0017</td>
-      <td>7.6199</td>
-      <td>12.3320</td>
-      <td>2.5670</td>
-      <td>4.1939</td>
+      <th>1049995</th>
+      <td>1.0</td>
+      <td>11.3251</td>
+      <td>16.4148</td>
+      <td>20.5955</td>
+      <td>-6.3011</td>
+      <td>-6.8112</td>
+      <td>7.3226</td>
+      <td>14.9182</td>
+      <td>2.4579</td>
+      <td>14.7175</td>
       <td>...</td>
-      <td>4.2031</td>
-      <td>10.1765</td>
-      <td>12.9907</td>
-      <td>3.1120</td>
-      <td>6.3440</td>
-      <td>4.1328</td>
-      <td>4.4885</td>
-      <td>24.3734</td>
-      <td>14.8631</td>
-      <td>5.6670</td>
+      <td>11.2265</td>
+      <td>3.8431</td>
+      <td>8.2748</td>
+      <td>-7.8464</td>
+      <td>9.9774</td>
+      <td>1.7377</td>
+      <td>-1.7942</td>
+      <td>1.3921</td>
+      <td>-16.4925</td>
+      <td>14.4421</td>
     </tr>
     <tr>
-      <th>49994</th>
+      <th>1049997</th>
       <td>0.0</td>
-      <td>6.0671</td>
-      <td>20.1542</td>
-      <td>14.4645</td>
-      <td>4.7347</td>
-      <td>-2.6682</td>
-      <td>6.9684</td>
-      <td>18.5923</td>
-      <td>2.9067</td>
-      <td>-0.8132</td>
+      <td>8.9941</td>
+      <td>13.4127</td>
+      <td>3.9567</td>
+      <td>3.5744</td>
+      <td>1.6614</td>
+      <td>6.1486</td>
+      <td>12.0996</td>
+      <td>2.5439</td>
+      <td>10.2936</td>
       <td>...</td>
-      <td>-6.8900</td>
-      <td>11.3503</td>
-      <td>11.2448</td>
-      <td>-0.1915</td>
-      <td>4.1460</td>
-      <td>4.0240</td>
-      <td>6.8356</td>
-      <td>16.5689</td>
-      <td>24.1643</td>
-      <td>5.1754</td>
+      <td>10.5067</td>
+      <td>4.0642</td>
+      <td>8.3381</td>
+      <td>17.9081</td>
+      <td>12.3357</td>
+      <td>2.6530</td>
+      <td>-1.2359</td>
+      <td>2.0836</td>
+      <td>-18.6168</td>
+      <td>14.0689</td>
     </tr>
     <tr>
-      <th>49998</th>
+      <th>1049999</th>
       <td>0.0</td>
-      <td>7.7807</td>
-      <td>11.4038</td>
-      <td>11.2746</td>
-      <td>7.6426</td>
-      <td>6.0973</td>
-      <td>6.6596</td>
-      <td>14.8004</td>
-      <td>3.0541</td>
-      <td>13.8471</td>
+      <td>2.1828</td>
+      <td>12.3805</td>
+      <td>17.5654</td>
+      <td>8.1795</td>
+      <td>-5.5755</td>
+      <td>6.3705</td>
+      <td>5.1813</td>
+      <td>2.5118</td>
+      <td>10.0141</td>
       <td>...</td>
-      <td>5.0152</td>
-      <td>6.8036</td>
-      <td>16.0150</td>
-      <td>5.5985</td>
-      <td>0.7687</td>
-      <td>9.1370</td>
-      <td>5.0832</td>
-      <td>18.0498</td>
-      <td>19.0913</td>
-      <td>-0.0056</td>
+      <td>12.0632</td>
+      <td>3.8415</td>
+      <td>6.3466</td>
+      <td>30.6304</td>
+      <td>10.7439</td>
+      <td>-0.1808</td>
+      <td>0.2578</td>
+      <td>-12.1108</td>
+      <td>10.7608</td>
+      <td>14.1690</td>
     </tr>
   </tbody>
 </table>
-<p>8506 rows × 23 columns</p>
+<p>180000 rows × 51 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-7195024b-61b0-46a4-933d-cbd631406ff7')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-40631f2f-5d78-4dd4-955f-685b2e5d88c2')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -9531,12 +8956,12 @@ df
 
     <script>
       const buttonEl =
-        document.querySelector('#df-7195024b-61b0-46a4-933d-cbd631406ff7 button.colab-df-convert');
+        document.querySelector('#df-40631f2f-5d78-4dd4-955f-685b2e5d88c2 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-7195024b-61b0-46a4-933d-cbd631406ff7');
+        const element = document.querySelector('#df-40631f2f-5d78-4dd4-955f-685b2e5d88c2');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -9556,7 +8981,7 @@ df
   </div>
 
 
-  <div id="id_03e922cd-1c38-4d9c-9205-f05e6309ea36">
+  <div id="id_c96a6be2-6522-4504-9b89-074915800f27">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -9600,7 +9025,7 @@ df
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_03e922cd-1c38-4d9c-9205-f05e6309ea36 button.colab-df-generate');
+        document.querySelector('#id_c96a6be2-6522-4504-9b89-074915800f27 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -9740,6 +9165,118 @@ df.isnull().sum().sort_values( ascending = False )
       <th>var_41</th>
       <td>0</td>
     </tr>
+    <tr>
+      <th>var_48</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_49</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_52</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_56</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_57</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_61</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_62</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_63</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_65</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_66</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_67</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_70</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_72</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_73</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_75</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_78</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_80</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_82</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_83</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_84</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_85</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_86</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_87</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_88</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_89</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_92</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_94</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>var_100</th>
+      <td>0</td>
+    </tr>
   </tbody>
 </table>
 </div><br><label><b>dtype:</b> int64</label>
@@ -9775,7 +9312,7 @@ Produce some visual analysis of the data.  Recall that Gaussian Naive Bayes assu
 
 ```python
 # Display a histogram
-df.hist(figsize=(15, 15))
+df.hist(figsize=(20, 20))
 ```
 
 
@@ -9785,39 +9322,67 @@ df.hist(figsize=(15, 15))
             <Axes: title={'center': 'var_0'}>,
             <Axes: title={'center': 'var_1'}>,
             <Axes: title={'center': 'var_2'}>,
-            <Axes: title={'center': 'var_4'}>],
-           [<Axes: title={'center': 'var_7'}>,
-            <Axes: title={'center': 'var_8'}>,
-            <Axes: title={'center': 'var_14'}>,
+            <Axes: title={'center': 'var_4'}>,
+            <Axes: title={'center': 'var_7'}>,
+            <Axes: title={'center': 'var_8'}>],
+           [<Axes: title={'center': 'var_14'}>,
             <Axes: title={'center': 'var_15'}>,
-            <Axes: title={'center': 'var_17'}>],
-           [<Axes: title={'center': 'var_20'}>,
+            <Axes: title={'center': 'var_17'}>,
+            <Axes: title={'center': 'var_20'}>,
             <Axes: title={'center': 'var_21'}>,
             <Axes: title={'center': 'var_22'}>,
-            <Axes: title={'center': 'var_24'}>,
-            <Axes: title={'center': 'var_26'}>],
-           [<Axes: title={'center': 'var_27'}>,
+            <Axes: title={'center': 'var_24'}>],
+           [<Axes: title={'center': 'var_26'}>,
+            <Axes: title={'center': 'var_27'}>,
             <Axes: title={'center': 'var_28'}>,
             <Axes: title={'center': 'var_29'}>,
             <Axes: title={'center': 'var_36'}>,
-            <Axes: title={'center': 'var_37'}>],
-           [<Axes: title={'center': 'var_38'}>,
-            <Axes: title={'center': 'var_39'}>,
-            <Axes: title={'center': 'var_41'}>, <Axes: >, <Axes: >]],
-          dtype=object)
+            <Axes: title={'center': 'var_37'}>,
+            <Axes: title={'center': 'var_38'}>],
+           [<Axes: title={'center': 'var_39'}>,
+            <Axes: title={'center': 'var_41'}>,
+            <Axes: title={'center': 'var_48'}>,
+            <Axes: title={'center': 'var_49'}>,
+            <Axes: title={'center': 'var_52'}>,
+            <Axes: title={'center': 'var_56'}>,
+            <Axes: title={'center': 'var_57'}>],
+           [<Axes: title={'center': 'var_61'}>,
+            <Axes: title={'center': 'var_62'}>,
+            <Axes: title={'center': 'var_63'}>,
+            <Axes: title={'center': 'var_65'}>,
+            <Axes: title={'center': 'var_66'}>,
+            <Axes: title={'center': 'var_67'}>,
+            <Axes: title={'center': 'var_70'}>],
+           [<Axes: title={'center': 'var_72'}>,
+            <Axes: title={'center': 'var_73'}>,
+            <Axes: title={'center': 'var_75'}>,
+            <Axes: title={'center': 'var_78'}>,
+            <Axes: title={'center': 'var_80'}>,
+            <Axes: title={'center': 'var_82'}>,
+            <Axes: title={'center': 'var_83'}>],
+           [<Axes: title={'center': 'var_84'}>,
+            <Axes: title={'center': 'var_85'}>,
+            <Axes: title={'center': 'var_86'}>,
+            <Axes: title={'center': 'var_87'}>,
+            <Axes: title={'center': 'var_88'}>,
+            <Axes: title={'center': 'var_89'}>,
+            <Axes: title={'center': 'var_92'}>],
+           [<Axes: title={'center': 'var_94'}>,
+            <Axes: title={'center': 'var_100'}>, <Axes: >, <Axes: >,
+            <Axes: >, <Axes: >, <Axes: >]], dtype=object)
 
 
 
 
     
-![png](Project.1-Pass-09_files/Project.1-Pass-09_77_1.png)
+![png](Project.1-Pass-09_files/Project.1-Pass-09_83_1.png)
     
 
 
 
 ```python
 # display a boxplot
-df.boxplot(figsize=(15, 15))
+df.boxplot(figsize=(20, 20))
 ```
 
 
@@ -9829,7 +9394,7 @@ df.boxplot(figsize=(15, 15))
 
 
     
-![png](Project.1-Pass-09_files/Project.1-Pass-09_78_1.png)
+![png](Project.1-Pass-09_files/Project.1-Pass-09_84_1.png)
     
 
 
@@ -9848,7 +9413,7 @@ column_correlations
 
 
 
-  <div id="df-b4b89650-0f9d-404c-9e08-9f9e15c1bd2f" class="colab-df-container">
+  <div id="df-f4ae2736-60ef-4516-9048-07577d491c23" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -9878,579 +9443,1251 @@ column_correlations
       <th>var_15</th>
       <th>var_17</th>
       <th>...</th>
-      <th>var_24</th>
-      <th>var_26</th>
-      <th>var_27</th>
-      <th>var_28</th>
-      <th>var_29</th>
-      <th>var_36</th>
-      <th>var_37</th>
-      <th>var_38</th>
-      <th>var_39</th>
-      <th>var_41</th>
+      <th>var_83</th>
+      <th>var_84</th>
+      <th>var_85</th>
+      <th>var_86</th>
+      <th>var_87</th>
+      <th>var_88</th>
+      <th>var_89</th>
+      <th>var_92</th>
+      <th>var_94</th>
+      <th>var_100</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>target</th>
       <td>1.000000</td>
-      <td>0.050742</td>
-      <td>-0.039794</td>
-      <td>-0.060256</td>
-      <td>0.040229</td>
-      <td>-0.032706</td>
-      <td>0.048383</td>
-      <td>0.033708</td>
-      <td>-0.065024</td>
-      <td>-0.049189</td>
+      <td>0.045506</td>
+      <td>-0.051718</td>
+      <td>-0.046433</td>
+      <td>0.041593</td>
+      <td>-0.041987</td>
+      <td>0.052457</td>
+      <td>0.045281</td>
+      <td>-0.057373</td>
+      <td>-0.054375</td>
       <td>...</td>
-      <td>0.045689</td>
-      <td>0.067268</td>
-      <td>-0.022421</td>
-      <td>-0.060705</td>
-      <td>0.049314</td>
-      <td>0.068738</td>
-      <td>0.041962</td>
-      <td>-0.057738</td>
-      <td>-0.038984</td>
-      <td>-0.059291</td>
+      <td>-0.052324</td>
+      <td>-0.053733</td>
+      <td>-0.042073</td>
+      <td>0.047543</td>
+      <td>-0.063871</td>
+      <td>-0.042765</td>
+      <td>0.059306</td>
+      <td>0.040520</td>
+      <td>0.049072</td>
+      <td>-0.047005</td>
     </tr>
     <tr>
       <th>var_0</th>
-      <td>0.050742</td>
+      <td>0.045506</td>
       <td>1.000000</td>
-      <td>-0.001932</td>
-      <td>-0.002008</td>
-      <td>-0.004065</td>
-      <td>0.013920</td>
-      <td>0.005287</td>
-      <td>0.009787</td>
-      <td>0.003501</td>
-      <td>0.007570</td>
+      <td>-0.000892</td>
+      <td>-0.000225</td>
+      <td>-0.000269</td>
+      <td>-0.001320</td>
+      <td>0.002949</td>
+      <td>0.002901</td>
+      <td>-0.007758</td>
+      <td>-0.002799</td>
       <td>...</td>
-      <td>0.007211</td>
-      <td>0.005079</td>
-      <td>-0.004578</td>
-      <td>0.001237</td>
-      <td>-0.010036</td>
-      <td>-0.008809</td>
-      <td>-0.000133</td>
-      <td>0.008856</td>
-      <td>0.007700</td>
-      <td>-0.004688</td>
+      <td>-0.004960</td>
+      <td>-0.005451</td>
+      <td>-0.000716</td>
+      <td>0.004577</td>
+      <td>-0.004664</td>
+      <td>-0.001088</td>
+      <td>0.000236</td>
+      <td>0.001668</td>
+      <td>0.001837</td>
+      <td>0.001475</td>
     </tr>
     <tr>
       <th>var_1</th>
-      <td>-0.039794</td>
-      <td>-0.001932</td>
+      <td>-0.051718</td>
+      <td>-0.000892</td>
       <td>1.000000</td>
-      <td>-0.003072</td>
-      <td>0.019840</td>
-      <td>-0.010907</td>
-      <td>-0.010460</td>
-      <td>-0.013714</td>
-      <td>-0.001477</td>
-      <td>-0.002532</td>
+      <td>0.006064</td>
+      <td>-0.000821</td>
+      <td>0.000783</td>
+      <td>-0.007127</td>
+      <td>-0.006180</td>
+      <td>-0.002585</td>
+      <td>-0.001663</td>
       <td>...</td>
-      <td>0.008056</td>
-      <td>-0.001995</td>
-      <td>-0.014325</td>
-      <td>0.003370</td>
-      <td>-0.010688</td>
-      <td>0.004288</td>
-      <td>-0.003056</td>
-      <td>-0.009136</td>
-      <td>0.008635</td>
-      <td>0.022035</td>
+      <td>0.004265</td>
+      <td>0.002411</td>
+      <td>0.001484</td>
+      <td>-0.003859</td>
+      <td>-0.000485</td>
+      <td>0.003141</td>
+      <td>-0.006188</td>
+      <td>0.000071</td>
+      <td>-0.003682</td>
+      <td>0.003964</td>
     </tr>
     <tr>
       <th>var_2</th>
-      <td>-0.060256</td>
-      <td>-0.002008</td>
-      <td>-0.003072</td>
+      <td>-0.046433</td>
+      <td>-0.000225</td>
+      <td>0.006064</td>
       <td>1.000000</td>
-      <td>0.005686</td>
-      <td>-0.004277</td>
-      <td>0.004333</td>
-      <td>-0.005864</td>
-      <td>-0.003963</td>
-      <td>0.001795</td>
+      <td>-0.003427</td>
+      <td>-0.000108</td>
+      <td>-0.001809</td>
+      <td>-0.002786</td>
+      <td>-0.001177</td>
+      <td>0.006360</td>
       <td>...</td>
-      <td>0.007867</td>
-      <td>-0.002776</td>
-      <td>0.015401</td>
-      <td>0.003564</td>
-      <td>-0.004052</td>
-      <td>-0.018087</td>
-      <td>0.015591</td>
-      <td>-0.000161</td>
-      <td>0.011820</td>
-      <td>0.010744</td>
+      <td>0.004890</td>
+      <td>0.002240</td>
+      <td>0.001980</td>
+      <td>-0.001161</td>
+      <td>0.003921</td>
+      <td>0.002087</td>
+      <td>-0.004422</td>
+      <td>-0.003418</td>
+      <td>-0.001565</td>
+      <td>0.002418</td>
     </tr>
     <tr>
       <th>var_4</th>
-      <td>0.040229</td>
-      <td>-0.004065</td>
-      <td>0.019840</td>
-      <td>0.005686</td>
+      <td>0.041593</td>
+      <td>-0.000269</td>
+      <td>-0.000821</td>
+      <td>-0.003427</td>
       <td>1.000000</td>
-      <td>-0.002771</td>
-      <td>-0.011529</td>
-      <td>0.002493</td>
-      <td>0.006865</td>
-      <td>-0.007378</td>
+      <td>-0.002750</td>
+      <td>0.003347</td>
+      <td>0.001377</td>
+      <td>-0.004732</td>
+      <td>-0.001814</td>
       <td>...</td>
-      <td>0.017775</td>
-      <td>0.005338</td>
-      <td>0.005084</td>
-      <td>-0.013891</td>
-      <td>-0.001566</td>
-      <td>0.012709</td>
-      <td>-0.016146</td>
-      <td>-0.004427</td>
-      <td>-0.014136</td>
-      <td>0.001761</td>
+      <td>0.000657</td>
+      <td>-0.005267</td>
+      <td>-0.004266</td>
+      <td>-0.004179</td>
+      <td>-0.004211</td>
+      <td>-0.002330</td>
+      <td>0.000254</td>
+      <td>0.001090</td>
+      <td>-0.000468</td>
+      <td>-0.002807</td>
     </tr>
     <tr>
       <th>var_7</th>
-      <td>-0.032706</td>
-      <td>0.013920</td>
-      <td>-0.010907</td>
-      <td>-0.004277</td>
-      <td>-0.002771</td>
+      <td>-0.041987</td>
+      <td>-0.001320</td>
+      <td>0.000783</td>
+      <td>-0.000108</td>
+      <td>-0.002750</td>
       <td>1.000000</td>
-      <td>-0.017535</td>
-      <td>-0.016141</td>
-      <td>0.008960</td>
-      <td>0.007287</td>
+      <td>-0.003199</td>
+      <td>-0.003588</td>
+      <td>0.002329</td>
+      <td>0.004282</td>
       <td>...</td>
-      <td>-0.008173</td>
-      <td>-0.001197</td>
-      <td>-0.011280</td>
-      <td>0.019048</td>
-      <td>-0.018282</td>
-      <td>-0.020851</td>
-      <td>-0.005682</td>
-      <td>-0.005131</td>
-      <td>-0.007425</td>
-      <td>-0.013643</td>
+      <td>-0.000412</td>
+      <td>0.003262</td>
+      <td>0.002574</td>
+      <td>-0.001824</td>
+      <td>0.001186</td>
+      <td>0.002811</td>
+      <td>0.001306</td>
+      <td>0.000236</td>
+      <td>-0.000568</td>
+      <td>0.004575</td>
     </tr>
     <tr>
       <th>var_8</th>
-      <td>0.048383</td>
-      <td>0.005287</td>
-      <td>-0.010460</td>
-      <td>0.004333</td>
-      <td>-0.011529</td>
-      <td>-0.017535</td>
+      <td>0.052457</td>
+      <td>0.002949</td>
+      <td>-0.007127</td>
+      <td>-0.001809</td>
+      <td>0.003347</td>
+      <td>-0.003199</td>
       <td>1.000000</td>
-      <td>-0.009329</td>
-      <td>0.006170</td>
-      <td>-0.006333</td>
+      <td>0.003472</td>
+      <td>-0.003858</td>
+      <td>-0.002727</td>
       <td>...</td>
-      <td>-0.003171</td>
-      <td>-0.011689</td>
-      <td>-0.001915</td>
-      <td>-0.005399</td>
-      <td>0.001543</td>
-      <td>0.007754</td>
-      <td>0.013471</td>
-      <td>-0.000151</td>
-      <td>0.010374</td>
-      <td>-0.019808</td>
+      <td>-0.008394</td>
+      <td>-0.004254</td>
+      <td>-0.002446</td>
+      <td>0.001117</td>
+      <td>-0.003713</td>
+      <td>-0.003929</td>
+      <td>0.003837</td>
+      <td>0.003422</td>
+      <td>0.003204</td>
+      <td>0.000821</td>
     </tr>
     <tr>
       <th>var_14</th>
-      <td>0.033708</td>
-      <td>0.009787</td>
-      <td>-0.013714</td>
-      <td>-0.005864</td>
-      <td>0.002493</td>
-      <td>-0.016141</td>
-      <td>-0.009329</td>
+      <td>0.045281</td>
+      <td>0.002901</td>
+      <td>-0.006180</td>
+      <td>-0.002786</td>
+      <td>0.001377</td>
+      <td>-0.003588</td>
+      <td>0.003472</td>
       <td>1.000000</td>
-      <td>-0.002979</td>
-      <td>-0.002384</td>
+      <td>-0.007115</td>
+      <td>-0.004249</td>
       <td>...</td>
-      <td>0.005116</td>
-      <td>-0.006524</td>
-      <td>-0.003718</td>
-      <td>-0.009721</td>
-      <td>-0.004758</td>
-      <td>0.021196</td>
-      <td>0.010578</td>
-      <td>0.005441</td>
-      <td>0.003580</td>
-      <td>-0.002742</td>
+      <td>-0.002214</td>
+      <td>-0.002179</td>
+      <td>-0.003054</td>
+      <td>-0.000160</td>
+      <td>-0.000504</td>
+      <td>-0.004046</td>
+      <td>0.003136</td>
+      <td>0.005715</td>
+      <td>0.001501</td>
+      <td>-0.000106</td>
     </tr>
     <tr>
       <th>var_15</th>
-      <td>-0.065024</td>
-      <td>0.003501</td>
-      <td>-0.001477</td>
-      <td>-0.003963</td>
-      <td>0.006865</td>
-      <td>0.008960</td>
-      <td>0.006170</td>
-      <td>-0.002979</td>
+      <td>-0.057373</td>
+      <td>-0.007758</td>
+      <td>-0.002585</td>
+      <td>-0.001177</td>
+      <td>-0.004732</td>
+      <td>0.002329</td>
+      <td>-0.003858</td>
+      <td>-0.007115</td>
       <td>1.000000</td>
-      <td>0.010272</td>
+      <td>0.002467</td>
       <td>...</td>
-      <td>0.006346</td>
-      <td>-0.025542</td>
-      <td>0.015068</td>
-      <td>0.004778</td>
-      <td>-0.000226</td>
-      <td>0.000304</td>
-      <td>0.013914</td>
-      <td>0.002860</td>
-      <td>0.012712</td>
-      <td>0.020895</td>
+      <td>0.000581</td>
+      <td>0.006633</td>
+      <td>0.004569</td>
+      <td>-0.001573</td>
+      <td>0.003251</td>
+      <td>0.003066</td>
+      <td>-0.001541</td>
+      <td>-0.003719</td>
+      <td>-0.002825</td>
+      <td>0.004247</td>
     </tr>
     <tr>
       <th>var_17</th>
-      <td>-0.049189</td>
-      <td>0.007570</td>
-      <td>-0.002532</td>
-      <td>0.001795</td>
-      <td>-0.007378</td>
-      <td>0.007287</td>
-      <td>-0.006333</td>
-      <td>-0.002384</td>
-      <td>0.010272</td>
+      <td>-0.054375</td>
+      <td>-0.002799</td>
+      <td>-0.001663</td>
+      <td>0.006360</td>
+      <td>-0.001814</td>
+      <td>0.004282</td>
+      <td>-0.002727</td>
+      <td>-0.004249</td>
+      <td>0.002467</td>
       <td>1.000000</td>
       <td>...</td>
-      <td>0.003891</td>
-      <td>-0.030515</td>
-      <td>-0.016135</td>
-      <td>-0.002544</td>
-      <td>0.003126</td>
-      <td>0.013883</td>
-      <td>-0.004958</td>
-      <td>0.022471</td>
-      <td>-0.004214</td>
-      <td>0.015237</td>
+      <td>0.005578</td>
+      <td>0.001237</td>
+      <td>0.000210</td>
+      <td>-0.002714</td>
+      <td>0.004149</td>
+      <td>-0.002182</td>
+      <td>-0.002642</td>
+      <td>-0.001968</td>
+      <td>-0.004100</td>
+      <td>-0.000822</td>
     </tr>
     <tr>
       <th>var_20</th>
-      <td>-0.033187</td>
-      <td>-0.007754</td>
-      <td>-0.008520</td>
-      <td>-0.013712</td>
-      <td>0.010999</td>
-      <td>-0.031783</td>
-      <td>-0.009177</td>
-      <td>-0.016808</td>
-      <td>0.004307</td>
-      <td>0.016690</td>
+      <td>-0.040311</td>
+      <td>-0.001353</td>
+      <td>0.001590</td>
+      <td>0.004796</td>
+      <td>-0.000539</td>
+      <td>-0.001971</td>
+      <td>-0.003417</td>
+      <td>-0.001595</td>
+      <td>0.003584</td>
+      <td>0.001476</td>
       <td>...</td>
-      <td>-0.001771</td>
-      <td>0.013170</td>
-      <td>0.001569</td>
-      <td>0.003910</td>
-      <td>0.020686</td>
-      <td>0.007581</td>
-      <td>0.020351</td>
-      <td>-0.000557</td>
-      <td>0.005733</td>
-      <td>0.000773</td>
+      <td>-0.001476</td>
+      <td>0.003107</td>
+      <td>0.001610</td>
+      <td>0.001186</td>
+      <td>0.004265</td>
+      <td>0.001449</td>
+      <td>-0.004506</td>
+      <td>-0.003241</td>
+      <td>-0.000988</td>
+      <td>0.001734</td>
     </tr>
     <tr>
       <th>var_21</th>
-      <td>-0.056087</td>
-      <td>-0.013727</td>
-      <td>0.015038</td>
-      <td>-0.001794</td>
-      <td>-0.014164</td>
-      <td>0.005804</td>
-      <td>-0.014147</td>
-      <td>0.001526</td>
-      <td>-0.002291</td>
-      <td>0.020104</td>
+      <td>-0.045513</td>
+      <td>0.000087</td>
+      <td>0.007019</td>
+      <td>-0.000311</td>
+      <td>-0.001116</td>
+      <td>0.000779</td>
+      <td>-0.001896</td>
+      <td>-0.001903</td>
+      <td>0.005596</td>
+      <td>0.007089</td>
       <td>...</td>
-      <td>-0.019792</td>
-      <td>-0.008365</td>
-      <td>0.001652</td>
-      <td>0.006530</td>
-      <td>0.002397</td>
-      <td>-0.010663</td>
-      <td>0.010199</td>
-      <td>0.015379</td>
-      <td>0.004576</td>
-      <td>-0.002218</td>
+      <td>0.004739</td>
+      <td>0.004191</td>
+      <td>0.002981</td>
+      <td>-0.005077</td>
+      <td>0.005430</td>
+      <td>0.001005</td>
+      <td>-0.001356</td>
+      <td>-0.000499</td>
+      <td>-0.002179</td>
+      <td>0.001162</td>
     </tr>
     <tr>
       <th>var_22</th>
-      <td>-0.061702</td>
-      <td>0.002565</td>
-      <td>-0.012965</td>
-      <td>0.028614</td>
-      <td>-0.006965</td>
-      <td>-0.011697</td>
-      <td>-0.005735</td>
-      <td>-0.007630</td>
-      <td>-0.009497</td>
-      <td>-0.000121</td>
+      <td>-0.080689</td>
+      <td>-0.000780</td>
+      <td>0.004288</td>
+      <td>0.000095</td>
+      <td>-0.003469</td>
+      <td>0.002544</td>
+      <td>-0.005949</td>
+      <td>-0.005164</td>
+      <td>0.007813</td>
+      <td>0.005505</td>
       <td>...</td>
-      <td>-0.012524</td>
-      <td>-0.005244</td>
-      <td>0.005157</td>
-      <td>0.006657</td>
-      <td>-0.003701</td>
-      <td>-0.015343</td>
-      <td>-0.004040</td>
-      <td>0.000418</td>
-      <td>0.005328</td>
-      <td>0.001218</td>
+      <td>0.001432</td>
+      <td>0.001421</td>
+      <td>0.000842</td>
+      <td>-0.003804</td>
+      <td>0.005394</td>
+      <td>0.005639</td>
+      <td>-0.007014</td>
+      <td>-0.003708</td>
+      <td>-0.003656</td>
+      <td>0.000794</td>
     </tr>
     <tr>
       <th>var_24</th>
-      <td>0.045689</td>
-      <td>0.007211</td>
-      <td>0.008056</td>
-      <td>0.007867</td>
-      <td>0.017775</td>
-      <td>-0.008173</td>
-      <td>-0.003171</td>
-      <td>0.005116</td>
-      <td>0.006346</td>
-      <td>0.003891</td>
+      <td>0.047948</td>
+      <td>0.001009</td>
+      <td>0.000379</td>
+      <td>-0.004615</td>
+      <td>0.002092</td>
+      <td>-0.005960</td>
+      <td>0.004496</td>
+      <td>-0.000849</td>
+      <td>-0.000018</td>
+      <td>-0.001122</td>
       <td>...</td>
-      <td>1.000000</td>
-      <td>-0.008180</td>
-      <td>0.004763</td>
-      <td>0.021511</td>
-      <td>-0.005657</td>
-      <td>-0.007695</td>
-      <td>-0.004749</td>
-      <td>-0.026055</td>
-      <td>-0.011840</td>
-      <td>0.006475</td>
+      <td>-0.004693</td>
+      <td>-0.004184</td>
+      <td>-0.000685</td>
+      <td>-0.000843</td>
+      <td>-0.002546</td>
+      <td>-0.003694</td>
+      <td>-0.000634</td>
+      <td>-0.000380</td>
+      <td>0.001784</td>
+      <td>-0.005980</td>
     </tr>
     <tr>
       <th>var_26</th>
-      <td>0.067268</td>
-      <td>0.005079</td>
-      <td>-0.001995</td>
-      <td>-0.002776</td>
-      <td>0.005338</td>
-      <td>-0.001197</td>
-      <td>-0.011689</td>
-      <td>-0.006524</td>
-      <td>-0.025542</td>
-      <td>-0.030515</td>
+      <td>0.055450</td>
+      <td>0.000968</td>
+      <td>-0.000372</td>
+      <td>-0.001183</td>
+      <td>0.000459</td>
+      <td>-0.003774</td>
+      <td>0.000987</td>
+      <td>-0.002321</td>
+      <td>-0.008062</td>
+      <td>-0.009171</td>
       <td>...</td>
-      <td>-0.008180</td>
-      <td>1.000000</td>
-      <td>0.007209</td>
-      <td>-0.012441</td>
-      <td>0.003520</td>
-      <td>0.001208</td>
-      <td>0.007433</td>
-      <td>-0.008402</td>
-      <td>-0.006671</td>
-      <td>-0.004360</td>
+      <td>-0.006361</td>
+      <td>-0.000990</td>
+      <td>-0.001293</td>
+      <td>0.004021</td>
+      <td>-0.003880</td>
+      <td>-0.002388</td>
+      <td>0.005903</td>
+      <td>0.001614</td>
+      <td>0.000502</td>
+      <td>-0.000660</td>
     </tr>
     <tr>
       <th>var_27</th>
-      <td>-0.022421</td>
-      <td>-0.004578</td>
-      <td>-0.014325</td>
-      <td>0.015401</td>
-      <td>0.005084</td>
-      <td>-0.011280</td>
-      <td>-0.001915</td>
-      <td>-0.003718</td>
-      <td>0.015068</td>
-      <td>-0.016135</td>
+      <td>-0.045516</td>
+      <td>-0.001531</td>
+      <td>0.001471</td>
+      <td>0.001726</td>
+      <td>0.003816</td>
+      <td>-0.001559</td>
+      <td>-0.000400</td>
+      <td>-0.001540</td>
+      <td>0.004417</td>
+      <td>0.002331</td>
       <td>...</td>
-      <td>0.004763</td>
-      <td>0.007209</td>
-      <td>1.000000</td>
-      <td>0.014751</td>
-      <td>0.004038</td>
-      <td>0.008738</td>
-      <td>-0.007144</td>
-      <td>0.016897</td>
-      <td>0.015010</td>
-      <td>-0.003212</td>
+      <td>0.000021</td>
+      <td>0.002568</td>
+      <td>0.003206</td>
+      <td>-0.003121</td>
+      <td>0.003747</td>
+      <td>0.002908</td>
+      <td>-0.003104</td>
+      <td>-0.001378</td>
+      <td>0.001917</td>
+      <td>0.000305</td>
     </tr>
     <tr>
       <th>var_28</th>
-      <td>-0.060705</td>
-      <td>0.001237</td>
-      <td>0.003370</td>
-      <td>0.003564</td>
-      <td>-0.013891</td>
-      <td>0.019048</td>
-      <td>-0.005399</td>
-      <td>-0.009721</td>
-      <td>0.004778</td>
-      <td>-0.002544</td>
+      <td>-0.049551</td>
+      <td>0.000636</td>
+      <td>0.002573</td>
+      <td>0.001410</td>
+      <td>-0.001616</td>
+      <td>0.003138</td>
+      <td>-0.000669</td>
+      <td>0.000278</td>
+      <td>-0.001507</td>
+      <td>-0.000732</td>
       <td>...</td>
-      <td>0.021511</td>
-      <td>-0.012441</td>
-      <td>0.014751</td>
-      <td>1.000000</td>
-      <td>-0.006915</td>
-      <td>-0.004855</td>
-      <td>-0.010351</td>
-      <td>0.010725</td>
-      <td>-0.005868</td>
-      <td>0.008130</td>
+      <td>0.002739</td>
+      <td>0.009238</td>
+      <td>0.001646</td>
+      <td>-0.002877</td>
+      <td>0.001500</td>
+      <td>0.003358</td>
+      <td>-0.005368</td>
+      <td>-0.002225</td>
+      <td>-0.003906</td>
+      <td>0.002023</td>
     </tr>
     <tr>
       <th>var_29</th>
-      <td>0.049314</td>
-      <td>-0.010036</td>
-      <td>-0.010688</td>
-      <td>-0.004052</td>
-      <td>-0.001566</td>
-      <td>-0.018282</td>
-      <td>0.001543</td>
-      <td>-0.004758</td>
-      <td>-0.000226</td>
-      <td>0.003126</td>
+      <td>0.059227</td>
+      <td>-0.001395</td>
+      <td>-0.005218</td>
+      <td>-0.004308</td>
+      <td>0.001234</td>
+      <td>-0.000855</td>
+      <td>-0.000696</td>
+      <td>0.004762</td>
+      <td>-0.003145</td>
+      <td>0.000293</td>
       <td>...</td>
-      <td>-0.005657</td>
-      <td>0.003520</td>
-      <td>0.004038</td>
-      <td>-0.006915</td>
-      <td>1.000000</td>
-      <td>0.002414</td>
-      <td>0.000797</td>
-      <td>-0.000588</td>
-      <td>0.009052</td>
-      <td>-0.000766</td>
+      <td>-0.002981</td>
+      <td>-0.007497</td>
+      <td>-0.005332</td>
+      <td>0.001718</td>
+      <td>-0.001899</td>
+      <td>-0.001118</td>
+      <td>0.003656</td>
+      <td>0.005123</td>
+      <td>0.002835</td>
+      <td>-0.006518</td>
     </tr>
     <tr>
       <th>var_36</th>
-      <td>0.068738</td>
-      <td>-0.008809</td>
-      <td>0.004288</td>
-      <td>-0.018087</td>
-      <td>0.012709</td>
-      <td>-0.020851</td>
-      <td>0.007754</td>
-      <td>0.021196</td>
-      <td>0.000304</td>
-      <td>0.013883</td>
+      <td>0.048392</td>
+      <td>0.001374</td>
+      <td>0.000974</td>
+      <td>-0.004409</td>
+      <td>0.004985</td>
+      <td>-0.003699</td>
+      <td>0.004532</td>
+      <td>0.003461</td>
+      <td>-0.007717</td>
+      <td>-0.003728</td>
       <td>...</td>
-      <td>-0.007695</td>
-      <td>0.001208</td>
-      <td>0.008738</td>
-      <td>-0.004855</td>
-      <td>0.002414</td>
-      <td>1.000000</td>
-      <td>0.005561</td>
-      <td>0.009450</td>
-      <td>-0.007748</td>
-      <td>-0.002971</td>
+      <td>-0.002213</td>
+      <td>-0.003194</td>
+      <td>-0.002726</td>
+      <td>-0.000511</td>
+      <td>-0.002893</td>
+      <td>0.000999</td>
+      <td>0.003404</td>
+      <td>0.005872</td>
+      <td>0.000806</td>
+      <td>-0.001608</td>
     </tr>
     <tr>
       <th>var_37</th>
-      <td>0.041962</td>
-      <td>-0.000133</td>
-      <td>-0.003056</td>
-      <td>0.015591</td>
-      <td>-0.016146</td>
-      <td>-0.005682</td>
-      <td>0.013471</td>
-      <td>0.010578</td>
-      <td>0.013914</td>
-      <td>-0.004958</td>
+      <td>0.056902</td>
+      <td>0.002885</td>
+      <td>-0.001607</td>
+      <td>-0.003808</td>
+      <td>-0.001474</td>
+      <td>-0.004441</td>
+      <td>0.001007</td>
+      <td>0.001755</td>
+      <td>-0.000609</td>
+      <td>-0.001001</td>
       <td>...</td>
-      <td>-0.004749</td>
-      <td>0.007433</td>
-      <td>-0.007144</td>
-      <td>-0.010351</td>
-      <td>0.000797</td>
-      <td>0.005561</td>
-      <td>1.000000</td>
-      <td>-0.029166</td>
-      <td>-0.004538</td>
-      <td>0.004678</td>
+      <td>-0.003375</td>
+      <td>0.002361</td>
+      <td>0.000043</td>
+      <td>0.004576</td>
+      <td>-0.005490</td>
+      <td>0.001399</td>
+      <td>0.005298</td>
+      <td>0.003803</td>
+      <td>0.003868</td>
+      <td>-0.007496</td>
     </tr>
     <tr>
       <th>var_38</th>
-      <td>-0.057738</td>
-      <td>0.008856</td>
-      <td>-0.009136</td>
-      <td>-0.000161</td>
-      <td>-0.004427</td>
-      <td>-0.005131</td>
-      <td>-0.000151</td>
-      <td>0.005441</td>
-      <td>0.002860</td>
-      <td>0.022471</td>
+      <td>-0.055704</td>
+      <td>0.000383</td>
+      <td>0.003957</td>
+      <td>0.003147</td>
+      <td>-0.002000</td>
+      <td>0.001852</td>
+      <td>-0.000320</td>
+      <td>-0.001427</td>
+      <td>0.004921</td>
+      <td>0.005744</td>
       <td>...</td>
-      <td>-0.026055</td>
-      <td>-0.008402</td>
-      <td>0.016897</td>
-      <td>0.010725</td>
-      <td>-0.000588</td>
-      <td>0.009450</td>
-      <td>-0.029166</td>
-      <td>1.000000</td>
-      <td>0.000767</td>
-      <td>-0.020201</td>
+      <td>0.003617</td>
+      <td>0.003601</td>
+      <td>0.004357</td>
+      <td>-0.005268</td>
+      <td>-0.000032</td>
+      <td>0.002691</td>
+      <td>-0.005402</td>
+      <td>-0.001516</td>
+      <td>-0.003260</td>
+      <td>0.004432</td>
     </tr>
     <tr>
       <th>var_39</th>
-      <td>-0.038984</td>
-      <td>0.007700</td>
-      <td>0.008635</td>
-      <td>0.011820</td>
-      <td>-0.014136</td>
-      <td>-0.007425</td>
-      <td>0.010374</td>
-      <td>0.003580</td>
-      <td>0.012712</td>
-      <td>-0.004214</td>
+      <td>-0.050278</td>
+      <td>-0.003738</td>
+      <td>0.004289</td>
+      <td>0.007290</td>
+      <td>-0.003807</td>
+      <td>-0.001919</td>
+      <td>-0.005726</td>
+      <td>-0.000344</td>
+      <td>0.003033</td>
+      <td>0.000993</td>
       <td>...</td>
-      <td>-0.011840</td>
-      <td>-0.006671</td>
-      <td>0.015010</td>
-      <td>-0.005868</td>
-      <td>0.009052</td>
-      <td>-0.007748</td>
-      <td>-0.004538</td>
-      <td>0.000767</td>
-      <td>1.000000</td>
-      <td>0.002821</td>
+      <td>0.000614</td>
+      <td>0.001990</td>
+      <td>0.002389</td>
+      <td>-0.000124</td>
+      <td>0.003857</td>
+      <td>-0.000693</td>
+      <td>-0.003939</td>
+      <td>-0.002884</td>
+      <td>0.000529</td>
+      <td>0.000866</td>
     </tr>
     <tr>
       <th>var_41</th>
-      <td>-0.059291</td>
-      <td>-0.004688</td>
-      <td>0.022035</td>
-      <td>0.010744</td>
-      <td>0.001761</td>
-      <td>-0.013643</td>
-      <td>-0.019808</td>
-      <td>-0.002742</td>
-      <td>0.020895</td>
-      <td>0.015237</td>
+      <td>-0.057320</td>
+      <td>-0.001149</td>
+      <td>0.003272</td>
+      <td>0.005564</td>
+      <td>-0.002271</td>
+      <td>0.003435</td>
+      <td>-0.004458</td>
+      <td>-0.007079</td>
+      <td>0.003447</td>
+      <td>0.003756</td>
       <td>...</td>
-      <td>0.006475</td>
-      <td>-0.004360</td>
-      <td>-0.003212</td>
-      <td>0.008130</td>
-      <td>-0.000766</td>
-      <td>-0.002971</td>
-      <td>0.004678</td>
-      <td>-0.020201</td>
-      <td>0.002821</td>
+      <td>0.003885</td>
+      <td>0.005903</td>
+      <td>0.002086</td>
+      <td>-0.001920</td>
+      <td>0.004280</td>
+      <td>0.003110</td>
+      <td>-0.006784</td>
+      <td>0.002173</td>
+      <td>-0.000295</td>
+      <td>0.002574</td>
+    </tr>
+    <tr>
+      <th>var_48</th>
+      <td>-0.057378</td>
+      <td>-0.001933</td>
+      <td>0.000810</td>
+      <td>0.004102</td>
+      <td>-0.004523</td>
+      <td>0.000514</td>
+      <td>-0.003145</td>
+      <td>-0.003999</td>
+      <td>0.001496</td>
+      <td>0.001879</td>
+      <td>...</td>
+      <td>0.002605</td>
+      <td>-0.001145</td>
+      <td>0.000962</td>
+      <td>-0.001034</td>
+      <td>0.002166</td>
+      <td>0.000192</td>
+      <td>-0.003458</td>
+      <td>-0.000502</td>
+      <td>-0.002722</td>
+      <td>0.002765</td>
+    </tr>
+    <tr>
+      <th>var_49</th>
+      <td>0.066924</td>
+      <td>0.005311</td>
+      <td>-0.002987</td>
+      <td>-0.004269</td>
+      <td>-0.000344</td>
+      <td>-0.000245</td>
+      <td>0.002256</td>
+      <td>0.001771</td>
+      <td>-0.003894</td>
+      <td>-0.005282</td>
+      <td>...</td>
+      <td>-0.003659</td>
+      <td>-0.006517</td>
+      <td>-0.006768</td>
+      <td>0.003463</td>
+      <td>-0.001359</td>
+      <td>-0.001109</td>
+      <td>0.005080</td>
+      <td>-0.004274</td>
+      <td>0.000999</td>
+      <td>-0.002887</td>
+    </tr>
+    <tr>
+      <th>var_52</th>
+      <td>-0.048198</td>
+      <td>-0.001241</td>
+      <td>0.004302</td>
+      <td>0.002107</td>
+      <td>-0.004803</td>
+      <td>-0.000969</td>
+      <td>-0.004247</td>
+      <td>-0.001983</td>
+      <td>0.006883</td>
+      <td>0.004320</td>
+      <td>...</td>
+      <td>0.000601</td>
+      <td>0.003351</td>
+      <td>0.002901</td>
+      <td>-0.003571</td>
+      <td>0.003007</td>
+      <td>0.001802</td>
+      <td>-0.002124</td>
+      <td>-0.003495</td>
+      <td>-0.004599</td>
+      <td>0.002898</td>
+    </tr>
+    <tr>
+      <th>var_56</th>
+      <td>-0.070015</td>
+      <td>-0.004525</td>
+      <td>0.008009</td>
+      <td>0.006521</td>
+      <td>-0.006139</td>
+      <td>0.002366</td>
+      <td>-0.003349</td>
+      <td>-0.000761</td>
+      <td>0.007981</td>
+      <td>0.004778</td>
+      <td>...</td>
+      <td>0.003767</td>
+      <td>0.006401</td>
+      <td>0.000845</td>
+      <td>-0.002999</td>
+      <td>0.008401</td>
+      <td>0.003204</td>
+      <td>-0.009386</td>
+      <td>0.000237</td>
+      <td>-0.004156</td>
+      <td>0.003363</td>
+    </tr>
+    <tr>
+      <th>var_57</th>
+      <td>-0.073296</td>
+      <td>-0.004745</td>
+      <td>0.004164</td>
+      <td>0.003450</td>
+      <td>-0.001621</td>
+      <td>0.002365</td>
+      <td>-0.005743</td>
+      <td>-0.003548</td>
+      <td>0.007243</td>
+      <td>0.005050</td>
+      <td>...</td>
+      <td>0.006588</td>
+      <td>0.002551</td>
+      <td>0.000657</td>
+      <td>-0.005207</td>
+      <td>0.004053</td>
+      <td>-0.001672</td>
+      <td>-0.003332</td>
+      <td>-0.000323</td>
+      <td>-0.001690</td>
+      <td>0.000963</td>
+    </tr>
+    <tr>
+      <th>var_61</th>
+      <td>-0.050049</td>
+      <td>-0.006360</td>
+      <td>0.002123</td>
+      <td>0.004728</td>
+      <td>-0.003330</td>
+      <td>0.001570</td>
+      <td>-0.004834</td>
+      <td>-0.007425</td>
+      <td>0.005273</td>
+      <td>0.001306</td>
+      <td>...</td>
+      <td>0.002819</td>
+      <td>0.005144</td>
+      <td>-0.000824</td>
+      <td>-0.003808</td>
+      <td>0.009601</td>
+      <td>0.000607</td>
+      <td>-0.002736</td>
+      <td>-0.003602</td>
+      <td>-0.004848</td>
+      <td>0.001780</td>
+    </tr>
+    <tr>
+      <th>var_62</th>
+      <td>0.052904</td>
+      <td>-0.000037</td>
+      <td>-0.005945</td>
+      <td>0.000999</td>
+      <td>0.001072</td>
+      <td>-0.000785</td>
+      <td>0.002141</td>
+      <td>0.002762</td>
+      <td>-0.008580</td>
+      <td>-0.001717</td>
+      <td>...</td>
+      <td>-0.003419</td>
+      <td>-0.001549</td>
+      <td>-0.002247</td>
+      <td>-0.000227</td>
+      <td>0.000216</td>
+      <td>-0.005759</td>
+      <td>0.004061</td>
+      <td>0.001071</td>
+      <td>0.006984</td>
+      <td>-0.003717</td>
+    </tr>
+    <tr>
+      <th>var_63</th>
+      <td>0.062887</td>
+      <td>0.002503</td>
+      <td>-0.003435</td>
+      <td>-0.001629</td>
+      <td>0.004893</td>
+      <td>-0.003233</td>
+      <td>-0.000483</td>
+      <td>0.003071</td>
+      <td>0.000553</td>
+      <td>-0.000941</td>
+      <td>...</td>
+      <td>-0.002858</td>
+      <td>-0.009786</td>
+      <td>-0.001129</td>
+      <td>0.005322</td>
+      <td>-0.002256</td>
+      <td>-0.003845</td>
+      <td>0.000119</td>
+      <td>0.006973</td>
+      <td>0.000594</td>
+      <td>0.000057</td>
+    </tr>
+    <tr>
+      <th>var_65</th>
+      <td>0.044769</td>
+      <td>0.004656</td>
+      <td>-0.004983</td>
+      <td>0.001788</td>
+      <td>0.002339</td>
+      <td>-0.001980</td>
+      <td>0.005089</td>
+      <td>0.004549</td>
+      <td>-0.002751</td>
+      <td>0.001922</td>
+      <td>...</td>
+      <td>-0.005472</td>
+      <td>-0.000707</td>
+      <td>-0.001267</td>
+      <td>-0.000275</td>
+      <td>-0.000616</td>
+      <td>-0.006991</td>
+      <td>0.000857</td>
+      <td>0.005070</td>
+      <td>0.000639</td>
+      <td>-0.005090</td>
+    </tr>
+    <tr>
+      <th>var_66</th>
+      <td>-0.048623</td>
+      <td>-0.004908</td>
+      <td>0.003660</td>
+      <td>-0.000419</td>
+      <td>-0.002119</td>
+      <td>0.004670</td>
+      <td>-0.000068</td>
+      <td>0.000549</td>
+      <td>0.004525</td>
+      <td>0.007995</td>
+      <td>...</td>
+      <td>-0.000290</td>
+      <td>-0.001310</td>
+      <td>0.001561</td>
+      <td>-0.001590</td>
+      <td>0.000559</td>
+      <td>0.001897</td>
+      <td>-0.005039</td>
+      <td>-0.000942</td>
+      <td>-0.000592</td>
+      <td>-0.001026</td>
+    </tr>
+    <tr>
+      <th>var_67</th>
+      <td>0.051110</td>
+      <td>0.006413</td>
+      <td>0.000081</td>
+      <td>-0.005454</td>
+      <td>0.001463</td>
+      <td>-0.003721</td>
+      <td>-0.000577</td>
+      <td>-0.001727</td>
+      <td>-0.003692</td>
+      <td>-0.005164</td>
+      <td>...</td>
+      <td>-0.003245</td>
+      <td>-0.004755</td>
+      <td>-0.003563</td>
+      <td>-0.000230</td>
+      <td>-0.004382</td>
+      <td>0.000092</td>
+      <td>0.001817</td>
+      <td>0.001407</td>
+      <td>0.005755</td>
+      <td>-0.002234</td>
+    </tr>
+    <tr>
+      <th>var_70</th>
+      <td>0.063565</td>
+      <td>-0.000582</td>
+      <td>-0.005822</td>
+      <td>-0.005056</td>
+      <td>-0.000539</td>
+      <td>-0.004605</td>
+      <td>0.002969</td>
+      <td>0.001152</td>
+      <td>-0.007409</td>
+      <td>-0.007201</td>
+      <td>...</td>
+      <td>0.000804</td>
+      <td>-0.003788</td>
+      <td>-0.003446</td>
+      <td>0.004700</td>
+      <td>-0.005673</td>
+      <td>0.000946</td>
+      <td>0.002790</td>
+      <td>0.004508</td>
+      <td>0.001282</td>
+      <td>-0.004026</td>
+    </tr>
+    <tr>
+      <th>var_72</th>
+      <td>0.064868</td>
+      <td>0.006135</td>
+      <td>0.001540</td>
+      <td>-0.002231</td>
+      <td>0.006782</td>
+      <td>-0.002688</td>
+      <td>0.007005</td>
+      <td>0.007064</td>
+      <td>-0.001968</td>
+      <td>-0.001736</td>
+      <td>...</td>
+      <td>0.000423</td>
+      <td>-0.003872</td>
+      <td>-0.002513</td>
+      <td>0.002833</td>
+      <td>-0.001291</td>
+      <td>-0.000717</td>
+      <td>0.005784</td>
+      <td>0.006607</td>
+      <td>0.001981</td>
+      <td>-0.004776</td>
+    </tr>
+    <tr>
+      <th>var_73</th>
+      <td>0.047569</td>
+      <td>0.003831</td>
+      <td>-0.003101</td>
+      <td>-0.000969</td>
+      <td>0.001406</td>
+      <td>-0.003392</td>
+      <td>0.001596</td>
+      <td>0.004043</td>
+      <td>-0.004325</td>
+      <td>-0.003612</td>
+      <td>...</td>
+      <td>-0.003395</td>
+      <td>-0.004203</td>
+      <td>-0.007927</td>
+      <td>0.006113</td>
+      <td>-0.001936</td>
+      <td>-0.002168</td>
+      <td>0.000028</td>
+      <td>0.004871</td>
+      <td>-0.002043</td>
+      <td>-0.004052</td>
+    </tr>
+    <tr>
+      <th>var_75</th>
+      <td>-0.061291</td>
+      <td>-0.004553</td>
+      <td>0.002975</td>
+      <td>0.004096</td>
+      <td>-0.002379</td>
+      <td>0.004144</td>
+      <td>-0.002294</td>
+      <td>-0.002490</td>
+      <td>0.004092</td>
+      <td>0.000897</td>
+      <td>...</td>
+      <td>0.003434</td>
+      <td>0.004082</td>
+      <td>0.000483</td>
+      <td>-0.000705</td>
+      <td>0.003646</td>
+      <td>0.002030</td>
+      <td>-0.002020</td>
+      <td>-0.003304</td>
+      <td>-0.003950</td>
+      <td>0.002351</td>
+    </tr>
+    <tr>
+      <th>var_78</th>
+      <td>-0.059906</td>
+      <td>-0.002737</td>
+      <td>-0.001818</td>
+      <td>-0.001089</td>
+      <td>0.002917</td>
+      <td>-0.000712</td>
+      <td>-0.003073</td>
+      <td>-0.004463</td>
+      <td>0.007736</td>
+      <td>0.001999</td>
+      <td>...</td>
+      <td>0.004091</td>
+      <td>0.002332</td>
+      <td>-0.000039</td>
+      <td>-0.002355</td>
+      <td>0.000183</td>
+      <td>0.004096</td>
+      <td>-0.006857</td>
+      <td>-0.000722</td>
+      <td>0.000154</td>
+      <td>0.002163</td>
+    </tr>
+    <tr>
+      <th>var_80</th>
+      <td>0.040147</td>
+      <td>-0.000477</td>
+      <td>-0.004615</td>
+      <td>-0.006437</td>
+      <td>0.005514</td>
+      <td>0.000981</td>
+      <td>0.003494</td>
+      <td>0.003263</td>
+      <td>-0.002552</td>
+      <td>-0.005349</td>
+      <td>...</td>
+      <td>0.001518</td>
+      <td>-0.003447</td>
+      <td>0.001161</td>
+      <td>-0.000635</td>
+      <td>0.000186</td>
+      <td>-0.005028</td>
+      <td>0.002691</td>
+      <td>0.005024</td>
+      <td>-0.001218</td>
+      <td>-0.000985</td>
+    </tr>
+    <tr>
+      <th>var_82</th>
+      <td>0.049916</td>
+      <td>0.003845</td>
+      <td>-0.005352</td>
+      <td>0.000353</td>
+      <td>0.003331</td>
+      <td>-0.003454</td>
+      <td>0.002295</td>
+      <td>0.002061</td>
+      <td>-0.007379</td>
+      <td>-0.001234</td>
+      <td>...</td>
+      <td>-0.003251</td>
+      <td>-0.001535</td>
+      <td>-0.000408</td>
+      <td>0.000387</td>
+      <td>-0.004563</td>
+      <td>-0.003810</td>
+      <td>0.004988</td>
+      <td>0.002160</td>
+      <td>0.001400</td>
+      <td>-0.001364</td>
+    </tr>
+    <tr>
+      <th>var_83</th>
+      <td>-0.052324</td>
+      <td>-0.004960</td>
+      <td>0.004265</td>
+      <td>0.004890</td>
+      <td>0.000657</td>
+      <td>-0.000412</td>
+      <td>-0.008394</td>
+      <td>-0.002214</td>
+      <td>0.000581</td>
+      <td>0.005578</td>
+      <td>...</td>
+      <td>1.000000</td>
+      <td>0.003881</td>
+      <td>0.003278</td>
+      <td>0.000097</td>
+      <td>0.003458</td>
+      <td>0.000980</td>
+      <td>0.000677</td>
+      <td>-0.003856</td>
+      <td>-0.001861</td>
+      <td>0.005469</td>
+    </tr>
+    <tr>
+      <th>var_84</th>
+      <td>-0.053733</td>
+      <td>-0.005451</td>
+      <td>0.002411</td>
+      <td>0.002240</td>
+      <td>-0.005267</td>
+      <td>0.003262</td>
+      <td>-0.004254</td>
+      <td>-0.002179</td>
+      <td>0.006633</td>
+      <td>0.001237</td>
+      <td>...</td>
+      <td>0.003881</td>
+      <td>1.000000</td>
+      <td>0.004187</td>
+      <td>-0.003125</td>
+      <td>0.002860</td>
+      <td>0.001290</td>
+      <td>-0.001505</td>
+      <td>-0.005081</td>
+      <td>-0.005009</td>
+      <td>0.002916</td>
+    </tr>
+    <tr>
+      <th>var_85</th>
+      <td>-0.042073</td>
+      <td>-0.000716</td>
+      <td>0.001484</td>
+      <td>0.001980</td>
+      <td>-0.004266</td>
+      <td>0.002574</td>
+      <td>-0.002446</td>
+      <td>-0.003054</td>
+      <td>0.004569</td>
+      <td>0.000210</td>
+      <td>...</td>
+      <td>0.003278</td>
+      <td>0.004187</td>
+      <td>1.000000</td>
+      <td>-0.004458</td>
+      <td>-0.000499</td>
+      <td>0.000190</td>
+      <td>-0.003609</td>
+      <td>-0.002492</td>
+      <td>-0.000803</td>
+      <td>0.004553</td>
+    </tr>
+    <tr>
+      <th>var_86</th>
+      <td>0.047543</td>
+      <td>0.004577</td>
+      <td>-0.003859</td>
+      <td>-0.001161</td>
+      <td>-0.004179</td>
+      <td>-0.001824</td>
+      <td>0.001117</td>
+      <td>-0.000160</td>
+      <td>-0.001573</td>
+      <td>-0.002714</td>
+      <td>...</td>
+      <td>0.000097</td>
+      <td>-0.003125</td>
+      <td>-0.004458</td>
+      <td>1.000000</td>
+      <td>-0.005613</td>
+      <td>-0.000009</td>
+      <td>0.003375</td>
+      <td>0.004643</td>
+      <td>-0.000328</td>
+      <td>0.000085</td>
+    </tr>
+    <tr>
+      <th>var_87</th>
+      <td>-0.063871</td>
+      <td>-0.004664</td>
+      <td>-0.000485</td>
+      <td>0.003921</td>
+      <td>-0.004211</td>
+      <td>0.001186</td>
+      <td>-0.003713</td>
+      <td>-0.000504</td>
+      <td>0.003251</td>
+      <td>0.004149</td>
+      <td>...</td>
+      <td>0.003458</td>
+      <td>0.002860</td>
+      <td>-0.000499</td>
+      <td>-0.005613</td>
+      <td>1.000000</td>
+      <td>0.007556</td>
+      <td>-0.002909</td>
+      <td>-0.005825</td>
+      <td>0.000767</td>
+      <td>0.002963</td>
+    </tr>
+    <tr>
+      <th>var_88</th>
+      <td>-0.042765</td>
+      <td>-0.001088</td>
+      <td>0.003141</td>
+      <td>0.002087</td>
+      <td>-0.002330</td>
+      <td>0.002811</td>
+      <td>-0.003929</td>
+      <td>-0.004046</td>
+      <td>0.003066</td>
+      <td>-0.002182</td>
+      <td>...</td>
+      <td>0.000980</td>
+      <td>0.001290</td>
+      <td>0.000190</td>
+      <td>-0.000009</td>
+      <td>0.007556</td>
+      <td>1.000000</td>
+      <td>0.001352</td>
+      <td>0.002127</td>
+      <td>-0.003036</td>
+      <td>0.001439</td>
+    </tr>
+    <tr>
+      <th>var_89</th>
+      <td>0.059306</td>
+      <td>0.000236</td>
+      <td>-0.006188</td>
+      <td>-0.004422</td>
+      <td>0.000254</td>
+      <td>0.001306</td>
+      <td>0.003837</td>
+      <td>0.003136</td>
+      <td>-0.001541</td>
+      <td>-0.002642</td>
+      <td>...</td>
+      <td>0.000677</td>
+      <td>-0.001505</td>
+      <td>-0.003609</td>
+      <td>0.003375</td>
+      <td>-0.002909</td>
+      <td>0.001352</td>
+      <td>1.000000</td>
+      <td>0.002857</td>
+      <td>0.003646</td>
+      <td>0.000851</td>
+    </tr>
+    <tr>
+      <th>var_92</th>
+      <td>0.040520</td>
+      <td>0.001668</td>
+      <td>0.000071</td>
+      <td>-0.003418</td>
+      <td>0.001090</td>
+      <td>0.000236</td>
+      <td>0.003422</td>
+      <td>0.005715</td>
+      <td>-0.003719</td>
+      <td>-0.001968</td>
+      <td>...</td>
+      <td>-0.003856</td>
+      <td>-0.005081</td>
+      <td>-0.002492</td>
+      <td>0.004643</td>
+      <td>-0.005825</td>
+      <td>0.002127</td>
+      <td>0.002857</td>
+      <td>1.000000</td>
+      <td>0.003444</td>
+      <td>-0.001871</td>
+    </tr>
+    <tr>
+      <th>var_94</th>
+      <td>0.049072</td>
+      <td>0.001837</td>
+      <td>-0.003682</td>
+      <td>-0.001565</td>
+      <td>-0.000468</td>
+      <td>-0.000568</td>
+      <td>0.003204</td>
+      <td>0.001501</td>
+      <td>-0.002825</td>
+      <td>-0.004100</td>
+      <td>...</td>
+      <td>-0.001861</td>
+      <td>-0.005009</td>
+      <td>-0.000803</td>
+      <td>-0.000328</td>
+      <td>0.000767</td>
+      <td>-0.003036</td>
+      <td>0.003646</td>
+      <td>0.003444</td>
+      <td>1.000000</td>
+      <td>0.002841</td>
+    </tr>
+    <tr>
+      <th>var_100</th>
+      <td>-0.047005</td>
+      <td>0.001475</td>
+      <td>0.003964</td>
+      <td>0.002418</td>
+      <td>-0.002807</td>
+      <td>0.004575</td>
+      <td>0.000821</td>
+      <td>-0.000106</td>
+      <td>0.004247</td>
+      <td>-0.000822</td>
+      <td>...</td>
+      <td>0.005469</td>
+      <td>0.002916</td>
+      <td>0.004553</td>
+      <td>0.000085</td>
+      <td>0.002963</td>
+      <td>0.001439</td>
+      <td>0.000851</td>
+      <td>-0.001871</td>
+      <td>0.002841</td>
       <td>1.000000</td>
     </tr>
   </tbody>
 </table>
-<p>23 rows × 23 columns</p>
+<p>51 rows × 51 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-b4b89650-0f9d-404c-9e08-9f9e15c1bd2f')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-f4ae2736-60ef-4516-9048-07577d491c23')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -10502,12 +10739,12 @@ column_correlations
 
     <script>
       const buttonEl =
-        document.querySelector('#df-b4b89650-0f9d-404c-9e08-9f9e15c1bd2f button.colab-df-convert');
+        document.querySelector('#df-f4ae2736-60ef-4516-9048-07577d491c23 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-b4b89650-0f9d-404c-9e08-9f9e15c1bd2f');
+        const element = document.querySelector('#df-f4ae2736-60ef-4516-9048-07577d491c23');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -10527,7 +10764,7 @@ column_correlations
   </div>
 
 
-  <div id="id_6dc65508-0b51-4e3c-8527-70779a688885">
+  <div id="id_a943f252-ad5b-4f63-b01b-311b228fd4d4">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -10571,7 +10808,7 @@ column_correlations
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_6dc65508-0b51-4e3c-8527-70779a688885 button.colab-df-generate');
+        document.querySelector('#id_a943f252-ad5b-4f63-b01b-311b228fd4d4 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -10591,7 +10828,7 @@ column_correlations
 
 ```python
 # Display correlation matrix
-plt.figure(figsize = (25, 25))
+plt.figure(figsize = (50, 50))
 sns.heatmap(
     column_correlations,
     annot = True,
@@ -10610,7 +10847,7 @@ sns.heatmap(
 
 
     
-![png](Project.1-Pass-09_files/Project.1-Pass-09_81_1.png)
+![png](Project.1-Pass-09_files/Project.1-Pass-09_87_1.png)
     
 
 
@@ -10630,7 +10867,7 @@ df_successful
 
 
 
-  <div id="df-64980229-ba53-4c4e-b3fe-c4a46bb56eea" class="colab-df-container">
+  <div id="df-b5ef67fe-505c-45be-aa8c-0d874c4d8647" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -10660,16 +10897,16 @@ df_successful
       <th>var_15</th>
       <th>var_17</th>
       <th>...</th>
-      <th>var_24</th>
-      <th>var_26</th>
-      <th>var_27</th>
-      <th>var_28</th>
-      <th>var_29</th>
-      <th>var_36</th>
-      <th>var_37</th>
-      <th>var_38</th>
-      <th>var_39</th>
-      <th>var_41</th>
+      <th>var_83</th>
+      <th>var_84</th>
+      <th>var_85</th>
+      <th>var_86</th>
+      <th>var_87</th>
+      <th>var_88</th>
+      <th>var_89</th>
+      <th>var_92</th>
+      <th>var_94</th>
+      <th>var_100</th>
     </tr>
   </thead>
   <tbody>
@@ -10686,16 +10923,16 @@ df_successful
       <td>2.6980</td>
       <td>4.3336</td>
       <td>...</td>
-      <td>-2.7898</td>
-      <td>15.6807</td>
-      <td>15.8042</td>
-      <td>-0.7178</td>
-      <td>10.9340</td>
-      <td>4.8133</td>
-      <td>6.0355</td>
-      <td>20.8630</td>
-      <td>23.4864</td>
-      <td>13.7843</td>
+      <td>11.2059</td>
+      <td>4.0237</td>
+      <td>5.8905</td>
+      <td>12.4865</td>
+      <td>10.1419</td>
+      <td>2.3370</td>
+      <td>-3.1553</td>
+      <td>-12.6928</td>
+      <td>-3.0833</td>
+      <td>14.1895</td>
     </tr>
     <tr>
       <th>125</th>
@@ -10710,16 +10947,16 @@ df_successful
       <td>2.8672</td>
       <td>6.4550</td>
       <td>...</td>
-      <td>0.0653</td>
-      <td>9.1420</td>
-      <td>15.4289</td>
-      <td>6.5918</td>
-      <td>-2.0259</td>
-      <td>3.7186</td>
-      <td>3.1484</td>
-      <td>16.6982</td>
-      <td>10.0623</td>
-      <td>11.1803</td>
+      <td>10.8110</td>
+      <td>3.9190</td>
+      <td>7.4971</td>
+      <td>35.7428</td>
+      <td>9.6149</td>
+      <td>2.2257</td>
+      <td>-0.5949</td>
+      <td>-9.4101</td>
+      <td>-15.6555</td>
+      <td>14.4514</td>
     </tr>
     <tr>
       <th>151</th>
@@ -10734,16 +10971,16 @@ df_successful
       <td>2.6735</td>
       <td>2.1990</td>
       <td>...</td>
-      <td>1.9623</td>
-      <td>10.9316</td>
-      <td>13.8416</td>
-      <td>-1.2516</td>
-      <td>5.4594</td>
-      <td>7.5845</td>
-      <td>11.4284</td>
-      <td>22.4911</td>
-      <td>8.5086</td>
-      <td>-0.5054</td>
+      <td>11.6326</td>
+      <td>3.9193</td>
+      <td>5.0366</td>
+      <td>37.1453</td>
+      <td>17.0341</td>
+      <td>0.9987</td>
+      <td>-3.0163</td>
+      <td>-1.5409</td>
+      <td>-7.6389</td>
+      <td>14.1725</td>
     </tr>
     <tr>
       <th>155</th>
@@ -10758,16 +10995,16 @@ df_successful
       <td>2.0573</td>
       <td>5.5008</td>
       <td>...</td>
-      <td>-6.3648</td>
-      <td>7.7223</td>
-      <td>16.0343</td>
-      <td>4.0420</td>
-      <td>3.9460</td>
-      <td>3.1585</td>
-      <td>-2.9568</td>
-      <td>13.2129</td>
-      <td>14.8926</td>
-      <td>9.7548</td>
+      <td>11.2981</td>
+      <td>4.1316</td>
+      <td>7.2193</td>
+      <td>-1.8139</td>
+      <td>1.8190</td>
+      <td>2.5720</td>
+      <td>0.6780</td>
+      <td>6.4045</td>
+      <td>1.1754</td>
+      <td>14.1347</td>
     </tr>
     <tr>
       <th>302</th>
@@ -10782,16 +11019,16 @@ df_successful
       <td>3.0906</td>
       <td>16.2501</td>
       <td>...</td>
-      <td>-2.4131</td>
-      <td>11.2126</td>
-      <td>14.2569</td>
-      <td>7.7905</td>
-      <td>6.2622</td>
-      <td>10.0599</td>
-      <td>-2.1624</td>
-      <td>16.4613</td>
-      <td>19.2741</td>
-      <td>10.2073</td>
+      <td>11.5449</td>
+      <td>4.0001</td>
+      <td>9.0639</td>
+      <td>11.8805</td>
+      <td>9.4678</td>
+      <td>1.0561</td>
+      <td>-0.2107</td>
+      <td>9.8815</td>
+      <td>-2.9328</td>
+      <td>14.0933</td>
     </tr>
     <tr>
       <th>...</th>
@@ -10818,133 +11055,133 @@ df_successful
       <td>...</td>
     </tr>
     <tr>
-      <th>49902</th>
+      <th>1049783</th>
       <td>1.0</td>
-      <td>8.2904</td>
-      <td>17.1945</td>
-      <td>8.5822</td>
-      <td>-7.8052</td>
-      <td>1.5056</td>
-      <td>7.2934</td>
-      <td>15.7498</td>
-      <td>2.8284</td>
-      <td>1.6247</td>
+      <td>3.1286</td>
+      <td>15.0751</td>
+      <td>21.3962</td>
+      <td>11.3161</td>
+      <td>-10.0493</td>
+      <td>6.3525</td>
+      <td>25.4931</td>
+      <td>2.6605</td>
+      <td>7.2691</td>
       <td>...</td>
-      <td>-2.0792</td>
-      <td>12.9012</td>
-      <td>8.4764</td>
-      <td>0.4621</td>
-      <td>2.8766</td>
-      <td>8.9584</td>
-      <td>5.9147</td>
-      <td>28.0406</td>
-      <td>8.2701</td>
-      <td>9.4408</td>
+      <td>10.9172</td>
+      <td>4.1120</td>
+      <td>4.6540</td>
+      <td>9.1151</td>
+      <td>7.8918</td>
+      <td>2.5714</td>
+      <td>1.0304</td>
+      <td>5.2623</td>
+      <td>-0.6030</td>
+      <td>14.1993</td>
     </tr>
     <tr>
-      <th>49904</th>
+      <th>1049818</th>
       <td>1.0</td>
-      <td>6.4266</td>
-      <td>16.4047</td>
-      <td>8.5837</td>
-      <td>3.9365</td>
-      <td>-2.5616</td>
-      <td>6.4823</td>
-      <td>9.6728</td>
-      <td>2.4021</td>
-      <td>10.1441</td>
+      <td>15.2934</td>
+      <td>17.5721</td>
+      <td>5.8949</td>
+      <td>-4.0233</td>
+      <td>5.8840</td>
+      <td>7.3892</td>
+      <td>11.3932</td>
+      <td>2.7062</td>
+      <td>6.9666</td>
       <td>...</td>
-      <td>-4.4107</td>
-      <td>14.3413</td>
-      <td>19.1539</td>
-      <td>4.9267</td>
-      <td>-0.5488</td>
-      <td>4.5685</td>
-      <td>10.6816</td>
-      <td>18.2968</td>
-      <td>17.5007</td>
-      <td>13.6881</td>
+      <td>11.1665</td>
+      <td>3.9652</td>
+      <td>7.4879</td>
+      <td>-7.9060</td>
+      <td>10.7256</td>
+      <td>0.8941</td>
+      <td>-3.5967</td>
+      <td>6.3976</td>
+      <td>0.5778</td>
+      <td>14.5067</td>
     </tr>
     <tr>
-      <th>49951</th>
+      <th>1049978</th>
       <td>1.0</td>
-      <td>6.9543</td>
-      <td>18.0159</td>
-      <td>17.2590</td>
-      <td>6.6750</td>
-      <td>5.4577</td>
-      <td>6.1337</td>
-      <td>20.7577</td>
-      <td>3.4378</td>
-      <td>12.3140</td>
+      <td>7.4751</td>
+      <td>17.0314</td>
+      <td>5.0834</td>
+      <td>-1.5220</td>
+      <td>-2.4913</td>
+      <td>6.7953</td>
+      <td>10.7764</td>
+      <td>2.9049</td>
+      <td>2.6145</td>
       <td>...</td>
-      <td>-4.3018</td>
-      <td>12.5175</td>
-      <td>21.5029</td>
-      <td>5.1779</td>
-      <td>4.5790</td>
-      <td>6.9567</td>
-      <td>0.5933</td>
-      <td>7.2596</td>
-      <td>10.8393</td>
-      <td>9.9556</td>
+      <td>11.6605</td>
+      <td>3.6716</td>
+      <td>8.5965</td>
+      <td>19.2145</td>
+      <td>8.2747</td>
+      <td>4.0945</td>
+      <td>-3.0127</td>
+      <td>2.9477</td>
+      <td>-2.3696</td>
+      <td>14.4122</td>
     </tr>
     <tr>
-      <th>49963</th>
+      <th>1049983</th>
       <td>1.0</td>
-      <td>5.3376</td>
-      <td>14.1622</td>
-      <td>8.9636</td>
-      <td>-3.1775</td>
-      <td>8.5136</td>
-      <td>6.8919</td>
-      <td>13.6797</td>
-      <td>3.2751</td>
-      <td>16.0133</td>
+      <td>5.2746</td>
+      <td>14.4095</td>
+      <td>17.7709</td>
+      <td>-2.9855</td>
+      <td>-0.8515</td>
+      <td>6.5097</td>
+      <td>11.5599</td>
+      <td>2.9677</td>
+      <td>0.0507</td>
       <td>...</td>
-      <td>-7.6432</td>
-      <td>9.9926</td>
-      <td>14.6449</td>
-      <td>0.5069</td>
-      <td>4.7126</td>
-      <td>7.0827</td>
-      <td>4.8705</td>
-      <td>22.3385</td>
-      <td>16.0878</td>
-      <td>17.0267</td>
+      <td>11.8870</td>
+      <td>3.7776</td>
+      <td>6.9876</td>
+      <td>3.3482</td>
+      <td>9.7469</td>
+      <td>-0.3425</td>
+      <td>-2.5684</td>
+      <td>14.5286</td>
+      <td>-5.4146</td>
+      <td>14.4388</td>
     </tr>
     <tr>
-      <th>49967</th>
+      <th>1049995</th>
       <td>1.0</td>
-      <td>9.3516</td>
-      <td>16.3029</td>
-      <td>10.1055</td>
-      <td>4.0400</td>
-      <td>4.5593</td>
-      <td>7.1669</td>
-      <td>5.9281</td>
-      <td>3.7080</td>
-      <td>5.6220</td>
+      <td>11.3251</td>
+      <td>16.4148</td>
+      <td>20.5955</td>
+      <td>-6.3011</td>
+      <td>-6.8112</td>
+      <td>7.3226</td>
+      <td>14.9182</td>
+      <td>2.4579</td>
+      <td>14.7175</td>
       <td>...</td>
-      <td>5.4166</td>
-      <td>12.4079</td>
-      <td>4.8912</td>
-      <td>1.2177</td>
-      <td>2.7891</td>
-      <td>7.3131</td>
-      <td>6.0151</td>
-      <td>19.3182</td>
-      <td>24.9302</td>
-      <td>2.3439</td>
+      <td>11.2265</td>
+      <td>3.8431</td>
+      <td>8.2748</td>
+      <td>-7.8464</td>
+      <td>9.9774</td>
+      <td>1.7377</td>
+      <td>-1.7942</td>
+      <td>1.3921</td>
+      <td>-16.4925</td>
+      <td>14.4421</td>
     </tr>
   </tbody>
 </table>
-<p>840 rows × 23 columns</p>
+<p>18040 rows × 51 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-64980229-ba53-4c4e-b3fe-c4a46bb56eea')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-b5ef67fe-505c-45be-aa8c-0d874c4d8647')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -10996,12 +11233,12 @@ df_successful
 
     <script>
       const buttonEl =
-        document.querySelector('#df-64980229-ba53-4c4e-b3fe-c4a46bb56eea button.colab-df-convert');
+        document.querySelector('#df-b5ef67fe-505c-45be-aa8c-0d874c4d8647 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-64980229-ba53-4c4e-b3fe-c4a46bb56eea');
+        const element = document.querySelector('#df-b5ef67fe-505c-45be-aa8c-0d874c4d8647');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -11021,7 +11258,7 @@ df_successful
   </div>
 
 
-  <div id="id_50dc5936-7b6a-46f4-ae58-9f3bee588fc3">
+  <div id="id_fc7c0b48-691e-408f-bdf0-0de4186e7f2f">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -11065,7 +11302,7 @@ df_successful
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_50dc5936-7b6a-46f4-ae58-9f3bee588fc3 button.colab-df-generate');
+        document.querySelector('#id_fc7c0b48-691e-408f-bdf0-0de4186e7f2f button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -11093,7 +11330,7 @@ df_unsuccessful
 
 
 
-  <div id="df-2f8d2f18-c8f3-4114-a243-64c2485b0955" class="colab-df-container">
+  <div id="df-73986ff4-5e59-4996-9dd4-b7bee39f7c6b" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -11123,16 +11360,16 @@ df_unsuccessful
       <th>var_15</th>
       <th>var_17</th>
       <th>...</th>
-      <th>var_24</th>
-      <th>var_26</th>
-      <th>var_27</th>
-      <th>var_28</th>
-      <th>var_29</th>
-      <th>var_36</th>
-      <th>var_37</th>
-      <th>var_38</th>
-      <th>var_39</th>
-      <th>var_41</th>
+      <th>var_83</th>
+      <th>var_84</th>
+      <th>var_85</th>
+      <th>var_86</th>
+      <th>var_87</th>
+      <th>var_88</th>
+      <th>var_89</th>
+      <th>var_92</th>
+      <th>var_94</th>
+      <th>var_100</th>
     </tr>
   </thead>
   <tbody>
@@ -11149,16 +11386,16 @@ df_unsuccessful
       <td>2.8817</td>
       <td>11.6975</td>
       <td>...</td>
-      <td>-0.3075</td>
-      <td>8.2199</td>
-      <td>19.4827</td>
-      <td>1.0175</td>
-      <td>5.0866</td>
-      <td>7.6264</td>
-      <td>3.4635</td>
-      <td>17.2850</td>
-      <td>16.5520</td>
-      <td>-6.8709</td>
+      <td>11.8011</td>
+      <td>3.9677</td>
+      <td>9.5382</td>
+      <td>-8.4394</td>
+      <td>5.5043</td>
+      <td>2.2732</td>
+      <td>1.6362</td>
+      <td>11.1077</td>
+      <td>-12.6465</td>
+      <td>14.0618</td>
     </tr>
     <tr>
       <th>5</th>
@@ -11173,16 +11410,16 @@ df_unsuccessful
       <td>2.2225</td>
       <td>7.2218</td>
       <td>...</td>
-      <td>-2.0043</td>
-      <td>8.8070</td>
-      <td>21.8550</td>
-      <td>2.2655</td>
-      <td>5.4675</td>
-      <td>4.4082</td>
-      <td>0.7141</td>
-      <td>22.9317</td>
-      <td>16.5595</td>
-      <td>14.4219</td>
+      <td>11.8294</td>
+      <td>3.8887</td>
+      <td>8.8591</td>
+      <td>6.1482</td>
+      <td>8.5833</td>
+      <td>2.8432</td>
+      <td>1.8434</td>
+      <td>-2.0111</td>
+      <td>-3.6166</td>
+      <td>14.4520</td>
     </tr>
     <tr>
       <th>11</th>
@@ -11197,16 +11434,16 @@ df_unsuccessful
       <td>3.4990</td>
       <td>4.2892</td>
       <td>...</td>
-      <td>0.5701</td>
-      <td>14.4752</td>
-      <td>17.0508</td>
-      <td>4.4676</td>
-      <td>0.7943</td>
-      <td>6.6745</td>
-      <td>5.3051</td>
-      <td>12.4606</td>
-      <td>20.5618</td>
-      <td>-3.1316</td>
+      <td>11.7464</td>
+      <td>4.0017</td>
+      <td>5.8179</td>
+      <td>10.4951</td>
+      <td>12.4494</td>
+      <td>2.8009</td>
+      <td>0.3394</td>
+      <td>13.9424</td>
+      <td>-15.5776</td>
+      <td>14.1222</td>
     </tr>
     <tr>
       <th>15</th>
@@ -11221,16 +11458,16 @@ df_unsuccessful
       <td>2.8910</td>
       <td>8.2374</td>
       <td>...</td>
-      <td>1.8609</td>
-      <td>13.3220</td>
-      <td>10.5239</td>
-      <td>0.0104</td>
-      <td>4.2731</td>
-      <td>5.7718</td>
-      <td>13.0779</td>
-      <td>9.9116</td>
-      <td>18.1721</td>
-      <td>18.0752</td>
+      <td>11.5481</td>
+      <td>3.9809</td>
+      <td>8.2247</td>
+      <td>21.2257</td>
+      <td>6.9931</td>
+      <td>3.3939</td>
+      <td>-2.3905</td>
+      <td>3.7943</td>
+      <td>5.6184</td>
+      <td>14.0619</td>
     </tr>
     <tr>
       <th>19</th>
@@ -11245,16 +11482,16 @@ df_unsuccessful
       <td>3.2771</td>
       <td>12.6446</td>
       <td>...</td>
-      <td>-5.8713</td>
-      <td>8.1795</td>
-      <td>9.1067</td>
-      <td>3.3064</td>
-      <td>1.7090</td>
-      <td>3.5648</td>
-      <td>9.0731</td>
-      <td>16.4656</td>
-      <td>16.4153</td>
-      <td>4.2070</td>
+      <td>10.8981</td>
+      <td>4.1808</td>
+      <td>9.4220</td>
+      <td>1.8563</td>
+      <td>10.5738</td>
+      <td>1.2409</td>
+      <td>-1.3888</td>
+      <td>-5.6677</td>
+      <td>-1.8961</td>
+      <td>14.0275</td>
     </tr>
     <tr>
       <th>...</th>
@@ -11281,133 +11518,133 @@ df_unsuccessful
       <td>...</td>
     </tr>
     <tr>
-      <th>49986</th>
+      <th>1049988</th>
       <td>0.0</td>
-      <td>4.3703</td>
-      <td>14.5321</td>
-      <td>12.5158</td>
-      <td>6.8990</td>
-      <td>4.8721</td>
-      <td>6.8599</td>
-      <td>3.6049</td>
-      <td>2.6936</td>
-      <td>3.3631</td>
+      <td>10.7453</td>
+      <td>13.3217</td>
+      <td>15.4001</td>
+      <td>4.0421</td>
+      <td>1.3116</td>
+      <td>6.3990</td>
+      <td>13.9387</td>
+      <td>2.9627</td>
+      <td>13.6450</td>
       <td>...</td>
-      <td>-1.7922</td>
-      <td>11.2487</td>
-      <td>13.0809</td>
-      <td>5.2903</td>
-      <td>3.4783</td>
-      <td>7.1363</td>
-      <td>9.6584</td>
-      <td>13.8385</td>
-      <td>15.1992</td>
-      <td>11.0333</td>
+      <td>11.6062</td>
+      <td>3.9162</td>
+      <td>9.7054</td>
+      <td>15.2405</td>
+      <td>10.6480</td>
+      <td>0.5372</td>
+      <td>0.4014</td>
+      <td>4.8258</td>
+      <td>-8.2380</td>
+      <td>14.0328</td>
     </tr>
     <tr>
-      <th>49987</th>
+      <th>1049990</th>
       <td>0.0</td>
-      <td>5.5247</td>
-      <td>19.5976</td>
-      <td>15.6233</td>
-      <td>10.3419</td>
-      <td>4.6616</td>
-      <td>6.6762</td>
-      <td>6.5438</td>
-      <td>2.9693</td>
-      <td>11.5063</td>
+      <td>7.9632</td>
+      <td>20.4650</td>
+      <td>10.7295</td>
+      <td>2.9322</td>
+      <td>5.0267</td>
+      <td>7.1953</td>
+      <td>10.0695</td>
+      <td>3.0732</td>
+      <td>11.0135</td>
       <td>...</td>
-      <td>1.9994</td>
-      <td>14.4838</td>
-      <td>22.3433</td>
-      <td>1.4035</td>
-      <td>9.0304</td>
-      <td>2.3784</td>
-      <td>1.4398</td>
-      <td>25.3678</td>
-      <td>16.4867</td>
-      <td>11.9542</td>
+      <td>12.1000</td>
+      <td>4.2019</td>
+      <td>7.1249</td>
+      <td>14.6591</td>
+      <td>10.2705</td>
+      <td>3.5833</td>
+      <td>2.5588</td>
+      <td>10.4219</td>
+      <td>-19.7158</td>
+      <td>14.0582</td>
     </tr>
     <tr>
-      <th>49988</th>
+      <th>1049993</th>
       <td>0.0</td>
-      <td>4.5371</td>
-      <td>19.5715</td>
-      <td>12.0498</td>
-      <td>0.0423</td>
-      <td>-2.0017</td>
-      <td>7.6199</td>
-      <td>12.3320</td>
-      <td>2.5670</td>
-      <td>4.1939</td>
+      <td>5.0862</td>
+      <td>14.4785</td>
+      <td>17.3709</td>
+      <td>-2.4732</td>
+      <td>-2.5987</td>
+      <td>6.6798</td>
+      <td>3.0420</td>
+      <td>2.4057</td>
+      <td>18.2729</td>
       <td>...</td>
-      <td>4.2031</td>
-      <td>10.1765</td>
-      <td>12.9907</td>
-      <td>3.1120</td>
-      <td>6.3440</td>
-      <td>4.1328</td>
-      <td>4.4885</td>
-      <td>24.3734</td>
-      <td>14.8631</td>
-      <td>5.6670</td>
+      <td>10.9960</td>
+      <td>3.9637</td>
+      <td>8.0217</td>
+      <td>11.0449</td>
+      <td>9.3100</td>
+      <td>1.0545</td>
+      <td>-2.8770</td>
+      <td>-2.8052</td>
+      <td>-13.7290</td>
+      <td>14.3794</td>
     </tr>
     <tr>
-      <th>49994</th>
+      <th>1049997</th>
       <td>0.0</td>
-      <td>6.0671</td>
-      <td>20.1542</td>
-      <td>14.4645</td>
-      <td>4.7347</td>
-      <td>-2.6682</td>
-      <td>6.9684</td>
-      <td>18.5923</td>
-      <td>2.9067</td>
-      <td>-0.8132</td>
+      <td>8.9941</td>
+      <td>13.4127</td>
+      <td>3.9567</td>
+      <td>3.5744</td>
+      <td>1.6614</td>
+      <td>6.1486</td>
+      <td>12.0996</td>
+      <td>2.5439</td>
+      <td>10.2936</td>
       <td>...</td>
-      <td>-6.8900</td>
-      <td>11.3503</td>
-      <td>11.2448</td>
-      <td>-0.1915</td>
-      <td>4.1460</td>
-      <td>4.0240</td>
-      <td>6.8356</td>
-      <td>16.5689</td>
-      <td>24.1643</td>
-      <td>5.1754</td>
+      <td>10.5067</td>
+      <td>4.0642</td>
+      <td>8.3381</td>
+      <td>17.9081</td>
+      <td>12.3357</td>
+      <td>2.6530</td>
+      <td>-1.2359</td>
+      <td>2.0836</td>
+      <td>-18.6168</td>
+      <td>14.0689</td>
     </tr>
     <tr>
-      <th>49998</th>
+      <th>1049999</th>
       <td>0.0</td>
-      <td>7.7807</td>
-      <td>11.4038</td>
-      <td>11.2746</td>
-      <td>7.6426</td>
-      <td>6.0973</td>
-      <td>6.6596</td>
-      <td>14.8004</td>
-      <td>3.0541</td>
-      <td>13.8471</td>
+      <td>2.1828</td>
+      <td>12.3805</td>
+      <td>17.5654</td>
+      <td>8.1795</td>
+      <td>-5.5755</td>
+      <td>6.3705</td>
+      <td>5.1813</td>
+      <td>2.5118</td>
+      <td>10.0141</td>
       <td>...</td>
-      <td>5.0152</td>
-      <td>6.8036</td>
-      <td>16.0150</td>
-      <td>5.5985</td>
-      <td>0.7687</td>
-      <td>9.1370</td>
-      <td>5.0832</td>
-      <td>18.0498</td>
-      <td>19.0913</td>
-      <td>-0.0056</td>
+      <td>12.0632</td>
+      <td>3.8415</td>
+      <td>6.3466</td>
+      <td>30.6304</td>
+      <td>10.7439</td>
+      <td>-0.1808</td>
+      <td>0.2578</td>
+      <td>-12.1108</td>
+      <td>10.7608</td>
+      <td>14.1690</td>
     </tr>
   </tbody>
 </table>
-<p>7666 rows × 23 columns</p>
+<p>161960 rows × 51 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-2f8d2f18-c8f3-4114-a243-64c2485b0955')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-73986ff4-5e59-4996-9dd4-b7bee39f7c6b')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -11459,12 +11696,12 @@ df_unsuccessful
 
     <script>
       const buttonEl =
-        document.querySelector('#df-2f8d2f18-c8f3-4114-a243-64c2485b0955 button.colab-df-convert');
+        document.querySelector('#df-73986ff4-5e59-4996-9dd4-b7bee39f7c6b button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-2f8d2f18-c8f3-4114-a243-64c2485b0955');
+        const element = document.querySelector('#df-73986ff4-5e59-4996-9dd4-b7bee39f7c6b');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -11484,7 +11721,7 @@ df_unsuccessful
   </div>
 
 
-  <div id="id_93e1c980-3598-48f4-bb22-24c6c4dc3915">
+  <div id="id_e2243db8-c70e-48fa-970b-e92418cb6f85">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -11528,7 +11765,7 @@ df_unsuccessful
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_93e1c980-3598-48f4-bb22-24c6c4dc3915 button.colab-df-generate');
+        document.querySelector('#id_e2243db8-c70e-48fa-970b-e92418cb6f85 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -11620,28 +11857,28 @@ target
       <td>...</td>
     </tr>
     <tr>
-      <th>49986</th>
+      <th>1049990</th>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>49987</th>
+      <th>1049993</th>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>49988</th>
+      <th>1049995</th>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1049997</th>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>49994</th>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>49998</th>
+      <th>1049999</th>
       <td>0.0</td>
     </tr>
   </tbody>
 </table>
-<p>8506 rows × 1 columns</p>
+<p>180000 rows × 1 columns</p>
 </div><br><label><b>dtype:</b> float64</label>
 
 
@@ -11683,11 +11920,11 @@ target.value_counts()
   <tbody>
     <tr>
       <th>0.0</th>
-      <td>7666</td>
+      <td>161960</td>
     </tr>
     <tr>
       <th>1.0</th>
-      <td>840</td>
+      <td>18040</td>
     </tr>
   </tbody>
 </table>
@@ -11704,7 +11941,7 @@ type(target), target.shape, target.ndim
 
 
 
-    (pandas.core.series.Series, (8506,), 1)
+    (pandas.core.series.Series, (180000,), 1)
 
 
 
@@ -11718,7 +11955,7 @@ features
 
 
 
-  <div id="df-dc2c1465-7676-4128-8f89-ca3f36b5ba93" class="colab-df-container">
+  <div id="df-6d897f32-11f3-4399-a7c6-5c530230a9c1" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -11748,16 +11985,16 @@ features
       <th>var_17</th>
       <th>var_20</th>
       <th>...</th>
-      <th>var_24</th>
-      <th>var_26</th>
-      <th>var_27</th>
-      <th>var_28</th>
-      <th>var_29</th>
-      <th>var_36</th>
-      <th>var_37</th>
-      <th>var_38</th>
-      <th>var_39</th>
-      <th>var_41</th>
+      <th>var_83</th>
+      <th>var_84</th>
+      <th>var_85</th>
+      <th>var_86</th>
+      <th>var_87</th>
+      <th>var_88</th>
+      <th>var_89</th>
+      <th>var_92</th>
+      <th>var_94</th>
+      <th>var_100</th>
     </tr>
   </thead>
   <tbody>
@@ -11774,16 +12011,16 @@ features
       <td>11.6975</td>
       <td>0.5878</td>
       <td>...</td>
-      <td>-0.3075</td>
-      <td>8.2199</td>
-      <td>19.4827</td>
-      <td>1.0175</td>
-      <td>5.0866</td>
-      <td>7.6264</td>
-      <td>3.4635</td>
-      <td>17.2850</td>
-      <td>16.5520</td>
-      <td>-6.8709</td>
+      <td>11.8011</td>
+      <td>3.9677</td>
+      <td>9.5382</td>
+      <td>-8.4394</td>
+      <td>5.5043</td>
+      <td>2.2732</td>
+      <td>1.6362</td>
+      <td>11.1077</td>
+      <td>-12.6465</td>
+      <td>14.0618</td>
     </tr>
     <tr>
       <th>5</th>
@@ -11798,16 +12035,16 @@ features
       <td>7.2218</td>
       <td>6.5456</td>
       <td>...</td>
-      <td>-2.0043</td>
-      <td>8.8070</td>
-      <td>21.8550</td>
-      <td>2.2655</td>
-      <td>5.4675</td>
-      <td>4.4082</td>
-      <td>0.7141</td>
-      <td>22.9317</td>
-      <td>16.5595</td>
-      <td>14.4219</td>
+      <td>11.8294</td>
+      <td>3.8887</td>
+      <td>8.8591</td>
+      <td>6.1482</td>
+      <td>8.5833</td>
+      <td>2.8432</td>
+      <td>1.8434</td>
+      <td>-2.0111</td>
+      <td>-3.6166</td>
+      <td>14.4520</td>
     </tr>
     <tr>
       <th>11</th>
@@ -11822,16 +12059,16 @@ features
       <td>4.2892</td>
       <td>18.7893</td>
       <td>...</td>
-      <td>0.5701</td>
-      <td>14.4752</td>
-      <td>17.0508</td>
-      <td>4.4676</td>
-      <td>0.7943</td>
-      <td>6.6745</td>
-      <td>5.3051</td>
-      <td>12.4606</td>
-      <td>20.5618</td>
-      <td>-3.1316</td>
+      <td>11.7464</td>
+      <td>4.0017</td>
+      <td>5.8179</td>
+      <td>10.4951</td>
+      <td>12.4494</td>
+      <td>2.8009</td>
+      <td>0.3394</td>
+      <td>13.9424</td>
+      <td>-15.5776</td>
+      <td>14.1222</td>
     </tr>
     <tr>
       <th>15</th>
@@ -11846,16 +12083,16 @@ features
       <td>8.2374</td>
       <td>1.1400</td>
       <td>...</td>
-      <td>1.8609</td>
-      <td>13.3220</td>
-      <td>10.5239</td>
-      <td>0.0104</td>
-      <td>4.2731</td>
-      <td>5.7718</td>
-      <td>13.0779</td>
-      <td>9.9116</td>
-      <td>18.1721</td>
-      <td>18.0752</td>
+      <td>11.5481</td>
+      <td>3.9809</td>
+      <td>8.2247</td>
+      <td>21.2257</td>
+      <td>6.9931</td>
+      <td>3.3939</td>
+      <td>-2.3905</td>
+      <td>3.7943</td>
+      <td>5.6184</td>
+      <td>14.0619</td>
     </tr>
     <tr>
       <th>19</th>
@@ -11870,16 +12107,16 @@ features
       <td>12.6446</td>
       <td>7.8002</td>
       <td>...</td>
-      <td>-5.8713</td>
-      <td>8.1795</td>
-      <td>9.1067</td>
-      <td>3.3064</td>
-      <td>1.7090</td>
-      <td>3.5648</td>
-      <td>9.0731</td>
-      <td>16.4656</td>
-      <td>16.4153</td>
-      <td>4.2070</td>
+      <td>10.8981</td>
+      <td>4.1808</td>
+      <td>9.4220</td>
+      <td>1.8563</td>
+      <td>10.5738</td>
+      <td>1.2409</td>
+      <td>-1.3888</td>
+      <td>-5.6677</td>
+      <td>-1.8961</td>
+      <td>14.0275</td>
     </tr>
     <tr>
       <th>...</th>
@@ -11906,133 +12143,133 @@ features
       <td>...</td>
     </tr>
     <tr>
-      <th>49986</th>
-      <td>4.3703</td>
-      <td>14.5321</td>
-      <td>12.5158</td>
-      <td>6.8990</td>
-      <td>4.8721</td>
-      <td>6.8599</td>
-      <td>3.6049</td>
-      <td>2.6936</td>
-      <td>3.3631</td>
-      <td>0.1899</td>
+      <th>1049990</th>
+      <td>7.9632</td>
+      <td>20.4650</td>
+      <td>10.7295</td>
+      <td>2.9322</td>
+      <td>5.0267</td>
+      <td>7.1953</td>
+      <td>10.0695</td>
+      <td>3.0732</td>
+      <td>11.0135</td>
+      <td>3.1549</td>
       <td>...</td>
-      <td>-1.7922</td>
-      <td>11.2487</td>
-      <td>13.0809</td>
-      <td>5.2903</td>
-      <td>3.4783</td>
-      <td>7.1363</td>
-      <td>9.6584</td>
-      <td>13.8385</td>
-      <td>15.1992</td>
-      <td>11.0333</td>
+      <td>12.1000</td>
+      <td>4.2019</td>
+      <td>7.1249</td>
+      <td>14.6591</td>
+      <td>10.2705</td>
+      <td>3.5833</td>
+      <td>2.5588</td>
+      <td>10.4219</td>
+      <td>-19.7158</td>
+      <td>14.0582</td>
     </tr>
     <tr>
-      <th>49987</th>
-      <td>5.5247</td>
-      <td>19.5976</td>
-      <td>15.6233</td>
-      <td>10.3419</td>
-      <td>4.6616</td>
-      <td>6.6762</td>
-      <td>6.5438</td>
-      <td>2.9693</td>
-      <td>11.5063</td>
-      <td>18.0065</td>
+      <th>1049993</th>
+      <td>5.0862</td>
+      <td>14.4785</td>
+      <td>17.3709</td>
+      <td>-2.4732</td>
+      <td>-2.5987</td>
+      <td>6.6798</td>
+      <td>3.0420</td>
+      <td>2.4057</td>
+      <td>18.2729</td>
+      <td>3.9661</td>
       <td>...</td>
-      <td>1.9994</td>
-      <td>14.4838</td>
-      <td>22.3433</td>
-      <td>1.4035</td>
-      <td>9.0304</td>
-      <td>2.3784</td>
-      <td>1.4398</td>
-      <td>25.3678</td>
-      <td>16.4867</td>
-      <td>11.9542</td>
+      <td>10.9960</td>
+      <td>3.9637</td>
+      <td>8.0217</td>
+      <td>11.0449</td>
+      <td>9.3100</td>
+      <td>1.0545</td>
+      <td>-2.8770</td>
+      <td>-2.8052</td>
+      <td>-13.7290</td>
+      <td>14.3794</td>
     </tr>
     <tr>
-      <th>49988</th>
-      <td>4.5371</td>
-      <td>19.5715</td>
-      <td>12.0498</td>
-      <td>0.0423</td>
-      <td>-2.0017</td>
-      <td>7.6199</td>
-      <td>12.3320</td>
-      <td>2.5670</td>
-      <td>4.1939</td>
-      <td>-0.3680</td>
+      <th>1049995</th>
+      <td>11.3251</td>
+      <td>16.4148</td>
+      <td>20.5955</td>
+      <td>-6.3011</td>
+      <td>-6.8112</td>
+      <td>7.3226</td>
+      <td>14.9182</td>
+      <td>2.4579</td>
+      <td>14.7175</td>
+      <td>3.8858</td>
       <td>...</td>
-      <td>4.2031</td>
-      <td>10.1765</td>
-      <td>12.9907</td>
-      <td>3.1120</td>
-      <td>6.3440</td>
-      <td>4.1328</td>
-      <td>4.4885</td>
-      <td>24.3734</td>
-      <td>14.8631</td>
-      <td>5.6670</td>
+      <td>11.2265</td>
+      <td>3.8431</td>
+      <td>8.2748</td>
+      <td>-7.8464</td>
+      <td>9.9774</td>
+      <td>1.7377</td>
+      <td>-1.7942</td>
+      <td>1.3921</td>
+      <td>-16.4925</td>
+      <td>14.4421</td>
     </tr>
     <tr>
-      <th>49994</th>
-      <td>6.0671</td>
-      <td>20.1542</td>
-      <td>14.4645</td>
-      <td>4.7347</td>
-      <td>-2.6682</td>
-      <td>6.9684</td>
-      <td>18.5923</td>
-      <td>2.9067</td>
-      <td>-0.8132</td>
-      <td>5.1217</td>
+      <th>1049997</th>
+      <td>8.9941</td>
+      <td>13.4127</td>
+      <td>3.9567</td>
+      <td>3.5744</td>
+      <td>1.6614</td>
+      <td>6.1486</td>
+      <td>12.0996</td>
+      <td>2.5439</td>
+      <td>10.2936</td>
+      <td>2.0014</td>
       <td>...</td>
-      <td>-6.8900</td>
-      <td>11.3503</td>
-      <td>11.2448</td>
-      <td>-0.1915</td>
-      <td>4.1460</td>
-      <td>4.0240</td>
-      <td>6.8356</td>
-      <td>16.5689</td>
-      <td>24.1643</td>
-      <td>5.1754</td>
+      <td>10.5067</td>
+      <td>4.0642</td>
+      <td>8.3381</td>
+      <td>17.9081</td>
+      <td>12.3357</td>
+      <td>2.6530</td>
+      <td>-1.2359</td>
+      <td>2.0836</td>
+      <td>-18.6168</td>
+      <td>14.0689</td>
     </tr>
     <tr>
-      <th>49998</th>
-      <td>7.7807</td>
-      <td>11.4038</td>
-      <td>11.2746</td>
-      <td>7.6426</td>
-      <td>6.0973</td>
-      <td>6.6596</td>
-      <td>14.8004</td>
-      <td>3.0541</td>
-      <td>13.8471</td>
-      <td>3.7498</td>
+      <th>1049999</th>
+      <td>2.1828</td>
+      <td>12.3805</td>
+      <td>17.5654</td>
+      <td>8.1795</td>
+      <td>-5.5755</td>
+      <td>6.3705</td>
+      <td>5.1813</td>
+      <td>2.5118</td>
+      <td>10.0141</td>
+      <td>-14.7574</td>
       <td>...</td>
-      <td>5.0152</td>
-      <td>6.8036</td>
-      <td>16.0150</td>
-      <td>5.5985</td>
-      <td>0.7687</td>
-      <td>9.1370</td>
-      <td>5.0832</td>
-      <td>18.0498</td>
-      <td>19.0913</td>
-      <td>-0.0056</td>
+      <td>12.0632</td>
+      <td>3.8415</td>
+      <td>6.3466</td>
+      <td>30.6304</td>
+      <td>10.7439</td>
+      <td>-0.1808</td>
+      <td>0.2578</td>
+      <td>-12.1108</td>
+      <td>10.7608</td>
+      <td>14.1690</td>
     </tr>
   </tbody>
 </table>
-<p>8506 rows × 22 columns</p>
+<p>180000 rows × 50 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-dc2c1465-7676-4128-8f89-ca3f36b5ba93')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-6d897f32-11f3-4399-a7c6-5c530230a9c1')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -12084,12 +12321,12 @@ features
 
     <script>
       const buttonEl =
-        document.querySelector('#df-dc2c1465-7676-4128-8f89-ca3f36b5ba93 button.colab-df-convert');
+        document.querySelector('#df-6d897f32-11f3-4399-a7c6-5c530230a9c1 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-dc2c1465-7676-4128-8f89-ca3f36b5ba93');
+        const element = document.querySelector('#df-6d897f32-11f3-4399-a7c6-5c530230a9c1');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -12109,7 +12346,7 @@ features
   </div>
 
 
-  <div id="id_c9dd5c92-a185-4583-8c82-a7aab45c5d36">
+  <div id="id_dbf88bea-7a34-46c5-a311-7bd7b9a767d4">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -12153,7 +12390,7 @@ features
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_c9dd5c92-a185-4583-8c82-a7aab45c5d36 button.colab-df-generate');
+        document.querySelector('#id_dbf88bea-7a34-46c5-a311-7bd7b9a767d4 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -12179,7 +12416,7 @@ type(features), features.shape, features.ndim
 
 
 
-    (pandas.core.frame.DataFrame, (8506, 22), 2)
+    (pandas.core.frame.DataFrame, (180000, 50), 2)
 
 
 
@@ -12659,7 +12896,7 @@ accuracy
 
 
 
-    0.9003291020216267
+    0.9109777777777778
 
 
 
@@ -12691,7 +12928,7 @@ plt.ylabel('Predicted')
 
 
     
-![png](Project.1-Pass-09_files/Project.1-Pass-09_105_1.png)
+![png](Project.1-Pass-09_files/Project.1-Pass-09_111_1.png)
     
 
 
@@ -12711,7 +12948,7 @@ df_report
 
 
 
-  <div id="df-23e1c1a8-4760-471a-bda0-0eb195de3997" class="colab-df-container">
+  <div id="df-06a74f5b-10ff-4dc3-81b8-61ce6bc2d4b5" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -12739,38 +12976,38 @@ df_report
   <tbody>
     <tr>
       <th>0.0</th>
-      <td>0.902844</td>
-      <td>0.996339</td>
-      <td>0.947290</td>
-      <td>1912.000000</td>
+      <td>0.920541</td>
+      <td>0.986337</td>
+      <td>0.952304</td>
+      <td>40546.000000</td>
     </tr>
     <tr>
       <th>1.0</th>
-      <td>0.588235</td>
-      <td>0.046512</td>
-      <td>0.086207</td>
-      <td>215.000000</td>
+      <td>0.643959</td>
+      <td>0.224966</td>
+      <td>0.333444</td>
+      <td>4454.000000</td>
     </tr>
     <tr>
       <th>accuracy</th>
-      <td>0.900329</td>
-      <td>0.900329</td>
-      <td>0.900329</td>
-      <td>0.900329</td>
+      <td>0.910978</td>
+      <td>0.910978</td>
+      <td>0.910978</td>
+      <td>0.910978</td>
     </tr>
     <tr>
       <th>macro avg</th>
-      <td>0.745539</td>
-      <td>0.521425</td>
-      <td>0.516748</td>
-      <td>2127.000000</td>
+      <td>0.782250</td>
+      <td>0.605651</td>
+      <td>0.642874</td>
+      <td>45000.000000</td>
     </tr>
     <tr>
       <th>weighted avg</th>
-      <td>0.871043</td>
-      <td>0.900329</td>
-      <td>0.860250</td>
-      <td>2127.000000</td>
+      <td>0.893166</td>
+      <td>0.910978</td>
+      <td>0.891050</td>
+      <td>45000.000000</td>
     </tr>
   </tbody>
 </table>
@@ -12778,7 +13015,7 @@ df_report
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-23e1c1a8-4760-471a-bda0-0eb195de3997')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-06a74f5b-10ff-4dc3-81b8-61ce6bc2d4b5')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -12830,12 +13067,12 @@ df_report
 
     <script>
       const buttonEl =
-        document.querySelector('#df-23e1c1a8-4760-471a-bda0-0eb195de3997 button.colab-df-convert');
+        document.querySelector('#df-06a74f5b-10ff-4dc3-81b8-61ce6bc2d4b5 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-23e1c1a8-4760-471a-bda0-0eb195de3997');
+        const element = document.querySelector('#df-06a74f5b-10ff-4dc3-81b8-61ce6bc2d4b5');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -12855,7 +13092,7 @@ df_report
   </div>
 
 
-  <div id="id_368589aa-f13f-4d91-99cc-f6dc9bb087f0">
+  <div id="id_fe75c02e-d02f-42b7-a40f-87f88ce1b536">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -12899,7 +13136,7 @@ df_report
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_368589aa-f13f-4d91-99cc-f6dc9bb087f0 button.colab-df-generate');
+        document.querySelector('#id_fe75c02e-d02f-42b7-a40f-87f88ce1b536 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -12926,465 +13163,17 @@ y_test_SCV  = y_test
 y_pred_SCV  = y_pred
 ```
 
-
-
-### Multiple Cross-validation ( CV )
-
-
-
-#### 18. Perform a cross-validation loop and record the accuracy of your model during each iteration.
-
-
-
-
-```python
-loop_count = 100
-```
-
-
-```python
-# Multiple CV loop
-
-# Create array to hold results (accuracies)
-n = loop_count
-accuracies = np.zeros(n)
-
-# Multiple CV loop
-for i in range(n):
-
-  # Train Test Split
-  X_train, X_test, y_train, y_test = train_test_split( features, target, test_size = 0.25 )
-
-  # Create an empty GNB model
-  modelGNB = GaussianNB()
-
-  # Train ( fit ) the model
-  modelGNB.fit(X_train, y_train)
-
-  # Make predictions using the model
-  y_pred = modelGNB.predict(X_test)
-
-  # Calculate the accuracy and save to array
-  accuracies[i] = metrics.accuracy_score(y_test, y_pred)
-```
-
-#### 19. Report the mean accuracy. How does it compare to the accuracy you calculated for the Single CV?
-
-
-
-
-```python
-# Calculate mean of results (mean accuracy)
-mean_accuracy = accuracies.mean()
-mean_accuracy
-```
-
-
-```python
-# Save variable values
-X_train_MCV = X_train
-X_test_MCV  = X_test
-y_train_MCV = y_train
-y_test_MCV  = y_test
-y_pred_MCV  = y_pred
-```
-
-Analysis:
-
-- Multiple Cross Validation (Multiple CV) gives a mean accuracy of 91.1% at 100 iterations and 91.1233% at 1000 iterations (so 91.1%).
-- This is about the same as the result calculated for the Single CV, which in the previous pass was 91.2%.
-
-#### 20. Plot a histogram of the accuracy scores you generated in your cross-validation loop. What do you notice about the distribution of accuracy scores?
-
-
-
-
-```python
-# Display a histogram of the results
-pd.Series(accuracies).hist(bins = 30)
-```
-
-
-```python
-# --> The distribution of accuracy scores mostly follows a normal distribution.
-```
-
-#### 21. Present a confusion matrix and heatmap
-
-
-
-
-```python
-# Display a confusion matrix of final result of y_test and y_pred
-matrix = metrics.confusion_matrix(y_test, y_pred)
-sns.heatmap(
-    matrix.T,
-    square = True,
-    annot = True,
-    fmt = 'd',
-    cbar = False
-)
-plt.xlabel('Actual')
-plt.ylabel('Predicted')
-```
-
-#### 22. Present the results of a Classification Report (sklearn.metrics.classification_report). What do you notice? That is, how do the different metrics compare to each other?
-
-
-
-
-```python
-# 1. Generate the report (as a dictionary, for formatting)
-report = metrics.classification_report(y_test, y_pred, output_dict = True)
-
-# 2. Convert to DataFrame and transpose
-df_report = pd.DataFrame(report).T
-df_report
-```
-
-Analysis:
-
-- The precision of the model is good for negatives (no transaction) — around 92% — but relatively poor when predicting positives (successful transactions), hovering around 66%. These results worsen when looking at recall (true positives accuracy), which is 98.7% accurate for negatives but only 22.1% accurate for positives. The f1 scores for negatives is similarly high, around 95.2%, and for positives is lower again, at 33.7%.
-
-
-### Balanced data set
-
-The training data is very skewed towards non-successful transactions (about 90% of the training data has ‘target’==0).
-
-
-
-#### 23. Remove enough non-successful transaction rows so that your remaining training data is 50%/50% split between successful and non-successful transactions. Hint: you can use the data frames you created in step #9.
-
-
-
-
-```python
-# review value counts
-df[target_col].value_counts()
-```
-
-
-```python
-# review head of successful
-df_successful.head()
-```
-
-
-```python
-# review head of unsuccessful
-df_unsuccessful.head()
-```
-
-- df_unsuccessful is the majority class. Therefore, we can undersample our unsuccessful dataframe as follows:
-
-
-```python
-# preview output of undersampling (downsampling)
-df_unsuccessful.sample(df_successful.shape[0]).head()
-```
-
-
-```python
-# downsample
-df_unsuccessful = df_unsuccessful.sample(df_successful.shape[0])
-```
-
-
-```python
-# check it
-df_unsuccessful.head()
-```
-
-
-```python
-# check sizes to ensure they match
-df_successful.shape[0], df_unsuccessful.shape[0]
-```
-
-
-```python
-# Combine data frames
-df = pd.concat([df_unsuccessful, df_successful], ignore_index = True)
-df
-```
-
-
-```python
-# check value counts to make sure target successful and unsuccessful counts are equal
-df[target_col].value_counts()
-```
-
-
-```python
-# make a backup
-df_bak3 = df.copy()
-df_bak3
-```
-
-
-```python
-df = df_bak3.copy()
-df
-```
-
-
-```python
-# make target and features again
-target   = df[ target_col ].copy()
-features = df.drop( columns = [target_col] ).copy()
-```
-
-
-```python
-target
-```
-
-
-```python
-type(target), target.shape, target.ndim
-```
-
-
-```python
-features
-```
-
-
-```python
-type(features), features.shape, features.ndim
-```
-
-#### 24. Repeat the multiple cross-validation process on this data set.
-
-
-
-
-```python
-loop_count = 100 # reset the loop count for this loop
-```
-
-
-```python
-# Multiple CV loop
-
-# Create array to hold results (accuracies)
-n = loop_count
-accuracies_balanced = np.zeros(n)
-
-# Multiple CV loop
-for i in range(n):
-
-  # Train Test Split
-  X_train, X_test, y_train, y_test = train_test_split( features, target, test_size = 0.25 )
-
-  # Create an empty GNB model
-  modelGNB = GaussianNB()
-
-  # Train ( fit ) the model
-  modelGNB.fit(X_train, y_train)
-
-  # Make predictions using the model
-  y_pred = modelGNB.predict(X_test)
-
-  # Calculate the accuracy and save to array
-  accuracies_balanced[i] = metrics.accuracy_score(y_test, y_pred)
-```
-
-#### 25. Report what your mean accuracy for this balanced data set.
-
-
-
-
-```python
-# Calculate mean of results
-mean_accuracy_balanced = accuracies_balanced.mean()
-mean_accuracy_balanced
-```
-
-
-```python
-# Save variable values
-X_train_BAL = X_train
-X_test_BAL  = X_test
-y_train_BAL = y_train
-y_test_BAL  = y_test
-y_pred_BAL  = y_pred
-```
-
-#### 26. Plot a histogram of the accuracy scores you generated in your cross-validation loop. What do you notice about the distribution of accuracy scores?
-
-
-
-
-```python
-# Display a histogram of the results
-pd.Series(accuracies_balanced).hist(bins = 30)
-```
-
-#### 27. Present a confusion matrix and heatmap
-
-
-
-
-```python
-# Display a confusion matrix of final result of y_test and y_pred
-matrix = metrics.confusion_matrix(y_test, y_pred)
-sns.heatmap(
-    matrix.T,
-    square = True,
-    annot = True,
-    fmt = 'd',
-    cbar = False
-)
-plt.xlabel('Actual')
-plt.ylabel('Predicted')
-```
-
-#### 28. Present the results of a Classification Report (sklearn.metrics.classification_report). What do you notice? That is, how do the different metrics compare to each other?
-
-
-
-
-```python
-# 1. Generate the report (as a dictionary, for formatting)
-report = metrics.classification_report(y_test, y_pred, output_dict = True)
-
-# 2. Convert to DataFrame and transpose
-df_report = pd.DataFrame(report).T
-df_report
-```
-
-## Data Visualization
-
-
-
-#### 29. Compare the accuracy results of your multiple cross-validation with the whole training data and the balanced training data
-
-
-
-
-```python
-accuracy
-```
-
-
-```python
-float(mean_accuracy)
-```
-
-
-```python
-float(mean_accuracy_balanced)
-```
-
-#### 30. Present the confusion matrix and heatmap
-
-
-
-
-```python
-# Display a confusion matrix of final result of y_test and y_pred
-matrix = metrics.confusion_matrix(y_test_SCV, y_pred_SCV)
-sns.heatmap(
-    matrix.T,
-    square = True,
-    annot = True,
-    fmt = 'd',
-    cbar = False
-)
-plt.xlabel('Actual')
-plt.ylabel('Predicted')
-```
-
-
-```python
-# Display a confusion matrix of final result of y_test and y_pred
-matrix = metrics.confusion_matrix(y_test_MCV, y_pred_MCV)
-sns.heatmap(
-    matrix.T,
-    square = True,
-    annot = True,
-    fmt = 'd',
-    cbar = False
-)
-plt.xlabel('Actual')
-plt.ylabel('Predicted')
-```
-
-
-```python
-# Display a confusion matrix of final result of y_test and y_pred
-matrix = metrics.confusion_matrix(y_test_BAL, y_pred_BAL)
-sns.heatmap(
-    matrix.T,
-    square = True,
-    annot = True,
-    fmt = 'd',
-    cbar = False
-)
-plt.xlabel('Actual')
-plt.ylabel('Predicted')
-```
-
-#### 31. Present the results of your Classification Report (sklearn.metrics.classification_report)
-
-
-
-
-
-```python
-# 1. Generate the report (as a dictionary, for formatting)
-report = metrics.classification_report(y_test_SCV, y_pred_SCV, output_dict = True)
-
-# 2. Convert to DataFrame and transpose
-df_report = pd.DataFrame(report).T
-df_report
-```
-
-
-```python
-# 1. Generate the report (as a dictionary, for formatting)
-report = metrics.classification_report(y_test_MCV, y_pred_MCV, output_dict = True)
-
-# 2. Convert to DataFrame and transpose
-df_report = pd.DataFrame(report).T
-df_report
-```
-
-
-```python
-# 1. Generate the report (as a dictionary, for formatting)
-report = metrics.classification_report(y_test_BAL, y_pred_BAL, output_dict = True)
-
-# 2. Convert to DataFrame and transpose
-df_report = pd.DataFrame(report).T
-df_report
-```
-
-## Communicate the Results
-
-
-
-#### 32. Communicate the results of your analysis.
-
-
 Conclusions (Brief):
 
-- The mean accuracy for the balanced set was considerably lower than the accuracy and mean accuracy for the SingleCV and MultipleCV sets, at around 75%.
-- The precision of true negatives likewise decreased from around 91% to 75%.
-- However, the accuracy of prediction for true negatives has gone up, from around 66% to 75%.
-- Even more significant, the recall of positives (ratio of true positives to total positives) has gone way up, from 22% to 75%.
-- Percentage accuracy, recall, and f1-score of false positives, false negatives, true positives, and true negatives all about the same as each other.
-- Much more balanced (and informative) model.
+- The mean accuracy for the whole large data set was a little higher this time, around 91.1%, but still very close to 90% (random, owing to the 90-10 unsuccessful-to-successful split).
+- The precision of true negatives stayed strong at 92.1%.
+- The proportion of false negatives has fallen again, now to around 3000 / 45000 or 6.6%, but it is still fairly high. The number of false positives is much lower, at around 500 / 45000 (around 1.1%).
+- The recall of true negatives is quite high at 98.6%, meaning the model is quite good at predicting true negatives. However, the recall of true positives is quite low at 22.5%. The f1-score values are similar, sitting at 95.2% and 33.3%, respectively.
+- The model has improved, but is still quite poor at predicting positives in general.
 
 
 Future Work:
-- bigger data set
+- multiple rounds of validation
 - other types of validation?
 - other types of data set balancing (upsampling?)
 - different model
-
-## Submit Final Project
-
-#### 33. Save ( commit ) your finished Jupyter notebook to your Project 1 GitHub repo.
-

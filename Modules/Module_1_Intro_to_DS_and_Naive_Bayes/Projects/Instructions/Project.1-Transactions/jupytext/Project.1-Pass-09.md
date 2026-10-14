@@ -1,4 +1,4 @@
-# Project 1: Transactions – Pass 08
+# Project 1: Transactions – Pass 09
 
 
 
@@ -53,10 +53,10 @@ url = 'https://ddc-datascience.s3.amazonaws.com/Projects/Project.1-Transactions/
 
 ```python
 # set cols and rows for pass
-num_cols = 50
-num_rows = 50_000
+# num_cols = 50
+# num_rows = 50_000
 
-num_cols, num_rows
+# num_cols, num_rows
 ```
 
 - Read in the data from .csv using pandas:
@@ -65,8 +65,8 @@ num_cols, num_rows
 # make dataframe
 df = pd.read_csv(
     url,
-    usecols=range(num_cols),
-    nrows=num_rows,
+    # usecols=range(num_cols),
+    # nrows=num_rows,
 )
 ```
 
@@ -76,6 +76,9 @@ df = pd.read_csv(
 # check dataframe
 df
 ```
+
+- For the full data set, we have 1,050,000 rows and 101 feature columns, var_0 - var_100.
+
 
 ## Data Cleaning
 
@@ -178,6 +181,16 @@ df.isnull().sum().sort_values( ascending = False )
 (df.isnull().sum() / df.shape[0]).sort_values( ascending = False ) * 100
 ```
 
+```python
+# look at unique values in the col-by-col null counts to classify cols
+((df.isnull().sum() / df.shape[0]).sort_values( ascending = False ) * 100).unique()
+```
+
+```python
+# So only these three counts exist in the data, meaning
+# we will not have to impute values :D
+```
+
 - dtypes
 
 ```python
@@ -209,7 +222,12 @@ df[[target_col]].shape[0]
 
 ```python
 # sum of nulls in target
-df[[target_col]].isnull().sum()
+int(df[[target_col]].isnull().sum().iloc[0])
+```
+
+```python
+# sum of non-nulls in target
+df[[target_col]].shape[0] - int(df[[target_col]].isnull().sum().iloc[0])
 ```
 
 ```python
@@ -219,12 +237,17 @@ df.isnull().sum()
 
 ```python
 # display columns with all null values
-df.isnull().sum()[df.isnull().sum() == 50000]
+df.isnull().sum()[df.isnull().sum() == 1050000]
+```
+
+```python
+# count these
+int(df.isnull().sum()[df.isnull().sum() == 1050000].count())
 ```
 
 ```python
 # show columns with non-null values
-df.isnull().sum()[df.isnull().sum() != 50000]
+df.isnull().sum()[df.isnull().sum() != 1050000]
 ```
 
 ```python
@@ -233,23 +256,30 @@ df.isnull().sum()[df.isnull().sum() != 50000][3:]
 ```
 
 ```python
+# count these
+int(df.isnull().sum()[df.isnull().sum() != 1050000][3:].count())
+```
+
+```python
 # make list of columns with all nulls
-list_nulls = list(df.isnull().sum()[df.isnull().sum() == 50000].keys())
+list_nulls = list(df.isnull().sum()[df.isnull().sum() == 1050000].keys())
 list_nulls
 ```
 
 ```python
-# count the number of
+# count the number of list items (should match count of null cols above)
 len(list_nulls)
 ```
 
 - Summary:
 
   - target column: 'target'
-  - feature columns: 'var_0' - 'var_46'
+  - feature columns: 'var_0' - 'var_100'
   - identifier columns: 'Unnamed', 'ID_code'
-  - null columns: 25 (see above)
-  - null rows (target): 41494
+  - null columns: 51 (see above)
+  - null rows (target): 870_000
+
+- non-null rows: 180_000
 
 
 #### 6. If there are data cleaning issues, develop recommendations for how to deal with them.  Specifically, handle these common issues:
@@ -388,12 +418,12 @@ Produce some visual analysis of the data.  Recall that Gaussian Naive Bayes assu
 
 ```python
 # Display a histogram
-df.hist(figsize=(15, 15))
+df.hist(figsize=(20, 20))
 ```
 
 ```python
 # display a boxplot
-df.boxplot(figsize=(15, 15))
+df.boxplot(figsize=(20, 20))
 ```
 
 #### 8. Check the correlation values between all **feature columns** to ensure there are no substantial correlations between features. This is important to support the decision to classify the ‘target’ using Naïve Bayes.
@@ -408,7 +438,7 @@ column_correlations
 
 ```python
 # Display correlation matrix
-plt.figure(figsize = (25, 25))
+plt.figure(figsize = (50, 50))
 sns.heatmap(
     column_correlations,
     annot = True,
@@ -564,433 +594,18 @@ y_test_SCV  = y_test
 y_pred_SCV  = y_pred
 ```
 
-
-
-### Multiple Cross-validation ( CV )
-
-
-
-#### 18. Perform a cross-validation loop and record the accuracy of your model during each iteration.
-
-
-
-```python
-loop_count = 100
-```
-
-```python
-# Multiple CV loop
-
-# Create array to hold results (accuracies)
-n = loop_count
-accuracies = np.zeros(n)
-
-# Multiple CV loop
-for i in range(n):
-
-  # Train Test Split
-  X_train, X_test, y_train, y_test = train_test_split( features, target, test_size = 0.25 )
-
-  # Create an empty GNB model
-  modelGNB = GaussianNB()
-
-  # Train ( fit ) the model
-  modelGNB.fit(X_train, y_train)
-
-  # Make predictions using the model
-  y_pred = modelGNB.predict(X_test)
-
-  # Calculate the accuracy and save to array
-  accuracies[i] = metrics.accuracy_score(y_test, y_pred)
-```
-
-#### 19. Report the mean accuracy. How does it compare to the accuracy you calculated for the Single CV?
-
-
-
-```python
-# Calculate mean of results (mean accuracy)
-mean_accuracy = accuracies.mean()
-mean_accuracy
-```
-
-```python
-# Save variable values
-X_train_MCV = X_train
-X_test_MCV  = X_test
-y_train_MCV = y_train
-y_test_MCV  = y_test
-y_pred_MCV  = y_pred
-```
-
-Analysis:
-
-- Multiple Cross Validation (Multiple CV) gives a mean accuracy of 91.1% at 100 iterations and 91.1233% at 1000 iterations (so 91.1%).
-- This is about the same as the result calculated for the Single CV, which in the previous pass was 91.2%.
-
-
-#### 20. Plot a histogram of the accuracy scores you generated in your cross-validation loop. What do you notice about the distribution of accuracy scores?
-
-
-
-```python
-# Display a histogram of the results
-pd.Series(accuracies).hist(bins = 30)
-```
-
-```python
-# --> The distribution of accuracy scores mostly follows a normal distribution.
-```
-
-#### 21. Present a confusion matrix and heatmap
-
-
-
-```python
-# Display a confusion matrix of final result of y_test and y_pred
-matrix = metrics.confusion_matrix(y_test, y_pred)
-sns.heatmap(
-    matrix.T,
-    square = True,
-    annot = True,
-    fmt = 'd',
-    cbar = False
-)
-plt.xlabel('Actual')
-plt.ylabel('Predicted')
-```
-
-#### 22. Present the results of a Classification Report (sklearn.metrics.classification_report). What do you notice? That is, how do the different metrics compare to each other?
-
-
-
-```python
-# 1. Generate the report (as a dictionary, for formatting)
-report = metrics.classification_report(y_test, y_pred, output_dict = True)
-
-# 2. Convert to DataFrame and transpose
-df_report = pd.DataFrame(report).T
-df_report
-```
-
-Analysis:
-
-- The precision of the model is good for negatives (no transaction) — around 92% — but relatively poor when predicting positives (successful transactions), hovering around 66%. These results worsen when looking at recall (true positives accuracy), which is 98.7% accurate for negatives but only 22.1% accurate for positives. The f1 scores for negatives is similarly high, around 95.2%, and for positives is lower again, at 33.7%.
-
-
-
-### Balanced data set
-
-The training data is very skewed towards non-successful transactions (about 90% of the training data has ‘target’==0).
-
-
-
-
-#### 23. Remove enough non-successful transaction rows so that your remaining training data is 50%/50% split between successful and non-successful transactions. Hint: you can use the data frames you created in step #9.
-
-
-
-```python
-# review value counts
-df[target_col].value_counts()
-```
-
-```python
-# review head of successful
-df_successful.head()
-```
-
-```python
-# review head of unsuccessful
-df_unsuccessful.head()
-```
-
-- df_unsuccessful is the majority class. Therefore, we can undersample our unsuccessful dataframe as follows:
-
-```python
-# preview output of undersampling (downsampling)
-df_unsuccessful.sample(df_successful.shape[0]).head()
-```
-
-```python
-# downsample
-df_unsuccessful = df_unsuccessful.sample(df_successful.shape[0])
-```
-
-```python
-# check it
-df_unsuccessful.head()
-```
-
-```python
-# check sizes to ensure they match
-df_successful.shape[0], df_unsuccessful.shape[0]
-```
-
-```python
-# Combine data frames
-df = pd.concat([df_unsuccessful, df_successful], ignore_index = True)
-df
-```
-
-```python
-# check value counts to make sure target successful and unsuccessful counts are equal
-df[target_col].value_counts()
-```
-
-```python
-# make a backup
-df_bak3 = df.copy()
-df_bak3
-```
-
-```python
-df = df_bak3.copy()
-df
-```
-
-```python
-# make target and features again
-target   = df[ target_col ].copy()
-features = df.drop( columns = [target_col] ).copy()
-```
-
-```python
-target
-```
-
-```python
-type(target), target.shape, target.ndim
-```
-
-```python
-features
-```
-
-```python
-type(features), features.shape, features.ndim
-```
-
-#### 24. Repeat the multiple cross-validation process on this data set.
-
-
-
-```python
-loop_count = 100 # reset the loop count for this loop
-```
-
-```python
-# Multiple CV loop
-
-# Create array to hold results (accuracies)
-n = loop_count
-accuracies_balanced = np.zeros(n)
-
-# Multiple CV loop
-for i in range(n):
-
-  # Train Test Split
-  X_train, X_test, y_train, y_test = train_test_split( features, target, test_size = 0.25 )
-
-  # Create an empty GNB model
-  modelGNB = GaussianNB()
-
-  # Train ( fit ) the model
-  modelGNB.fit(X_train, y_train)
-
-  # Make predictions using the model
-  y_pred = modelGNB.predict(X_test)
-
-  # Calculate the accuracy and save to array
-  accuracies_balanced[i] = metrics.accuracy_score(y_test, y_pred)
-```
-
-#### 25. Report what your mean accuracy for this balanced data set.
-
-
-
-```python
-# Calculate mean of results
-mean_accuracy_balanced = accuracies_balanced.mean()
-mean_accuracy_balanced
-```
-
-```python
-# Save variable values
-X_train_BAL = X_train
-X_test_BAL  = X_test
-y_train_BAL = y_train
-y_test_BAL  = y_test
-y_pred_BAL  = y_pred
-```
-
-#### 26. Plot a histogram of the accuracy scores you generated in your cross-validation loop. What do you notice about the distribution of accuracy scores?
-
-
-
-```python
-# Display a histogram of the results
-pd.Series(accuracies_balanced).hist(bins = 30)
-```
-
-#### 27. Present a confusion matrix and heatmap
-
-
-
-```python
-# Display a confusion matrix of final result of y_test and y_pred
-matrix = metrics.confusion_matrix(y_test, y_pred)
-sns.heatmap(
-    matrix.T,
-    square = True,
-    annot = True,
-    fmt = 'd',
-    cbar = False
-)
-plt.xlabel('Actual')
-plt.ylabel('Predicted')
-```
-
-#### 28. Present the results of a Classification Report (sklearn.metrics.classification_report). What do you notice? That is, how do the different metrics compare to each other?
-
-
-
-```python
-# 1. Generate the report (as a dictionary, for formatting)
-report = metrics.classification_report(y_test, y_pred, output_dict = True)
-
-# 2. Convert to DataFrame and transpose
-df_report = pd.DataFrame(report).T
-df_report
-```
-
-## Data Visualization
-
-
-
-
-#### 29. Compare the accuracy results of your multiple cross-validation with the whole training data and the balanced training data
-
-
-
-```python
-accuracy
-```
-
-```python
-float(mean_accuracy)
-```
-
-```python
-float(mean_accuracy_balanced)
-```
-
-#### 30. Present the confusion matrix and heatmap
-
-
-
-```python
-# Display a confusion matrix of final result of y_test and y_pred
-matrix = metrics.confusion_matrix(y_test_SCV, y_pred_SCV)
-sns.heatmap(
-    matrix.T,
-    square = True,
-    annot = True,
-    fmt = 'd',
-    cbar = False
-)
-plt.xlabel('Actual')
-plt.ylabel('Predicted')
-```
-
-```python
-# Display a confusion matrix of final result of y_test and y_pred
-matrix = metrics.confusion_matrix(y_test_MCV, y_pred_MCV)
-sns.heatmap(
-    matrix.T,
-    square = True,
-    annot = True,
-    fmt = 'd',
-    cbar = False
-)
-plt.xlabel('Actual')
-plt.ylabel('Predicted')
-```
-
-```python
-# Display a confusion matrix of final result of y_test and y_pred
-matrix = metrics.confusion_matrix(y_test_BAL, y_pred_BAL)
-sns.heatmap(
-    matrix.T,
-    square = True,
-    annot = True,
-    fmt = 'd',
-    cbar = False
-)
-plt.xlabel('Actual')
-plt.ylabel('Predicted')
-```
-
-#### 31. Present the results of your Classification Report (sklearn.metrics.classification_report)
-
-
-
-
-```python
-# 1. Generate the report (as a dictionary, for formatting)
-report = metrics.classification_report(y_test_SCV, y_pred_SCV, output_dict = True)
-
-# 2. Convert to DataFrame and transpose
-df_report = pd.DataFrame(report).T
-df_report
-```
-
-```python
-# 1. Generate the report (as a dictionary, for formatting)
-report = metrics.classification_report(y_test_MCV, y_pred_MCV, output_dict = True)
-
-# 2. Convert to DataFrame and transpose
-df_report = pd.DataFrame(report).T
-df_report
-```
-
-```python
-# 1. Generate the report (as a dictionary, for formatting)
-report = metrics.classification_report(y_test_BAL, y_pred_BAL, output_dict = True)
-
-# 2. Convert to DataFrame and transpose
-df_report = pd.DataFrame(report).T
-df_report
-```
-
-## Communicate the Results
-
-
-
-
-#### 32. Communicate the results of your analysis.
-
-
-
 Conclusions (Brief):
 
-- The mean accuracy for the balanced set was considerably lower than the accuracy and mean accuracy for the SingleCV and MultipleCV sets, at around 75%.
-- The precision of true negatives likewise decreased from around 91% to 75%.
-- However, the accuracy of prediction for true negatives has gone up, from around 66% to 75%.
-- Even more significant, the recall of positives (ratio of true positives to total positives) has gone way up, from 22% to 75%.
-- Percentage accuracy, recall, and f1-score of false positives, false negatives, true positives, and true negatives all about the same as each other.
-- Much more balanced (and informative) model.
+- The mean accuracy for the whole large data set was a little higher this time, around 91.1%, but still very close to 90% (random, owing to the 90-10 unsuccessful-to-successful split).
+- The precision of true negatives stayed strong at 92.1%.
+- The proportion of false negatives has fallen again, now to around 3000 / 45000 or 6.6%, but it is still fairly high. The number of false positives is much lower, at around 500 / 45000 (around 1.1%).
+- The recall of true negatives is quite high at 98.6%, meaning the model is quite good at predicting true negatives. However, the recall of true positives is quite low at 22.5%. The f1-score values are similar, sitting at 95.2% and 33.3%, respectively.
+- The model has improved, but is still quite poor at predicting positives in general.
 
 
 
 Future Work:
-- bigger data set
+- multiple rounds of validation
 - other types of validation?
 - other types of data set balancing (upsampling?)
 - different model
-
-
-## Submit Final Project
-
-#### 33. Save ( commit ) your finished Jupyter notebook to your Project 1 GitHub repo.
-
