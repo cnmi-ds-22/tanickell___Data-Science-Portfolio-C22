@@ -426,13 +426,13 @@ type(target), target.shape, target.ndim
 
 
 Create a CV loop with 100 iterations.  Capture performance metric in an array names `results`.
-Use accuracy for the performance metric.
+Use RMSE for the performance metric.
 
 
 ```python
 # Multiple CV loop
-n = 100
-accuracies = []
+n = 1000
+rmses = []
 for i in range(0, n):
 
   # First we will break up our data into training and testing sets
@@ -440,16 +440,16 @@ for i in range(0, n):
 
   # Fit a linear model using Sklearn
   model = LinearRegression()
-  myfit = model.fit(X_train, y_train)
+  model.fit(X_train, y_train)
 
   # See how well our model performs on our test data
-  y_pred = myfit.predict(X_test)
+  y_pred = model.predict(X_test)
 
   # Capture performance metric (accuracy) in array
-  accuracies.append(metrics.mean_squared_error(y_test, y_pred)**0.5)
+  rmses.append(metrics.mean_squared_error(y_test, y_pred)**0.5)
 
-results = np.array(accuracies)
-results
+results = np.array(rmses)
+results[:10]
 ```
 
 #### Performance
@@ -464,7 +464,7 @@ results.mean()
 
 ```python
 # Display a histogram of the results
-pd.Series(results).hist(bins = 50)
+pd.Series(results).hist(bins = 32)
 plt.title("Histogram: RMSE per CV")
 plt.xlabel("RMSE")
 plt.ylabel("Frequency")
