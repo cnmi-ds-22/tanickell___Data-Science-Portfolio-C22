@@ -23,7 +23,7 @@ The data comes in one large set containing the full data available for use in th
 Finally, to store the data in a form we can work with in memory, we use a storage structure called a DataFrame object from the pandas python library. This object allows us to quickly view the data and preview operations on the data without changing it, as well as make updates to the data in a highly intuitive way.
 
 
-#### 2. Load Pandas, Numpy, and Matplotlib modules
+First, load Pandas, Numpy, and Matplotlib modules:
 
 ```python
 # imports
@@ -35,21 +35,54 @@ import seaborn as sns
 from sklearn import datasets, metrics
 ```
 
-#### 3. Load data Train.csv from AWS S3.
+Load data Train.csv from AWS S3:
 
 ```python
 # url
 url = 'https://ddc-datascience.s3.amazonaws.com/Projects/Project.2-Housing/Data/Housing.Data.csv'
 ```
 
-- Read in the data from .csv using pandas:
+Next, make a preview DataFrame to look at columns:
+
+```python
+# make preview
+df_preview = pd.read_csv(url, nrows=1)
+df_preview
+```
+
+```python
+# preview all column names
+df_preview.columns
+```
+
+Define the target column (and features types, if required):
+
+```python
+# define target column (by name) and target features type
+target_col = "SalePrice"
+feature_types = ["int64"]
+```
+
+Create list of target col and feature cols:
+
+```python
+# use list comprehension to generate list of target col + selected feature cols
+selected_cols = [
+    col
+    for col in df_preview.columns
+    if col == target_col or df_preview[col].dtype in feature_types
+]
+selected_cols
+```
+
+Read in the data from .csv using target_col and feature_types:
 
 ```python
 # make dataframe
-df = pd.read_csv( url )
+df = pd.read_csv( url, usecols=selected_cols )
 ```
 
-- Check the dataframe:
+Finally, check the dataframe:
 
 ```python
 # check dataframe
@@ -87,14 +120,6 @@ Here, to clean the data, we mostly use the pandas drop function included with pa
 
 
 
-
-First, define the target column:
-
-```python
-# define target_col
-target_col = 'SalePrice'
-target_col
-```
 
 - head
 
@@ -165,13 +190,24 @@ df.isnull().sum().sort_values( ascending = False )
 ```
 
 ```python
-# isnull frequencies
+# percent null by column
 (df.isnull().sum() / df.shape[0]).sort_values( ascending = False ) * 100
 ```
 
 ```python
 # look at unique values in the col-by-col null counts to classify cols
 ((df.isnull().sum() / df.shape[0]).sort_values( ascending = False ) * 100).unique()
+```
+
+```python
+# check to see if anything is not zero -- should return 0 if no nulls
+df.isnull().sum().sum()
+```
+
+```python
+# how many rows with at least one null
+num_rows_with_nulls = df.isna().any(axis=1).sum()
+int(num_rows_with_nulls)
 ```
 
 Many different null counts exist throughout the data set, indicating that this will not be a straightforward nulls cleanup.
@@ -184,9 +220,36 @@ Many different null counts exist throughout the data set, indicating that this w
 df.dtypes
 ```
 
+Examine null columns, columns with some nulls, and columns with no nulls:
+
 ```python
-# check to see if anything is not zero -- should return 0 if no nulls
-df.isnull().sum().sum()
+# display columns with all null values
+df.isnull().sum()[df.isnull().sum() == df.shape[0]]
+```
+
+```python
+# count these
+int(df.isnull().sum()[df.isnull().sum() == df.shape[0]].count())
+```
+
+```python
+# show columns with some null values
+df.isnull().sum()[(df.isnull().sum() != df.shape[0]) & (df.isnull().sum() != 0)].sort_values( ascending = False )
+```
+
+```python
+# count these
+int(df.isnull().sum()[(df.isnull().sum() != df.shape[0]) & (df.isnull().sum() != 0)].count())
+```
+
+```python
+# columns with no nulls
+df.isnull().sum()[df.isnull().sum() == 0]
+```
+
+```python
+# count these
+int(df.isnull().sum()[df.isnull().sum() == 0].count())
 ```
 
 #### Target: Value Counts
@@ -211,88 +274,31 @@ df[[target_col]].shape[0]
 int(df[[target_col]].isnull().sum().iloc[0])
 ```
 
-There are no nulls in the target column, which means no rows will need to be dropped on its account.
-
 ```python
 # sum of non-nulls in target
 df[[target_col]].shape[0] - int(df[[target_col]].isnull().sum().iloc[0])
 ```
 
-```python
-# view number of null again
-df.isnull().sum()
-```
+There are no nulls in the target column, which means no rows will need to be dropped on its account.
 
-```python
-# display columns with all null values
-df.isnull().sum()[df.isnull().sum() == df.shape[0]]
-```
 
-```python
-# count these
-int(df.isnull().sum()[df.isnull().sum() == df.shape[0]].count())
-```
+#### Summary:
 
-```python
-# show columns with non-null values
-df.isnull().sum()[df.isnull().sum() != df.shape[0]]
-```
-
-```python
-# count these
-int(df.isnull().sum()[df.isnull().sum() != df.shape[0]].count())
-```
-
-```python
-# show only features
-df.isnull().sum()[df.isnull().sum() != df.shape[0]][1:-1]
-```
-
-```python
-# count these
-int(df.isnull().sum()[df.isnull().sum() != df.shape[0]][1:-1].count())
-```
-
-```python
-# make list of columns with all nulls
-list_nulls = list(df.isnull().sum()[df.isnull().sum() == df.shape[0]].keys())
-print(list_nulls, end = " ")
-```
-
-```python
-# count the number of list items (should match count of null cols above)
-len(list_nulls)
-```
-
-```python
-# make list of columns with no nulls
-list_nulls = list(df.isnull().sum()[df.isnull().sum() == df.shape[0]].keys())
-print(list_nulls, end = " ")
-```
-
-```python
-# columns with no nulls
-df.isnull().sum()[df.isnull().sum() == 0]
-```
-
-```python
-# columns with one or more nulls
-df.isnull().sum()[df.isnull().sum() != 0]
-```
-
-Summary:
-
-The dataset contains 2637 rows and 81 columns, making for a total of 213597 entries of data. Many of these fields are null.
+The ints-feature dataset contains 2637 rows and 27 columns, making for a total of 71199 entries of data. Conveniently, none of these fields is null; as such, no columns or rows need to be removed, and no values need to be imputed.
 
 Details:
 
   - target column: 'SalePrice'
-  - feature columns: [ 'Lot Frontage' ]
+  - feature columns: ['PID', 'MS SubClass', 'Lot Area', 'Overall Qual', 'Overall Cond',
+       'Year Built', 'Year Remod/Add', '1st Flr SF', '2nd Flr SF',
+       'Low Qual Fin SF', 'Gr Liv Area', 'Full Bath', 'Half Bath',
+       'Bedroom AbvGr', 'Kitchen AbvGr', 'TotRms AbvGrd', 'Fireplaces',
+       'Wood Deck SF', 'Open Porch SF', 'Enclosed Porch', '3Ssn Porch',
+       'Screen Porch', 'Pool Area', 'Misc Val', 'Mo Sold', 'Yr Sold']
   - identifier columns: 'PID'
   - null columns: 0
   - null rows (target): 0
-
-- non-null rows: ?
+  - null rows (any): 0 (0%)
 
 
 #### If there are data cleaning issues, develop recommendations for how to deal with them.  Specifically, handle these common issues:
@@ -304,46 +310,42 @@ Details:
     - feature columns with medium null counts
 
 
-```python
-# head again to double-check
-df.head()
-```
 
-```python
-# 1. 'Unnamed' and 'ID_code are very likely identifier columns, and should be dropped; target and var_0 - var_11 will be kept
-# 2. 8314 null target rows should be dropped
-# 3. 6 null feature columns should be dropped
-# 4. After this, drop rows for any column with low null count
-# 5. Finally, impute remaining nulls with column medians
-```
-
-1. Remove identifier columns
+First, make a backup:
 
 ```python
 # make backup
 df_bak = df.copy()
-df_bak
 ```
 
 ```python
 # restore from backup
 df = df_bak.copy()
+```
+
+```python
+#df again to double-check
 df
 ```
 
+1. Remove identifier columns
+
 ```python
-target_col = 'SalePrice'
-feature_cols = [ x for x in df.columns if type(df[x][0]) == np.int64 and x != 'SalePrice' ]
-target_col, feature_cols
+# remove identifier columns from DataFrame
+df = df.drop( columns = [ 'PID' ] )
 ```
 
 ```python
-# keep the target and all features
-df = df.drop( columns = [ x for x in df.columns if x not in [target_col] + feature_cols ] )
+# backup 2
+df_bak2 = df.copy()
 ```
 
 ```python
-# check our dataframe (display transformed df)
+# restore from backup 2
+df = df_bak2.copy()
+```
+
+```python
 df
 ```
 
@@ -352,77 +354,29 @@ df
 
 
 
-3. Drop feature columns with all nulls
+- No null target rows
+
+
+3. Drop feature columns with many or all nulls
+
+
+- No columns with many or all nulls
 
 
 4. Drop remaining records with null counts (if few)
 
 
+- No remaining rows with null counts
+
+
 5.  impute with the median for remaining fields
 
-```python
-# backup 2
-df_bak2 = df.copy()
-df_bak2
-```
 
-```python
-# restore from backup 2
-df = df_bak2.copy()
-df
-```
+- No remaining fields are empty, so no imputations necessary
 
 ```python
 # check again how many of each column is null
 df.isnull().sum().sort_values( ascending = False )
-```
-
-```python
-# normalize null counts (;er column)
-df.isnull().sum().sort_values( ascending = False ) / df.shape[0] * 100
-```
-
-```python
-# preview filtering rows for where target is not null
-df.loc[df[target_col].isnull() == False]
-```
-
-Impute:
-
-```python
-# loop through features to bulk impute with respective column medians
-for feature_col in feature_cols:
-
-  # Calculate the median
-  median = df[feature_col].median()
-  print(median)
-
-  # Assign median to nulls
-  df.fillna( {feature_col: median}, inplace = True )
-
-  # Verify median is about the same as before
-  print(df[feature_col].median())
-```
-
-```python
-df
-```
-
-```python
-# check again how many of each column is null
-df.isnull().sum().sort_values( ascending = False )
-```
-
-```python
-# backup 3
-df_bak3 = df.copy()
-df_bak3
-```
-
-```python
-# restore from backup
-df = df_bak3.copy()
-df
 ```
 
 ```python
@@ -460,16 +414,16 @@ for n, subplot in enumerate(subplots):             # Loop through axs
 - Perhaps some outliers (see positively skewed point above)
 
 ```python
-# Let's take a look at a correlation plot
+# Correlation plot - target and features
 plt.figure(figsize=(10,10))
-correlation_matrix = df.corr().round(2)
-sns.heatmap(data=correlation_matrix, annot=False, vmin=-1, vmax=1, square=True) ;
+correlation_matrix = df.corr().abs().round(2)
+sns.heatmap(data=correlation_matrix, annot=False, vmin=0, vmax=1, square=True) ;
 
 
 ```
 
 ```python
-# Let's take a look at a correlation plot
+# Correlation plot - features only
 plt.figure(figsize=(10,10))
 correlation_matrix = df.drop( columns = [target_col] ).corr().abs().round(2)
 sns.heatmap(data=correlation_matrix, annot=False, vmin=0, vmax=1, square=True) ;
@@ -526,9 +480,6 @@ sns.pairplot(df) ;
 - Not as many non-categorical scatter plots
 - some linear-looking trends, including general living area and overall quality (i.e., they highly correlate with the target, and have linear-looking plot clustering)
 
-```python
-
-```
 
 ## Processing
 
